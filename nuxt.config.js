@@ -9,7 +9,8 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap' },
     ],
     script: [
       { src: 'https://kit.fontawesome.com/483b59b551.js', crossorigin: 'anonymous' }
@@ -29,7 +30,14 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    //'@nuxtjs/google-fonts'
   ],
+
+  // googleFonts: {
+  //   families: {
+  //     Inter: [300, 500, 700],
+  //   }
+  // },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
