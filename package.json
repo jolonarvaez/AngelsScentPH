@@ -1,24 +1,28 @@
 {
   "name": "AngelScentsPH",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Dontyell/AngelScentsPH.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Dontyell/AngelScentsPH/issues"
-  },
-  "homepage": "https://github.com/Dontyell/AngelScentsPH#readme",
   "dependencies": {
+    "@nuxt/content": "^1.14.0",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/pwa": "^3.3.5",
+    "bootstrap": "^4.6.0",
+    "bootstrap-vue": "^2.21.2",
+    "core-js": "^3.15.1",
     "nuxt": "^2.15.7"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.2.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^27.0.5",
+    "jest": "^27.0.5",
+    "vue-jest": "^3.0.4"
   }
 }

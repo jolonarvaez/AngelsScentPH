@@ -1,15 +1,7 @@
 <template>
-    <div>
-        <h1> Home page </h1>
-    </div>
+  <h1>Hello World</h1>
 </template>
 
 <script>
-export default {   
-    
-}
+export default {}
 </script>
-
-<style scoped>
-
-</style>
