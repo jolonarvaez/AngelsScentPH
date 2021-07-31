@@ -1,19 +1,20 @@
 <template>
-    <div class="row justify-content-between mx-2 footer">
+    <div class="row justify-content-around footer pt-4">
         <div class="text-uppercase">
             <div class="text-start">
                 <p class="copy-right"> © ANGEL’S SCENT. 2021 ALL RIGHTS RESERVED. </p>
             </div>
         </div>
         <div>
+            
             <div>
                 <div class="text-uppercase">
                     <div class="row">
-                        <div class="d-flex ms-2">
+                        <div class="d-flex">
                             <p class="connect"> Connect With Us </p>
-                             <div class="col footer-icon">
-                                <i class="fab fa-instagram fa-lg me-2"></i>
-                                <i class="fab fa-facebook-square fa-lg mx-2"></i>
+                             <div class="footer-icon">
+                                <i class="fab fa-instagram fa-lg mx-2"></i>
+                                <i class="fab fa-facebook-square fa-lg me-2"></i>
                             </div>
                         </div>
                     </div>
@@ -32,9 +33,10 @@ export default {
 <style scoped>
 
     .footer{
-        position:absolute;
-        bottom:0px;
-        width: 98%
+        /* position:absolute;
+        bottom:0px; */
+        width: 100%;
+        background-color: white;
     }
 
     .footer-icon{
@@ -50,4 +52,5 @@ export default {
         font-size: 16px;
         color: #AB2626;
     }
+    
 </style>

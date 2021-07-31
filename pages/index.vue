@@ -1,22 +1,28 @@
 <template>
-    <div class="row">
-        <div class="col w-50 h-100">
-          Hello
-        </div>
-
-        <div class="col">
-            <div class="right-container">
-                <div class="container">
-                    <div class="title">
-                        Smell <br> heavnly.
-                    </div>
-                    <div class="caption">
-                        Try a new fragrance today with Angel’s Scent.
+    <div>
+        <div class="row justify-content-between nopadding">
+            <div class="col-lg nopadding">
+                <img src="~/assets/roses.png" class="w-100 h-100 left-container">
+            </div>
+            
+            <div class="col-lg nopadding">
+                <div class="right-container d-flex">
+                    <div class="container m-4">
+                        <div class="title display-2 my-2">
+                            Smell <br> heavnly.
+                        </div>
+                        <div class="caption mt-4">
+                            Try a new fragrance today with Angel’s Scent.
+                        </div>
+                        <div class="d-flex justify-content-end mx-4">
+                            <button type="button" class="btn btn-light px-4">SHOP NOW</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </template>
 
 <script>
@@ -25,13 +31,25 @@ export default {}
 
 <style scoped>
 
+  .container{
+    width: 55%;
+  }
+
+  .left-container{
+    display: block;
+    object-fit: cover;
+  }
+
   .right-container{
     background-color: #F2E2D6;
+    /* height: 100vh; */
+    min-height: 100%;
+
   }
 
   .title{
     color: #7C6565;
-    font-size: 60px;
+    line-height: 80%;
   }
 
   .caption{
@@ -43,6 +61,16 @@ export default {}
   br {
     display: block;
     margin-bottom: 0em;
+  }
+
+  .nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+  }
+
+  .shop-now{
+    background-color: #9F9A96;
+    text-color: white;
   }
 
 </style>

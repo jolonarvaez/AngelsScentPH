@@ -1,8 +1,8 @@
 <template>
-    <div>
-    <Navbar />
-    <Nuxt />
-    <Footer />
+    <div class="h-100 d-flex flex-column">
+      <Navbar />
+      <Nuxt />
+      <Footer />
     </div>
 </template>
 
@@ -25,13 +25,13 @@ html, body {
     sans-serif; */
   font-family: 'Inter';
   word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
+  /* -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100%; */
 }
 </style>
