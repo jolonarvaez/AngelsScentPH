@@ -26,7 +26,7 @@
                                 <i class="fas fa-star fa-xs mx-1"></i>
                                 <i class="fas fa-star fa-xs mx-1"></i>
                                 <i class="far fa-star fa-xs mx-1"></i>
-                                <div class="light mx-2"> 2 Ratings</div>
+                                <div class="light mx-2"> 2 Ratings </div>
                             </div> 
                         </div>
 
@@ -132,7 +132,7 @@ export default {
 }
 
 .add{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     background-color: #9F9A96;
     border-color: #9F9A96;
     color: white;
