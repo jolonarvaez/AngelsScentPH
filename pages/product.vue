@@ -106,14 +106,6 @@ export default {
     font-size: 1.8rem;
 }
 
-.light{
-    font-family: 'Inter-Light';
-}
-
-.regular{
-    font-family: 'Inter-Regular';
-}
-
 .return{
     color: #79808F;
     font-size: 0.8rem;
@@ -143,21 +135,6 @@ export default {
     color: #f2d31c;
 }
 
-@font-face {
-    font-family: 'Inter-Regular';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('./assets/fonts/Inter-Regular.ttf') format('truetype');
-  }
-
-@font-face {
-font-family: 'Inter-Light';
-font-style: normal;
-font-weight: 300;
-font-display: swap;
-src: url('./assets/fonts/Inter-Light.ttf') format('truetype');
-}
 
  a, a:hover, a:focus, a:active {
       text-decoration: none;

@@ -35,5 +35,29 @@ html, body {
   height: 100%; */
 }
 
+.light{
+    font-family: 'Inter-Light';
+}
+
+.regular{
+    font-family: 'Inter-Regular';
+}
+
+@font-face {
+    font-family: 'Inter-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/Inter-Regular.ttf') format('truetype');
+  }
+
+@font-face {
+font-family: 'Inter-Light';
+font-style: normal;
+font-weight: 300;
+font-display: swap;
+src: url('./assets/fonts/Inter-Light.ttf') format('truetype');
+}
+
 
 </style>
