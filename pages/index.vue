@@ -14,8 +14,8 @@
                         <div class="caption mt-4">
                             Try a new fragrance today with Angel’s Scent.
                         </div>
-                        <div class="d-flex justify-content-end mx-4">
-                            <button type="button" class="btn btn-light px-4">SHOP NOW</button>
+                        <div class="d-flex justify-content-end mt-3 mx-4">
+                            <button type="button" class="btn btn-light px-4 shop-now">SHOP NOW</button>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,8 @@ export default {}
 
   .shop-now{
     background-color: #9F9A96;
-    text-color: white;
+    border-color: #9F9A96;
+    color: white;
   }
 
 </style>
