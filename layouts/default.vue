@@ -43,6 +43,10 @@ html, body {
     font-family: 'Inter-Regular';
 }
 
+.medium{
+    font-family: 'Inter-Medium';
+}
+
 @font-face {
     font-family: 'Inter-Regular';
     font-style: normal;
@@ -57,6 +61,14 @@ font-style: normal;
 font-weight: 300;
 font-display: swap;
 src: url('./assets/fonts/Inter-Light.ttf') format('truetype');
+}
+
+@font-face {
+font-family: 'Inter-Medium';
+font-style: normal;
+font-weight: 300;
+font-display: swap;
+src: url('./assets/fonts/Inter-Medium.ttf') format('truetype');
 }
 
 

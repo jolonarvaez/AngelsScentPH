@@ -9,7 +9,7 @@
                 <div class="right-container d-flex">
                     <div class="container m-4">
                         <div class="title display-2 my-2">
-                            Smell <br> heavnly.
+                            Smell <br> heavenly.
                         </div>
                         <div class="caption mt-4">
                             Try a new fragrance today with Angel’s Scent.
