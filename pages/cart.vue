@@ -36,7 +36,17 @@
                                             <div class="light">10 ML</div>
                                         </td>
                                         <td>₱ 60.00</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col d-flex flex-row justify-content-center mt-2">
+                                                    <div class="def-number-input number-input safari_only">
+                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                                                        <input class="quantity" name="quantity" :value=1 min="1" type="number">
+                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>₱ 60.00</td>
                                         <td>Remove</td>
                                     </tr>
@@ -54,7 +64,17 @@
                                             <div class="light">10 ML</div>
                                         </td>
                                         <td>₱ 60.00</td>
-                                        <td></td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col d-flex flex-row justify-content-center mt-2">
+                                                    <div class="def-number-input number-input safari_only">
+                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                                                        <input class="quantity" name="quantity" :value=1 min="1" type="number">
+                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>₱ 60.00</td>
                                         <td>Remove</td>
                                     </tr>
@@ -148,6 +168,95 @@ img{
     border-color: #9F9A96;
     color: white;
     width: 40%;
+}
+
+number-input input[type="number"] {
+-webkit-appearance: textfield;
+-moz-appearance: textfield;
+appearance: textfield;
+}
+
+.number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+}
+
+.number-input {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.number-input button {
+-webkit-appearance: none;
+background-color: transparent;
+border: none;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+margin: 0;
+position: relative;
+}
+
+.number-input button:before,
+.number-input button:after {
+display: inline-block;
+position: absolute;
+content: '';
+height: 2px;
+transform: translate(-50%, -50%);
+}
+
+.number-input button.plus:after {
+transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+text-align: center;
+}
+
+.number-input.number-input {
+border: 1px solid #ced4da;
+width: 7rem;
+border-radius: .25rem;
+background-color: white;
+}
+
+.number-input.number-input button {
+width: 2.6rem;
+height: .7rem;
+}
+
+
+
+.number-input.number-input button.minus {
+padding-left: 10px;
+}
+
+.number-input.number-input button:before,
+.number-input.number-input button:after {
+width: .7rem;
+background-color: #c4c4c4;
+}
+
+.number-input.number-input input[type=number] {
+max-width: 3rem;
+padding: .5rem;
+border: 1px solid #ced4da;
+border-width: 0 1px;
+font-size: 1rem;
+height: 1.5rem;
+color: #495057;
+}
+
+@media not all and (min-resolution:.001dpcm) {
+@supports (-webkit-appearance: none) and (stroke-color:transparent) {
+
+.number-input.def-number-input.safari_only button:before,
+.number-input.def-number-input.safari_only button:after {
+margin-top: -.3rem;
+}
+}
 }
 
 </style>
