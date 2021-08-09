@@ -23,7 +23,7 @@
                     <div class="shadow account-info regular py-2 px-3 m-auto">
                         <div class="d-flex flex-column m-3">
                             <div class="section-title medium text-uppercase mb-2">Profile</div>
-                            <div class="container-fluid my-2">
+                            <div class="container-fluid my-2 section-block">
                                 <div class="text-uppercase medium">First Name</div>
                                 <div class="section-body medium">Choi</div>
                                 <div class="text-uppercase medium">Last Name</div>
@@ -32,10 +32,10 @@
                                 <div class="section-body medium">choisoobin@tubatu.net</div>
                                 <div class="text-uppercase medium">Password</div>
                                 <div class="section-body medium">******</div>
-                                <button type="button" class="shadow text-uppercase btn btn-light editbtn w-25 regular py-2 my-4">Edit Profile Information</button>
+                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 my-4">Edit Profile Information</button>
                             </div>
                             <div class="section-title medium text-uppercase mb-2">Shipping Information</div>
-                            <div class="container-fluid my-2">
+                            <div class="container-fluid my-2 section-block">
                                 <div class="text-uppercase medium">First Name</div>
                                 <div class="section-body medium">Choi</div>
                                 <div class="text-uppercase medium">Last Name</div>
@@ -44,11 +44,11 @@
                                 <div class="section-body medium">choisoobin@tubatu.net</div>
                                 <div class="text-uppercase medium">Password</div>
                                 <div class="section-body medium">******</div>
-                                <button type="button" class="shadow text-uppercase btn btn-light editbtn w-25 regular py-2 my-4">Edit Shipping Information</button>
+                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 my-4">Edit Shipping Information</button>
                             </div>
                             <div class="section-title medium text-uppercase mb-2">Account Deletion</div>
                             <div class="container-fluid my-2">
-                                <button type="button" class="shadow text-uppercase btn btn-light editbtn w-25 regular py-2 my-4">Edit Shipping Information</button>
+                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 my-4">Delete Account</button>
                             </div>
                         </div>
                     </div>
@@ -88,6 +88,10 @@ export default {
 
 .section-body{
     color: #79808F;
+}
+
+.section-block{
+    border-bottom: 1.5px solid black;
 }
 
 .editbtn{
