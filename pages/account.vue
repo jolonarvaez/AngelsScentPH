@@ -20,36 +20,66 @@
                 </div>
 
                 <div class="col-md">
-                    <div class="shadow account-info regular py-2 px-3 m-auto">
-                        <div class="d-flex flex-column m-3">
-                            <div class="section-title medium text-uppercase mb-2">Profile</div>
-                            <div class="container-fluid my-2 section-block">
-                                <div class="text-uppercase medium">First Name</div>
-                                <div class="section-body medium">Choi</div>
-                                <div class="text-uppercase medium">Last Name</div>
-                                <div class="section-body medium">Soobin</div>
-                                <div class="text-uppercase medium">Email</div>
-                                <div class="section-body medium">choisoobin@tubatu.net</div>
-                                <div class="text-uppercase medium">Password</div>
-                                <div class="section-body medium">******</div>
-                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 my-4">Edit Profile Information</button>
+                    <div class="regular m-auto">
+                        <div class="d-flex flex-column mx-3">
+                            <div class="shadow account-info p-3 mb-4">
+                                <div class="section-title medium text-uppercase mb-3">Profile</div>
+                                <div class="container-fluid my-2 account-section">
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">First Name</div>
+                                        <div class="section-body medium">Choi</div>
+                                    </div>
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Last Name</div>
+                                        <div class="section-body medium">Soobin</div>
+                                    </div>
+                                    
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Email</div>
+                                        <div class="section-body medium">choisoobin@tubatu.net</div>
+                                    </div>
+                                    
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Password</div>
+                                        <div class="section-body medium">******</div>
+                                    </div>
+                                    <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Profile Information</button>
+                                </div>
                             </div>
-                            <div class="section-title medium text-uppercase mb-2">Shipping Information</div>
-                            <div class="container-fluid my-2 section-block">
-                                <div class="text-uppercase medium">First Name</div>
-                                <div class="section-body medium">Choi</div>
-                                <div class="text-uppercase medium">Last Name</div>
-                                <div class="section-body medium">Soobin</div>
-                                <div class="text-uppercase medium">Email</div>
-                                <div class="section-body medium">choisoobin@tubatu.net</div>
-                                <div class="text-uppercase medium">Password</div>
-                                <div class="section-body medium">******</div>
-                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 my-4">Edit Shipping Information</button>
+                            
+                            <div class="shadow account-info p-3 mb-4">
+                                 <div class="section-title medium text-uppercase mb-3">Shipping Information</div>
+                                <div class="container-fluid my-2 account-section">
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">First Name</div>
+                                        <div class="section-body medium">Choi</div>
+                                    </div>
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Last Name</div>
+                                        <div class="section-body medium">Soobin</div>
+                                    </div>
+                                    
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Email</div>
+                                        <div class="section-body medium">choisoobin@tubatu.net</div>
+                                    </div>
+
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Password</div>
+                                        <div class="section-body medium">******</div>
+                                    </div>
+                                    
+                                    <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Shipping Information</button>
+                                </div>
                             </div>
-                            <div class="section-title medium text-uppercase mb-2">Account Deletion</div>
-                            <div class="container-fluid my-2">
-                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 my-4">Delete Account</button>
+                           
+                            <div class="shadow account-info p-3 mb-4">
+                                <div class="section-title medium text-uppercase mb-2">Account Deletion</div>
+                                <div class="container-fluid my-2">
+                                    <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Delete Account</button>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -82,16 +112,16 @@ export default {
     border-radius: 10px;
 }
 
+.account-section{
+    letter-spacing: 1.8px;
+}
+
 .section-title{
     font-size: 1.5rem;
 }
 
 .section-body{
     color: #79808F;
-}
-
-.section-block{
-    border-bottom: 1.5px solid black;
 }
 
 .editbtn{
