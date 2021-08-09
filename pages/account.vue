@@ -6,15 +6,21 @@
         <div class="container-fluid account-bg">
             <div class="row py-3">
                 <div class="col-xs mx-4">
-                    <div class="shadow d-flex flex-column account-list text-right regular py-2 px-3">
-                        <div class="medium">Account <br>Information</div>
-                        <div>Order List</div>
-                        <div>Log out</div>
-                    </div>
+                    <ul class="nav flex-column account-info shadow text-uppercase medium text-right py-2">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Account <br>Information</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Order List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log Out</a>
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="col-md">
-                    <div class="shadow account-info regular py-2 px-3">
+                    <div class="shadow account-info regular py-2 px-3 m-auto">
                         <div class="d-flex flex-column m-3">
                             <div class="section-title medium text-uppercase mb-2">Profile</div>
                             <div class="container-fluid my-2">
@@ -26,7 +32,7 @@
                                 <div class="section-body medium">choisoobin@tubatu.net</div>
                                 <div class="text-uppercase medium">Password</div>
                                 <div class="section-body medium">******</div>
-                                <button type="button" class="shadow text-uppercase btn btn-light editbtn w-25 regular py-2">Edit Profile Information</button>
+                                <button type="button" class="shadow text-uppercase btn btn-light editbtn w-25 regular py-2 my-4">Edit Profile Information</button>
                             </div>
                             <div class="section-title medium text-uppercase mb-2">Shipping Information</div>
                             <div class="container-fluid my-2">
@@ -38,6 +44,11 @@
                                 <div class="section-body medium">choisoobin@tubatu.net</div>
                                 <div class="text-uppercase medium">Password</div>
                                 <div class="section-body medium">******</div>
+                                <button type="button" class="shadow text-uppercase btn btn-light editbtn w-25 regular py-2 my-4">Edit Shipping Information</button>
+                            </div>
+                            <div class="section-title medium text-uppercase mb-2">Account Deletion</div>
+                            <div class="container-fluid my-2">
+                                <button type="button" class="shadow text-uppercase btn btn-light editbtn w-25 regular py-2 my-4">Edit Shipping Information</button>
                             </div>
                         </div>
                     </div>
@@ -84,6 +95,14 @@ export default {
     background-color: #9F9A96;
     border-color: #9F9A96;
     color: white;
+}
+
+.nav-link{
+    color: #79808F;
+}
+
+.active{
+    color: black;
 }
 
 </style>
