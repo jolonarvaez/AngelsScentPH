@@ -6,7 +6,7 @@
         <div class="container-fluid text-uppercase my-5">
             <div class="row">
                 <div class="col-lg-7">
-                    <div class="card shadow round-table">
+                    <div class="card shadow round-table mb-4">
                         <div class="table-responsive">
                             <table class="table regular table-striped text-center borderless mb-4">
                                 <thead>

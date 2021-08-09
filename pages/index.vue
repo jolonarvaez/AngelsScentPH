@@ -8,7 +8,7 @@
             <div class="col-lg nopadding">
                 <div class="right-container d-flex">
                     <div class="container m-4">
-                        <div class="title display-2 my-2">
+                        <div class="title display-3 my-2">
                             Smell <br> heavenly.
                         </div>
                         <div class="caption mt-4">

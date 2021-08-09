@@ -30,7 +30,7 @@
                             </div> 
                         </div>
 
-                        <div class="box w-100 p-4 my-2 light d-flex flex-column">
+                        <div class="shadow box w-100 p-4 my-2 light d-flex flex-column">
                             <div class="mt-1 mb-2">
                                 DESCRIPTION
                                 <div class="box-text mt-1">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-light add mt-4">ADD TO CART</button>
+                            <button type="button" class="shadow btn btn-light add mt-4">ADD TO CART</button>
                         </div>
                     </div> 
                 </div>
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="container d-flex flex-column my-2">
                     <div class="light text-uppercase ml-2">Product Reviews</div>
-                    <div class="box w-100 p-3 my-2 light">
+                    <div class="shadow-sm box w-100 p-3 my-2 light">
                         <div>Username</div>
                         <div class="d-flex flex-row my-1 align-items-center">
                                 <i class="fas fa-star fa-xs mr-1"></i>
@@ -68,7 +68,7 @@
                             </div> 
                         <div class="box-text mt-1">Better than most affordable perfumes that I’ve bought on Shoppee.</div>
                     </div>
-                    <div class="box w-100 p-3 my-2 light">
+                    <div class="shadow-sm box w-100 p-3 my-2 light">
                         <div>Username</div>
                         <div class="d-flex flex-row my-1 align-items-center">
                                 <i class="fas fa-star fa-xs mr-1"></i>

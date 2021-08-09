@@ -47,6 +47,10 @@ html, body {
     font-family: 'Inter-Medium';
 }
 
+#__nuxt, #__layout {
+  height: 100%;
+}
+
 @font-face {
     font-family: 'Inter-Regular';
     font-style: normal;
