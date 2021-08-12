@@ -25,14 +25,14 @@ html, body {
     sans-serif; */
   font-family: 'Inter';
   word-spacing: 1px;
-  /* -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   padding: 0 !important;
   margin: 0 !important;
-  height: 100%; */
+  height: 100%;
 }
 
 .light{
@@ -52,27 +52,27 @@ html, body {
 }
 
 @font-face {
-    font-family: 'Inter-Regular';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('./assets/fonts/Inter-Regular.ttf') format('truetype');
-  }
-
-@font-face {
-font-family: 'Inter-Light';
-font-style: normal;
-font-weight: 300;
-font-display: swap;
-src: url('./assets/fonts/Inter-Light.ttf') format('truetype');
+  font-family: 'Inter-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/Inter-Regular.ttf') format('truetype');
 }
 
 @font-face {
-font-family: 'Inter-Medium';
-font-style: normal;
-font-weight: 300;
-font-display: swap;
-src: url('./assets/fonts/Inter-Medium.ttf') format('truetype');
+  font-family: 'Inter-Light';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./assets/fonts/Inter-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter-Medium';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./assets/fonts/Inter-Medium.ttf') format('truetype');
 }
 
 
