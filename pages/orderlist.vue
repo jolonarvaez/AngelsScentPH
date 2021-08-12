@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="h-100">
         <div class="account-header text-center text-uppercase py-2 regular">
             Account
         </div>
@@ -37,21 +37,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="table-border">
+                                                <tr>
                                                     <td>120600</td>
                                                     <td>07-15-21</td>
                                                     <td>PAID</td>
                                                     <td>@UNFULFILLED</td>
                                                     <td>P310.00</td>
                                                 </tr>
-                                                <tr class="table-border">
+                                                <tr>
                                                     <td>030819</td>
                                                     <td>07-13-21</td>
                                                     <td>PAID</td>
                                                     <td>FULFILLED</td>
                                                     <td>P250.00</td>
                                                 </tr>
-                                                <tr class="table-border">
+                                                <tr>
                                                     <td>270006</td>
                                                     <td>07-14-21</td>
                                                     <td>PAID</td>
