@@ -21,7 +21,7 @@
                     <a class="nav-link" href="#">Payment Form</a>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
                 <li class="nav-item px-2">
                     <a class="nav-link" href="#">Dashboard</a>
