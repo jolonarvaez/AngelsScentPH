@@ -107,10 +107,6 @@ export default {
     border-color: #E5E5E5;
 }
 
-.account-section{
-    /* letter-spacing: 1.8px; */
-}
-
 .section-title{
     font-size: 1.5rem;
 }
