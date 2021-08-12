@@ -33,26 +33,26 @@ export default {
 
 <style scoped>
 
-    .footer{
-        /* position:absolute;
-        bottom:0px; */
-        margin-top: auto;
-        width: 100%;
-        background-color: white;
-    }
+.footer{
+    /* position:absolute;
+    bottom:0px; */
+    margin-top: auto;
+    width: 100%;
+    background-color: white;
+}
 
-    .footer-icon{
-        color: #AB2626;
-    }
-    
-    .copy-right{
-        font-size: 12px;
-        color: #79808F;
-    }
-    
-    .connect{
-        font-size: 16px;
-        color: #AB2626;
-    }
+.footer-icon{
+    color: #AB2626;
+}
+
+.copy-right{
+    font-size: 12px;
+    color: #79808F;
+}
+
+.connect{
+    font-size: 16px;
+    color: #AB2626;
+}
     
 </style>
