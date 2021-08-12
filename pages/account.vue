@@ -38,6 +38,11 @@
                                         <div class="text-uppercase medium">Email</div>
                                         <div class="section-body medium">choisoobin@tubatu.net</div>
                                     </div>
+
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Phone Number</div>
+                                        <div class="section-body medium">+639123345678</div>
+                                    </div>
                                     
                                     <div class="my-2">
                                         <div class="text-uppercase medium">Password</div>
@@ -51,22 +56,27 @@
                                  <div class="section-title medium text-uppercase mb-3">Shipping Information</div>
                                 <div class="container-fluid my-2 account-section">
                                     <div class="my-2">
-                                        <div class="text-uppercase medium">First Name</div>
-                                        <div class="section-body medium">Choi</div>
+                                        <div class="text-uppercase medium">Address Line 1</div>
+                                        <div class="section-body medium">Choi Soobin</div>
                                     </div>
                                     <div class="my-2">
-                                        <div class="text-uppercase medium">Last Name</div>
-                                        <div class="section-body medium">Soobin</div>
+                                        <div class="text-uppercase medium">Address Line 2</div>
+                                        <div class="section-body medium"></div>
                                     </div>
                                     
                                     <div class="my-2">
-                                        <div class="text-uppercase medium">Email</div>
-                                        <div class="section-body medium">choisoobin@tubatu.net</div>
+                                        <div class="text-uppercase medium">City</div>
+                                        <div class="section-body medium">Seoul</div>
                                     </div>
 
                                     <div class="my-2">
-                                        <div class="text-uppercase medium">Password</div>
-                                        <div class="section-body medium">******</div>
+                                        <div class="text-uppercase medium">Region</div>
+                                        <div class="section-body medium">Korea</div>
+                                    </div>
+
+                                    <div class="my-2">
+                                        <div class="text-uppercase medium">Zipcoded</div>
+                                        <div class="section-body medium">1980</div>
                                     </div>
                                     
                                     <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Shipping Information</button>
