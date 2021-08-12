@@ -8,10 +8,10 @@
                 <div class="col-xs mx-4">
                     <ul class="nav flex-column account-info shadow text-uppercase medium text-right py-2">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Account <br>Information</a>
+                            <a class="nav-link active" aria-current="page" href="/account">Account <br>Information</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Order List</a>
+                            <a class="nav-link" href="/orderlist">Order List</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Log Out</a>
