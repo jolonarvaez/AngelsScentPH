@@ -3,7 +3,7 @@
         <div class="account-header text-center text-uppercase py-2 regular">
             Account
         </div>
-        <div class="container-fluid account-bg">
+        <div class="container-fluid account-bg d-flex flex-column">
             <div class="row py-3">
                 <div class="col-xs mx-4">
                     <ul class="nav flex-column account-info shadow text-uppercase medium text-right py-2">
@@ -18,42 +18,48 @@
                         </li>
                     </ul>
                 </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="regular m-auto">
+                                <div class="d-flex flex-column mx-3">
+                                    <div class="shadow account-info p-3 mb-4">
+                                        <div class="section-title medium text-uppercase mb-3">Profile</div>
+                                        <div class="container-fluid my-2 account-section">
+                                            <div class="my-2">
+                                                <div class="text-uppercase medium">First Name</div>
+                                                <div class="section-body medium">Choi</div>
+                                            </div>
+                                            <div class="my-2">
+                                                <div class="text-uppercase medium">Last Name</div>
+                                                <div class="section-body medium">Soobin</div>
+                                            </div>
+                                            
+                                            <div class="my-2">
+                                                <div class="text-uppercase medium">Email</div>
+                                                <div class="section-body medium">choisoobin@tubatu.net</div>
+                                            </div>
 
-                <div class="col-md">
-                    <div class="regular m-auto">
-                        <div class="d-flex flex-column mx-3">
-                            <div class="shadow account-info p-3 mb-4">
-                                <div class="section-title medium text-uppercase mb-3">Profile</div>
-                                <div class="container-fluid my-2 account-section">
-                                    <div class="my-2">
-                                        <div class="text-uppercase medium">First Name</div>
-                                        <div class="section-body medium">Choi</div>
+                                            <div class="my-2">
+                                                <div class="text-uppercase medium">Phone Number</div>
+                                                <div class="section-body medium">+639123345678</div>
+                                            </div>
+                                            
+                                            <div class="my-2">
+                                                <div class="text-uppercase medium">Password</div>
+                                                <div class="section-body medium">******</div>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Profile Information</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="my-2">
-                                        <div class="text-uppercase medium">Last Name</div>
-                                        <div class="section-body medium">Soobin</div>
-                                    </div>
-                                    
-                                    <div class="my-2">
-                                        <div class="text-uppercase medium">Email</div>
-                                        <div class="section-body medium">choisoobin@tubatu.net</div>
-                                    </div>
-
-                                    <div class="my-2">
-                                        <div class="text-uppercase medium">Phone Number</div>
-                                        <div class="section-body medium">+639123345678</div>
-                                    </div>
-                                    
-                                    <div class="my-2">
-                                        <div class="text-uppercase medium">Password</div>
-                                        <div class="section-body medium">******</div>
-                                    </div>
-                                    <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Profile Information</button>
                                 </div>
                             </div>
-                            
+                        </div>
+                        <div class="col">
                             <div class="shadow account-info p-3 mb-4">
-                                 <div class="section-title medium text-uppercase mb-3">Shipping Information</div>
+                                <div class="section-title medium text-uppercase mb-3">Shipping Information</div>
                                 <div class="container-fluid my-2 account-section">
                                     <div class="my-2">
                                         <div class="text-uppercase medium">Address Line 1</div>
@@ -61,7 +67,7 @@
                                     </div>
                                     <div class="my-2">
                                         <div class="text-uppercase medium">Address Line 2</div>
-                                        <div class="section-body medium"></div>
+                                        <div class="section-body medium">N/A</div>
                                     </div>
                                     
                                     <div class="my-2">
@@ -79,17 +85,19 @@
                                         <div class="section-body medium">1980</div>
                                     </div>
                                     
-                                    <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Shipping Information</button>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Shipping Information</button>
+                                    </div>
                                 </div>
                             </div>
-                           
-                            <div class="shadow account-info p-3 mb-4">
-                                <div class="section-title medium text-uppercase mb-2">Account Deletion</div>
-                                <div class="container-fluid my-2">
-                                    <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Delete Account</button>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="shadow account-info p-3 mb-4 w-50 mx-auto">
+                        <div class="section-title medium text-uppercase mb-2 text-center">Account Deletion</div>
+                        <div class="container-fluid my-2">
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Delete Account</button>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -97,6 +105,8 @@
         </div>
     </div>
 </template>
+
+
 
 <script>
 export default {
