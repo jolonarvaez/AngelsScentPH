@@ -19,7 +19,7 @@
                             <a class="nav-link" href="/cart">Cart</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="#">Payment Form</a>
+                            <a class="nav-link" href="/paymentform">Payment Form</a>
                         </li>
                         <li class="nav-item px-2">
                             <a class="nav-link" href="/contact">Contact Us</a>
@@ -49,7 +49,7 @@ export default {
 }
 
 .logo{
-    width: 80px;
+    width: 75px;
     height: auto;
 }
 
