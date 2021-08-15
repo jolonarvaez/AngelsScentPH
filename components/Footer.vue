@@ -13,8 +13,7 @@
                             <div class="d-flex">
                                 <p class="connect"> Connect With Us </p>
                                 <div class="footer-icon">
-                                    <a href="/"> <i class="fab fa-instagram fa-lg mx-2"></i></a>
-                                    <a href="https://www.facebook.com/angelsscentph"> <i class="fab fa-facebook-square fa-lg me-2"></i></a>
+                                    <a href="https://www.facebook.com/angelsscentph"> <i class="fab fa-facebook-square fa-lg mx-3"></i></a>
                                 </div>
                             </div>
                         </div>
