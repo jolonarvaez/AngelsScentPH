@@ -23,9 +23,20 @@
       </div>
       <div class="row nopadding">
         <div class="container-fluid">
-            <div class="text-center text-uppercase mt-3 featured-title">Featured Products</div>
+            <div class="text-center text-uppercase mt-4 featured-title">Featured Products</div>
+            <div class="row justify-content-center my-4">
+                <div class="col-sm-2 my-2">
+                    <FeaturedProduct />
+                </div>
+                <div class="col-sm-2 my-2">
+                    <FeaturedProduct />
+                </div>
+                <div class="col-sm-2 my-2">
+                    <FeaturedProduct />
+                </div>
+       
+            </div>
         </div>
-          
       </div>
   </div>
 </template>

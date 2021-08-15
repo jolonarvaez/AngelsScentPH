@@ -66,5 +66,4 @@ html, body {
   src: url('./assets/fonts/Inter-Medium.ttf') format('truetype');
 }
 
-
 </style>
