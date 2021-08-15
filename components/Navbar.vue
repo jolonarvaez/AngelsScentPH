@@ -2,9 +2,13 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid header text-uppercase">
-                <a class="navbar-brand" href="/">AngelScentsPH</a>
+                <div class="d-flex flex-column justify-content-center text-center">
+                    <a class="navbar-brand mx-auto" href="/"><img src="~/assets/logo.png" class="logo"></a>
+                    <div class="logo-text medium"> Angel’s Scent</div>
+                </div>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
@@ -40,7 +44,17 @@ export default {
 </script>
 
 <style scoped>
-    .header{
-        font-size: 12px;
-    }
+.header{
+    font-size: 12px;
+}
+
+.logo{
+    width: 80px;
+    height: auto;
+}
+
+.logo-text{
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+}
 </style>
