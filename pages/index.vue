@@ -1,27 +1,33 @@
 <template>
-    <div>
-        <div class="row justify-content-between nopadding">
-            <div class="col-lg nopadding">
-                <img src="~/assets/roses.png" class="w-100 h-100 left-container">
-            </div>
-            
-            <div class="col-lg nopadding">
-                <div class="right-container d-flex">
-                    <div class="container m-4">
-                        <div class="title display-3 my-2">
-                            Smell <br> heavenly.
-                        </div>
-                        <div class="caption mt-4">
-                            Try a new fragrance today with Angel’s Scent.
-                        </div>
-                        <div class="d-flex justify-content-end mt-3 mx-4">
-                            <button type="button" class="btn btn-light px-4 shop-now">SHOP NOW</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="d-flex flex-column">
+      <div class="row justify-content-between nopadding">
+          <div class="col-lg nopadding">
+              <img src="~/assets/Flowers.jpg" class="w-100 h-100 left-container">
+          </div>
+          
+          <div class="col-lg nopadding">
+              <div class="right-container d-flex align-items-center">
+                  <div class="container m-4">
+                      <div class="title display-3 my-2">
+                          Smell <br> heavenly.
+                      </div>
+                      <div class="caption mt-4">
+                          Try a new fragrance today with Angel’s Scent.
+                      </div>
+                      <div class="d-flex justify-content-end mt-3 mx-4">
+                          <button type="button" class="btn btn-light px-4 shop-now">SHOP NOW</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row nopadding">
+        <div class="container-fluid">
+            <div class="text-center text-uppercase mt-3 featured-title">Featured Products</div>
         </div>
-    </div>
+          
+      </div>
+  </div>
 </template>
 
 <script>
@@ -73,6 +79,11 @@ export default {
     background-color: #9F9A96;
     border-color: #9F9A96;
     color: white;
+  }
+
+  .featured-title{
+    font-size: 1.8rem;
+    color: #7C6565;
   }
 
 </style>
