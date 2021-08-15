@@ -1,17 +1,9 @@
 <template>
     <div class="h-100 d-flex flex-column">
-      <Navbar />
       <Nuxt />
       <Footer />
     </div>
 </template>
-
-<script>
-export default {
-
-}
-</script>
-
 <style>
 html, body {
   font-family: 'Inter';
