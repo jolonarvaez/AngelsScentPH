@@ -7,27 +7,26 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item px-2">
-                        <a class="nav-link" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="/cart">Cart</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">Payment Form</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="/contact">Contact Us</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="/account">Account</a>
-                    </li>
-                    
-                </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item px-2">
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="/cart">Cart</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="#">Payment Form</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="/contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="/account">Account</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
