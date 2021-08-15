@@ -41,7 +41,7 @@
                                                     <td>120600</td>
                                                     <td>07-15-21</td>
                                                     <td>PAID</td>
-                                                    <td>@UNFULFILLED</td>
+                                                    <td>UNFULFILLED</td>
                                                     <td>P310.00</td>
                                                 </tr>
                                                 <tr>
