@@ -1,13 +1,15 @@
 <template>
-    <a href="/product">
-        <div class="card border-0 text-center m-auto" style="width: 10rem;">
+    
+    <div class="card border-0 text-center m-auto" style="width: 10rem;">
+        <NuxtLink to="/product">
             <img src="~/assets/product.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title text-uppercase medium">Adelaide</h5>
                 <p class="card-text regular">BURBERRY X BURBERRY</p>
             </div>
-        </div>
-    </a>
+        </NuxtLink>
+    </div>
+    
 
 </template>
 <script>
