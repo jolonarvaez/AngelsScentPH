@@ -1,7 +1,14 @@
 <template>
   <div class="d-flex flex-column">
       <div class="row justify-content-between nopadding">
-          <div class="col-lg nopadding">
+          <div class="col-lg nopadding img-container">
+              <div class="logo_bar w-100 py-2 d-flex justify-content-around"> 
+                  <div class="col-sm-3 d-flex align-items-center">
+                      <img src="~/assets/logo.png" class="img_bar img-fluid mx-2">
+                  </div>
+                  
+                  <div class="text-uppercase logo_text">Angel's Scent</div>
+              </div>
               <img src="~/assets/Flowers.jpg" class="w-100 h-100 left-container">
           </div>
           
@@ -48,6 +55,26 @@ export default {
 </script>
 
 <style scoped>
+
+  .img_bar{
+    width:100px;
+  }
+
+  .img-container{
+    position: relative;
+  }
+
+  .logo_bar{
+    position: absolute;
+    top: 2rem; 
+    left: 0;
+    background-color: rgb(159, 154, 150, 0.5);
+  }
+
+  .logo_text{
+    color: white;
+    font-size: 3.5rem;
+  }
 
   .container{
     width: 55%;
