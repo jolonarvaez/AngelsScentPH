@@ -54,36 +54,77 @@
                 </form>
             </div>
             <div class="row m-auto">
-                <button type="button" class="shadow-sm text-uppercase btn btn-light submit-btn w-100 regular mt-2 px-4 py-2">Submit Form</button>
+                <b-button v-b-modal.confirmation class="shadow-sm text-uppercase btn btn-light submit-btn w-100 regular mt-2 px-4 py-2">Submit Form</b-button>
             </div>
+            
+            <!-- Confimation Popup -->
+            <b-modal ref="payment-modal" id="confirmation" centered hide-header hide-footer >
+                <!-- Text Container -->
+                <div class="container-fluid d-flex flex-column regular">
+                    <div class="payment-container mt-4 mb-2 mx-auto">
+                        <p class="payment-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
+                    </div>
+                </div>
+                <!-- Button Container -->
+                <div class="container-fluid d-flex justify-content-center regular">
+                    <div class="btn-container mt-4 mb-2">
+                        <b-button class="button text-uppercase pb-2 mt-3 mb-4" block @click="hideModal">Okay</b-button>
+                    </div>
+                </div>
+            </b-modal>
         </div>
     </div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+        methods: {
+            hideModal() {
+                this.$refs['payment-modal'].hide()
+            } 
+        }
+    }
 </script>
 
 <style>
 
-.payment-header{
-    font-size: 1.5rem;
-    border-style: solid;
-    border-width: 2px 0;
-    border-color: #E5E5E5;
-}
+    .payment-header{
+        font-size: 1.5rem;
+        border-style: solid;
+        border-width: 2px 0;
+        border-color: #E5E5E5;
+    }
 
-.payment-box{
-    background-color: #FAFAFA;
-    border-radius: 10px;
-}
+    .payment-box{
+        background-color: #FAFAFA;
+        border-radius: 10px;
+    }
 
-.submit-btn{
-    background-color: #9F9A96;
-    border-color: #9F9A96;
-    color: white;
-}
+    .submit-btn{
+        background-color: #9F9A96;
+        border-color: #9F9A96;
+        color: white;
+    }
+
+    .payment-container{
+        background: #FFFFFF;
+        border-radius: 25px;
+    }
+
+    .payment-text{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20.5px;
+    }
+
+    .btn-container{
+        width: 335px;
+    }
+
+    .button {
+        background: #9F9A96;
+        border-radius: 8px;
+    }
 
 </style>
