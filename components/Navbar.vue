@@ -25,7 +25,7 @@
                             <a class="nav-link" href="/contact">Contact Us</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="#">Dashboard</a>
+                            <a class="nav-link" href="/dashboard/sales">Dashboard</a>
                         </li>
                         <li class="nav-item px-2">
                             <a class="nav-link" href="/account">Account</a>

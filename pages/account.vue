@@ -3,9 +3,9 @@
         <div class="account-header text-center text-uppercase py-2 regular">
             Account
         </div>
-        <div class="container-fluid account-bg d-flex flex-column">
+        <div class="container-fluid account-bg">
             <div class="row py-3">
-                <div class="col-xs mx-4">
+                <div class="col-xs-4 mx-4">
                     <ul class="nav flex-column account-info shadow text-uppercase medium text-right py-2">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/account">Account <br>Information</a>
