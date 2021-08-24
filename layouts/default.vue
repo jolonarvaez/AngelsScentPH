@@ -14,7 +14,7 @@ export default {
 
 <style>
 html, body {
-  font-family: 'Inter';
+  font-family: 'Inter' !important;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

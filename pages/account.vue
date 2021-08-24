@@ -5,20 +5,8 @@
         </div>
         <div class="container-fluid account-bg">
             <div class="row py-3">
-                <div class="col-xs-4 mx-4">
-                    <ul class="nav flex-column account-info shadow text-uppercase medium text-right py-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/account">Account <br>Information</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/orderlist">Order List</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Log Out</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
+                <AccountNavbar />
+                <div class="col-10">
                     <div class="row">
                         <div class="col-md">
                             <div class="regular m-auto">

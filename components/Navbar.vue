@@ -1,7 +1,7 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid header text-uppercase">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container-fluid header text-uppercase d-flex">
                 <div class="d-flex flex-column justify-content-center text-center">
                     <a class="navbar-brand mx-auto" href="/"><img src="~/assets/logo.png" class="logo"></a>
                     <div class="logo-text medium"> Angel’s Scent</div>
@@ -11,24 +11,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-2">
-                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                            <NuxtLink to="/"><a class="nav-link">Home</a></NuxtLink> 
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="/cart">Cart</a>
+                            <NuxtLink to="/cart"><a class="nav-link">Cart</a></NuxtLink>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="/paymentform">Payment Form</a>
+                           <NuxtLink to="/paymentform"><a class="nav-link">Payment Form</a></NuxtLink>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="/contact">Contact Us</a>
+                            <NuxtLink to="/contact"><a class="nav-link">Contact Us</a></NuxtLink>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="/dashboard/sales">Dashboard</a>
+                            <NuxtLink to="/dashboard/sales"><a class="nav-link">Dashboard</a></NuxtLink>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="/account">Account</a>
+                            <NuxtLink to="/account"><a class="nav-link">Account</a></NuxtLink>
                         </li>
                     </ul>
                 </div>
@@ -56,5 +56,9 @@ export default {
 .logo-text{
     font-size: 0.55rem;
     letter-spacing: 2px;
+}
+
+li a {
+    text-decoration: none;
 }
 </style>

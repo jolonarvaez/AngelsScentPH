@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row py-3">
                 <DashboardNavbar />
-                <div class="col">
+                <div class="col-10">
                     <div class="shadow container-fluid data-bg p-3">
                         <div class="table-header medium text-uppercase py-3">
                             Orders

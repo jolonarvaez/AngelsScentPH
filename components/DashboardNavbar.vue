@@ -1,7 +1,7 @@
 <template>
-<div class="col-xs mx-4">
-    <ul class="nav flex-column account-info shadow text-uppercase medium text-right">
-        <ul class="nav flex-column account-info shadow text-uppercase medium text-right py-2 pl-3">
+<div class="col-2">
+    <ul class="nav flex-column account-info shadow text-uppercase medium text-end">
+        <ul class="nav flex-column account-info shadow text-uppercase medium py-2 pl-3">
             <li class="nav-item">
                 <span class="navbar-brand">Products</span>
             </li>
@@ -11,8 +11,8 @@
             <li class="nav-item regular">
                 <a class="nav-link" href="">Add Product</a>
             </li>
-            <li class="nav-item">
-                <span class="navbar-brand">Orders<br> and Sales</span>
+            <li class="nav-item mt-4">
+                <span class="navbar-brand">Orders and Sales</span>
             </li>
             <li class="nav-item regular">
                 <a class="nav-link" href="/dashboard/orders">Orders</a>

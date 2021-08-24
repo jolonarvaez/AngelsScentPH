@@ -3,14 +3,14 @@
         <div class="product-title-header text-center text-uppercase py-2 regular">
             Product Detail
         </div>
-        <div class="mt-4 ml-4">
+        <div class="mt-4 ms-4">
             <NuxtLink class="text-uppercase return regular" to="/">
                 Return To Product List 
             </NuxtLink>
         </div>
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="d-flex justify-content-around">
                 <div class="mx-auto"> 
                     <img src="~/assets/product.jpg" class="mx-auto">
                 </div>
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="col-8 mx-auto">
                 <div class="container d-flex flex-column my-2">
                     <div class="light text-uppercase ml-2">Product Reviews</div>
                     <div class="shadow-sm box w-100 p-3 my-2 light">
@@ -80,8 +80,6 @@
                         <div class="box-text mt-1">Better than most affordable perfumes that I’ve bought on Shoppee.</div>
                     </div>
                 </div>
-                
-                
             </div>       
         </div>
     </div>
