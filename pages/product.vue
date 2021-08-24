@@ -4,7 +4,7 @@
             Product Detail
         </div>
         <div class="mt-4 ms-4">
-            <NuxtLink class="text-uppercase return regular" to="/">
+            <NuxtLink class="text-uppercase return regular" to="/products">
                 Return To Product List 
             </NuxtLink>
         </div>

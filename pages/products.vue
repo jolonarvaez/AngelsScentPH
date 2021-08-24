@@ -1,0 +1,66 @@
+<template>
+<div> 
+    <div class="account-header text-center text-uppercase py-2 regular">
+         Products   
+    </div>
+    <div class="products-bg py-4">
+        <div class="container">
+            <div class="shadow products-box px-4">
+               <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="women-tab" data-bs-toggle="tab" data-bs-target="#women" type="button" role="tab" aria-controls="home" aria-selected="true">FOR WOMEN</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="men-tab" data-bs-toggle="tab" data-bs-target="#men" type="button" role="tab" aria-controls="profile" aria-selected="false">FOR MEN</button>
+                    </li>
+                </ul>
+                <div class="tab-content d-flex flex-wrap" id="myTabContent">
+                    <div class="tab-pane fade show active px-4 my-4 mx-auto" id="women" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <ProductCard />
+                            <ProductCard />
+                            <ProductCard />
+                            <ProductCard />
+                        </div>
+                        
+                    </div>
+                    <div class="tab-pane fade px-4 my-4 mx-auto" id="men" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="d-flex flex-wrap">
+                            <ProductCard />
+                            <ProductCard />
+                            <ProductCard />
+                            <ProductCard />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+</script>
+
+<style scoped>
+
+.account-header{
+    font-size: 1.5rem;
+    border-style: solid;
+    border-width: 2px 0;
+    border-color: #E5E5E5;
+}
+
+.products-bg{
+    background-color: #FAFAFA;
+}
+
+.products-box{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.nav-link{
+    color: #79808F;
+}
+</style>

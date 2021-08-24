@@ -22,7 +22,7 @@
                           Try a new fragrance today with Angel’s Scent.
                       </div>
                       <div class="d-flex justify-content-end mt-3 mx-4">
-                          <button type="button" class="btn btn-light px-4 shop-now">SHOP NOW</button>
+                          <NuxtLink to="/products"><button type="button" class="btn btn-light px-4 shop-now">SHOP NOW</button></NuxtLink>
                       </div>
                   </div>
               </div>

@@ -13,7 +13,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-2">
-                            <NuxtLink to="/"><a class="nav-link">Home</a></NuxtLink> 
+                            <NuxtLink to="/products"><a class="nav-link">Home</a></NuxtLink> 
                         </li>
                         <li class="nav-item px-2">
                             <NuxtLink to="/cart"><a class="nav-link">Cart</a></NuxtLink>
