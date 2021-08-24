@@ -3,7 +3,7 @@
     <div class="account-header text-center text-uppercase py-2 regular">
          Products   
     </div>
-    <div class="products-bg py-4">
+    <div class="py-4">
         <div class="container">
             <div class="shadow products-box px-4">
                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
@@ -17,19 +17,19 @@
                 <div class="tab-content d-flex flex-wrap" id="myTabContent">
                     <div class="tab-pane fade show active px-4 my-4 mx-auto" id="women" role="tabpanel" aria-labelledby="home-tab">
                         <div class="d-flex flex-wrap justify-content-center">
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
+                            <ProductCard name="Jolo"/>
+                            <ProductCard name="Jolo"/>
+                            <ProductCard name="Jolo"/>
+                            <ProductCard name="Jolo"/>
                         </div>
                         
                     </div>
                     <div class="tab-pane fade px-4 my-4 mx-auto" id="men" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="d-flex flex-wrap">
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
+                            <ProductCard name="Jolo"/>
+                            <ProductCard name="Jolo"/>
+                            <ProductCard name="Jolo"/>
+                            <ProductCard name="Jolo"/>
                         </div>
                     </div>
                 </div>

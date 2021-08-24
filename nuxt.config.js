@@ -50,6 +50,24 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyDYfw206v1i4N5Hh2YPudDasAD-JWaheAA",
+          authDomain: "angel-s-scent.firebaseapp.com",
+          projectId: "angel-s-scent",
+          storageBucket: "angel-s-scent.appspot.com",
+          messagingSenderId: "486453564554",
+          appId: "1:486453564554:web:e67607b6f550658cf64973",
+          measurementId: "G-TT2DB0ZSCD"
+        },
+        services: {
+          firestore: true,
+          auth: true // Just as example. Can be any other service.
+        }
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

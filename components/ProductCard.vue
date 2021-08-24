@@ -1,8 +1,8 @@
 <template>
     <div class="card border-0 text-center my-2 mx-4" style="width: 14rem;">
-        <img src="~/assets/product.jpg" class="card-img-top m-auto" style="width: 7.5rem;"alt="...">
+        <img src="~/assets/product.jpg" class="card-img-top m-auto" style="width: 7.5rem;" alt="...">
         <div class="card-body">
-            <h5 class="card-title text-uppercase medium">Adelaide</h5>
+            <h5 class="card-title text-uppercase medium">{{name}}</h5>
             <p class="card-text regular">BURBERRY X BURBERRY</p>
             <p class="card-text regular">P250.00</p>
         </div>
@@ -15,7 +15,9 @@
 </template>
 <script>
 export default {
-
+    props:{
+        name: String
+    }
 }
 </script>
 
