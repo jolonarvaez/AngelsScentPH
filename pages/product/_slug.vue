@@ -40,10 +40,7 @@
                             <div class="my-2">
                                 DETAILS
                                 <div class="box-text mt-1">
-                                    Weight: {{data.weight}}ml<br>
-                                    Length: {{data.length}}cm<br>
-                                    Width: {{data.width}}cm<br>
-                                    Height: {{data.height}}cm<br>
+                                    Weight: {{data.weight}}ML
                                 </div>
                             </div>
                             <div class="text-uppercase mt-1">

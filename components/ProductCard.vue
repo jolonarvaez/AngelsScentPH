@@ -4,10 +4,10 @@
         <div class="card-body">
             <h5 class="card-title text-uppercase medium">{{name}}</h5>
             <div class="card-text regular my-1">{{weight}}ML</div>
-            <div class="card-text light my-1">₱{{price}}.00</div>
+            <div class="card-text light my-1">₱{{price}}</div>
         </div>
         <NuxtLink :to="path">
-            <button type="button" class="text-uppercase btn btn-light view-btn regular my-2">View Product</button>
+            <button type="button" class="text-uppercase btn btn-light view-btn regular my-2 mx-1">View Product</button>
         </NuxtLink>
     </div>
     
@@ -27,16 +27,8 @@ export default {
 <style scoped>
 
 .card{
-    
     background-color: #FAFAFA;
 }
-
-.card:hover {
-    box-shadow: 2px 2px 8px 1px rgba(96,73,73,0.20);
-
-    transition: 0.3s;
-}
-
 
 .card-title{
     font-size: 0.9rem;
@@ -53,7 +45,6 @@ export default {
     background-color: #9F9A96;
     border-color: #9F9A96;
     color: white;
-    width: 80%;
 }
 
 a{
