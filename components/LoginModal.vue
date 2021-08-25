@@ -12,9 +12,9 @@
         <div class="modal-body text-capitalized">
             <div class="input group">
                 <div class="mx-4">
-                    <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Email"></input>
+                    <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Email">
                     <p class="col validation-text mb-2">Invalid Email</p>
-                    <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password"></input>
+                    <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password">
                     <p class="col validation-text mb-2">Invalid Password</p>
                 </div>
             </div>
