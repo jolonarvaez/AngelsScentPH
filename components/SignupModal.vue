@@ -14,31 +14,31 @@
                 <div class="row">
                     <div class="col">
                         <div class="d-flex justify-content-between">
-                             <input class="form-format me-2 p-1" id="text" type="text" placeholder="First Name"></input>
-                             <input class="form-format ms-2 p-1" id="text" type="text" placeholder="Last Name"></input>
+                             <input class="form-format me-2 p-1" id="text" type="text" placeholder="First Name">
+                             <input class="form-format ms-2 p-1" id="text" type="text" placeholder="Last Name">
                         </div>
                         <div class="d-flex">
                              <p class="col validation-text mb-2">First name required</p>
                              <p class="col validation-text ms-3 mb-2">Last name required</p>
                         </div>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Contact Number"></input>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Contact Number">
                         <p class="col validation-text mb-2">Contact number required</p>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Email"></input>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Email">
                         <p class="col validation-text mb-2">E-mail required</p>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password"></input>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password">
                         <p class="col validation-text mb-2">Invalid password</p>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Confirm Password"></input> 
+                        <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Confirm Password">
                         <p class="col validation-text mb-2">Password does not match</p>
                     </div>
                     <div class="col">
-                        <input class="form-format w-100 mb-2 p-1" id="text" type="text" placeholder="Street Address"></input>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Street Address 2"></input>
+                        <input class="form-format w-100 mb-2 p-1" id="text" type="text" placeholder="Street Address">
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Street Address 2">
                         <p class="col validation-text mb-4">Street Address Required</p>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="City"></input>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="City">
                         <p class="col validation-text mb-2">City required</p>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Province"></input>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Province">
                         <p class="col validation-text mb-2">Province requried</p>
-                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Zipcode"></input>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Zipcode">
                         <p class="col validation-text mb-2">Zipcode required</p>
                     </div>
                 </div>
