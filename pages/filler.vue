@@ -1,58 +1,142 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="container-fluid header text-uppercase d-flex">
-                <div class="d-flex flex-column justify-content-center text-center">
-                    <a class="navbar-brand mx-auto" href="/"><img src="~/assets/logo.png" class="logo"></a>
-                    <div class="logo-text medium"> Angel’s Scent</div>
-                </div>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item px-2">
-                            <NuxtLink to="/products"><a class="nav-link">Home</a></NuxtLink> 
-                        </li>
-                        <li class="nav-item px-2">
-                            <NuxtLink to="/cart"><a class="nav-link">Cart</a></NuxtLink>
-                        </li>
-                        <li class="nav-item px-2">
-                           <NuxtLink to="/paymentform"><a class="nav-link">Payment Form</a></NuxtLink>
-                        </li>
-                        <li class="nav-item px-2">
-                            <NuxtLink to="/contact"><a class="nav-link">Contact Us</a></NuxtLink>
-                        </li>
-                        <li class="nav-item px-2">
-                            <NuxtLink to="/dashboard/sales"><a class="nav-link">Dashboard</a></NuxtLink>
-                        </li>
-                        <li class="nav-item px-2">
-                            <b-nav-item-dropdown text="Account" right>
-                                <b-dropdown-item v-b-modal.signup class="text-center">Sign Up</b-dropdown-item>
-                                <b-dropdown-item v-b-modal.login class="text-center">Log In</b-dropdown-item>
-                            </b-nav-item-dropdown>
+        <p class="mt-2 mb-4">---ASSIGNMENT NEEDED---</p>
+        <br>
+        
+        <!-- Warning -->
+        <b-button v-b-modal.warning>Warning - Limited Acceess</b-button>
 
-                            <!-- Account Details link
-                            <a class="nav-link" href="/account">Account</a> 
-                            -->
-                        </li>
-                    </ul>
+        <b-modal ref="warning-modal" id="warning" centered hide-header hide-footer no-stacking>
+            <!-- Text Container -->
+            <div class="container-fluid border-bottom d-flex flex-column regular">
+                <div class="popup-container mt-4 mb-2 mx-auto">
+                    <p class="warning-text text-center mt-4 mb-1 py-2">You are currently not allowed to access this page. With a guest account, you can only visit the Product List, Product Details, Payment Form, and Contact Us.</p>
+                    <p class="warning-text text-center mb-4 py-2">To proceed, you can either sign up or log in below. to exit this pop-up, you can simply click anywhere on the site.</p>
                 </div>
             </div>
-        </nav>
+            <!-- Sign Up / Log In Button Container -->
+            <div class="container-fluid d-flex justify-content-center regular">
+                <div class="btn-container mt-4 mb-2">
+                    <b-button v-b-modal.signup class="button text-uppercase py-2 mt-3" block>Sign Up</b-button>
+                    <p class="popup-text text-center my-1 py-2">OR</p>
+                    <b-button v-b-modal.login class="button text-uppercase py-2 mb-4" block>Log In</b-button>
+                </div>
+            </div>
+        </b-modal>
+        
+        <!-- Delete Account -->
+        <b-button v-b-modal.deleteaccount>Delete Account</b-button>
+        
+        <b-modal ref="deleteaccount-modal" id="deleteaccount" centered hide-header hide-footer no-stacking>
+        <div class="container-fluid d-flex flex-column regular">
+                <div class="popup-container my-2 mx-auto">
+                    <!-- Text Row -->
+                    <b-row class="border-bottom">
+                        <b-col>
+                            <p class="deleteaccount-text text-center mt-4 mb-1 py-2">Are you sure you want to delete your account? If you do, you will not be able to access your oder list and other account privileges anymore.</p>
+                            <p class="deleteaccount-text text-center mb-2 py-2">Proceed?</p>
+                        </b-col>
+                    </b-row>
+
+                    <div class="d-flex justify-content-center">
+                        <b-row class="btn-container mt-3">
+                            <b-col>
+                                <b-button class="button text-uppercase" block>Delete</b-button>
+                            </b-col>
+                            <b-col>
+                                <b-button class="button text-uppercase" block>Go Back</b-button>
+                            </b-col>
+                        </b-row>
+                    </div>
+                </div>
+
+            </div>
+        </b-modal>
+
+
+        <!-- Warning - Admin Only Feature --> 
+        <b-button v-b-modal.adminprivilege>Warning - Admin Only Feature</b-button>
+        
+        <b-modal ref="adminprivilege-modal" id="adminprivilege" centered hide-header hide-footer no-stacking>
+        <div class="container-fluid d-flex flex-column regular">
+                <div class="popup-container my-2 mx-auto">
+                    <!-- Text Row -->
+                    <b-row class="border-bottom">
+                        <b-col>
+                            <p class="deleteaccount-text text-center mt-4 mb-2 py-2">Sorry, this page can only be accessed by an admin account. to proceed, log out of your buyer account and log in again with your admin account.</p>
+                        </b-col>
+                    </b-row>
+
+                    <div class="d-flex justify-content-center">
+                        <b-row class="btn-container mt-3">
+                            <b-col>
+                                <b-button class="button text-uppercase" block>Log Out</b-button>
+                            </b-col>
+                            <b-col>
+                                <b-button class="button text-uppercase" block>Cancel</b-button>
+                            </b-col>
+                        </b-row>
+                    </div>
+                </div>
+
+            </div>
+        </b-modal>
+
+        <!-- Confirmation - Add to Cart -->
+        <b-button v-b-modal.addcart>Confirmation - Add to Cart</b-button>
+        
+        <b-modal ref="addcart-modal" id="addcart" centered hide-header hide-footer no-stacking>
+        <div class="container-fluid d-flex flex-column regular">
+                <div class="popup-container my-2 mx-auto">
+                    <!-- Text Row -->
+                    <b-row class="border-bottom">
+                        <b-col>
+                            <p class="popup-text text-center mt-4 mb-2 py-2">Noted! We have added this product to your shopping cart.</p>
+                        </b-col>
+                    </b-row>
+
+                    <div class="d-flex justify-content-center">
+                        <b-row class="btn-container mt-3">
+                            <b-col>
+                                <b-button class="button text-uppercase" block>Okay</b-button>
+                            </b-col>
+                        </b-row>
+                    </div>
+                </div>
+
+            </div>
+        </b-modal>
+
+
+        <!--    |
+                |
+                |
+                |
+                V
+            
+            EVERYTHING BELOW HERE HAS BEEN IMPLEMENTED ALREADY 
+        
+        
+        
+        
+        
+        
+        
+        -->
+        <br>
+        <p class="mt-5 mb-4">---IMPLEMENTED---</p>
+        <br>
 
         <!-- 
-            
-                MODAL: SIGN UP 
-        
+            Sign Up 
+            TODO: Fix the entire container and add the validations
         -->
         <b-modal ref="signup-modal" id="signup" size="xl" centered hide-header hide-footer no-stacking>
             <div class="container-fluid d-flex justify-content-center regular">
                 <div class="signup-container my-1">
                     
                     <!-- Header -->
-                    <div class="row border-bottom">
+                    <div class="row">
                         <div class="col">
                             <b-button class="text-uppercase" block>Sign Up</b-button>
                         </div>
@@ -159,7 +243,7 @@
                     <div class="d-flex justify-content-center">
                         <div class="row btn-container">
                             <div class="col">
-                                <p class="modal-text text-center text-uppercase my-1">OR</p>
+                                <p class="popup-text text-center text-uppercase my-1">OR</p>
                                 <b-button class="button text-uppercase" block>Continue as Guest</b-button>
                             </div>
                         </div>
@@ -167,13 +251,16 @@
 
                 <!-- Container END -->
                 </div>
+                
+
             </div>
         </b-modal>
 
-        <!-- 
-                
-                MODAL: LOG IN  
-                
+        <!-- Login 
+            TODO: FIX Button Styling
+            TODO: Header styling
+            TODO: validations
+
         -->
         <b-modal ref="login-modal" id="login" centered hide-header hide-footer>
             <div class="container-fluid d-flex justify-content-center regular">
@@ -225,7 +312,7 @@
                     <!-- [Log In] Continue as Guest -->
                     <div class="d-flex justify-content-center">
                         <div class="btn-container my-1">
-                            <p class="modal-text text-center my-1 py-2">OR</p>
+                            <p class="popup-text text-center my-1 py-2">OR</p>
                             <b-button class="button text-uppercase" block>Continue as Guest</b-button>
                         </div>
                     </div>
@@ -237,38 +324,48 @@
         </b-modal>    
 
 
+
+        <!-- For Payment Confirmation -->
+        <b-button v-b-modal.confirmation>Submit Form</b-button>
+
+        <b-modal ref="payment-modal" id="confirmation" centered hide-header hide-footer >
+            <!-- Text Container -->
+            <div class="container-fluid d-flex flex-column regular">
+                <div class="popup-container mt-4 mb-2 mx-auto">
+                    <p class="popup-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
+                </div>
+            </div>
+            <!-- Button Container -->
+            <div class="container-fluid d-flex justify-content-center regular">
+                <div class="btn-container mt-4 mb-2">
+                    <b-button class="button text-uppercase pb-2 mt-3 mb-4" block @click="hideModal">Okay</b-button>
+                </div>
+            </div>
+        </b-modal>
     </div>
 </template>
 
 <script>
     export default {
-
+        methods: {
+            hideModal() {
+                this.$refs['payment-modal'].hide()
+            } 
+        }
     }
 </script>
 
 <style scoped>
-    .header{
-        font-size: 12px;
+    /** Modal: Warning Popup */
+    .warning-text{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15.5px
     }
-
-    .logo{
-        width: 75px;
-        height: auto;
-    }
-
-    .logo-text{
-        font-size: 0.55rem;
-        letter-spacing: 2px;
-    }
-
-    /*the following styles are used for the modals*/
 
     .signup-container{
         width: 900px;
-    }
-
-    .login-container{
-        width: 400px;
     }
 
     .header-btn {
@@ -289,6 +386,10 @@
         border-left: none;
     }
 
+    .login-container{
+        width: 400px;
+    }
+
     .validation-text{
         font-family: Inter;
         font-style: normal;
@@ -299,19 +400,31 @@
         color: #DC3915;
     }
 
-    .modal-text {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 20.5px;
+    .popup-container{
+        background: #FFFFFF;
+        border-radius: 25px;
     }
 
     .btn-container{
         width: 335px;
     }
 
+    .popup-text{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20.5px;
+    }
+
     .button {
         background: #9F9A96;
         border-radius: 8px;
+    }
+
+    .deleteaccount-text {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18.5px;
     }
 </style>
