@@ -18,8 +18,8 @@
                 <div class="col-md-6"> 
                     <div class="container-fluid">
                         <div class="text-uppercase d-flex flex-column">
-                            <div class="product-title regular">Adelaide</div>
-                            <div class="light">₱ 60.00</div>
+                            <div class="product-title regular">{{data.name}}</div>
+                            <div class="light">₱{{data.price}}.00</div>
                             <div class="d-flex flex-row my-1 align-items-center">
                                 <i class="fas fa-star fa-xs mx-1"></i>
                                 <i class="fas fa-star fa-xs mx-1"></i>
@@ -34,13 +34,13 @@
                             <div class="mt-1 mb-2">
                                 DESCRIPTION
                                 <div class="box-text mt-1">
-                                    Enter your description here. Something something something something something something  soobin hi ladies mwah supremacy something.
+                                    {{data.description}}
                                 </div>
                             </div>
                             <div class="my-2">
                                 DETAILS
                                 <div class="box-text mt-1">
-                                    Enter your description here. Something something something something something something  soobin hi ladies mwah supremacy something.
+                                    Weight: {{data.weight}}ML
                                 </div>
                             </div>
                             <div class="text-uppercase mt-1">
@@ -87,7 +87,12 @@
     
 <script>
 export default {
-
+    async asyncData({$fire, params}) {
+        let slug = params.slug;
+        let docRef = $fire.firestore.collection('products').doc(slug)
+        let data = await docRef.get().then(doc => doc.data())
+        return{data}
+    }
 }
 </script>
 

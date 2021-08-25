@@ -17,19 +17,25 @@
                 <div class="tab-content d-flex flex-wrap" id="myTabContent">
                     <div class="tab-pane fade show active px-4 my-4 mx-auto" id="women" role="tabpanel" aria-labelledby="home-tab">
                         <div class="d-flex flex-wrap justify-content-center">
-                            <ProductCard name="Jolo"/>
-                            <ProductCard name="Jolo"/>
-                            <ProductCard name="Jolo"/>
-                            <ProductCard name="Jolo"/>
+                            <ProductCard 
+                                v-for="product in women" 
+                                :key="product.id"
+                                :name="product.name"
+                                :price="product.price"
+                                :weight="product.weight"
+                                :path="`/product/${product.id}`"/>
                         </div>
                         
                     </div>
                     <div class="tab-pane fade px-4 my-4 mx-auto" id="men" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="d-flex flex-wrap">
-                            <ProductCard name="Jolo"/>
-                            <ProductCard name="Jolo"/>
-                            <ProductCard name="Jolo"/>
-                            <ProductCard name="Jolo"/>
+                        <div class="d-flex flex-wrap justify-content-center">
+                           <ProductCard 
+                                v-for="product in men" 
+                                :key="product.id"
+                                :name="product.name"
+                                :price="product.price"
+                                :weight="product.weight"
+                                :path="`/product/${product.id}`"/>
                         </div>
                     </div>
                 </div>
@@ -40,6 +46,28 @@
 </template>
 
 <script>
+export default{
+    data(){
+        return {
+            products: []
+        }
+    },
+    async asyncData({$fire}) {
+        let collection = $fire.firestore.collection('products').orderBy('name') //.doc(document.id)
+        let documents = await collection.get()
+        
+        let array = []
+        await Promise.all(documents.docs.map(document => { //remove map for single document
+            array.push({id: document.id, ...document.data()})
+        }))
+
+        let men = array.filter(document => document.tag == "men")
+        let women = array.filter(document => document.tag == "women")
+        return{men, women}
+    } 
+
+}
+
 </script>
 
 <style scoped>

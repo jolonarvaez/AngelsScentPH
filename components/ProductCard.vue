@@ -3,10 +3,10 @@
         <img src="~/assets/product.jpg" class="card-img-top m-auto" style="width: 7.5rem;" alt="...">
         <div class="card-body">
             <h5 class="card-title text-uppercase medium">{{name}}</h5>
-            <p class="card-text regular">BURBERRY X BURBERRY</p>
-            <p class="card-text regular">P250.00</p>
+            <div class="card-text regular my-1">{{weight}}ML</div>
+            <div class="card-text light my-1">₱{{price}}</div>
         </div>
-        <NuxtLink to="/product">
+        <NuxtLink :to="path">
             <button type="button" class="text-uppercase btn btn-light view-btn regular my-2 mx-1">View Product</button>
         </NuxtLink>
     </div>
@@ -16,7 +16,10 @@
 <script>
 export default {
     props:{
-        name: String
+        name: String,
+        price: Number,
+        weight: Number,
+        path: String
     }
 }
 </script>
