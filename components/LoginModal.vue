@@ -9,20 +9,24 @@
             </div>
             <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
-        <div class="modal-body text-capitalized">
-            <div class="input group">
-                <div class="mx-4">
-                    <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Email">
-                    <p class="col validation-text mb-2">Invalid Email</p>
-                    <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password">
-                    <p class="col validation-text mb-2">Invalid Password</p>
-                </div>
+        <form ref="registerForm" action="" @submit="submit">
+            <div class="modal-body text-capitalized">
+                
+                    <div class="input group">
+                        <div class="mx-4">
+                            <input v-model="email" class="form-format w-100 my-2 p-1" id="text" type="email" placeholder="Email">
+                            <p class="col validation-text mb-2">Invalid Email</p>
+                            <input v-model="password" class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password">
+                            <p class="col validation-text mb-2">Invalid Password</p>
+                        </div>
+                    </div>
+                
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn register-btn">Register</button>
-        </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button> -->
+                <button type="submit" class="btn register-btn">Log in</button>
+            </div>
+        </form>
         </div>
     </div>
 </div>
@@ -30,6 +34,43 @@
 </template>
 
 <script>
+
+import $ from 'jquery'
+
+export default {
+    data(){
+        return{
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+        async submit(event) {
+             event.preventDefault()
+
+            // this.$store.commit('SET_NEWUSER', false)
+            // this.$store.commit('SET_CONCESSIONAIRE', false)
+
+            try {
+                const result = await this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
+                .then(user => {
+                    // $(document).ready(function() {
+                    //     $("#login").modal("hide");
+        
+                    // });
+                    $("#login").hide()
+                    $('.modal-backdrop').remove();
+                    this.$router.push('/account')
+                })
+            } catch (e) {
+                alert(e)
+            }
+        },
+        closeModal(){
+            
+        }
+    }
+}
 </script>
 
 <style scoped>
@@ -82,5 +123,9 @@
 .button {
     background: #9F9A96;
     border-radius: 8px;
+}
+
+.modal-backdrop {
+   background-color: transparent;
 }
 </style>

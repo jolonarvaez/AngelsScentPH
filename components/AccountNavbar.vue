@@ -7,9 +7,6 @@
         <li class="nav-item">
             <a class="nav-link" href="/orderlist">Order List</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Log Out</a>
-        </li>
     </ul>
 </div>
 </template>

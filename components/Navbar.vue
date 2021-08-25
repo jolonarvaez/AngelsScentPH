@@ -27,13 +27,16 @@
                         <li class="nav-item px-2">
                             <NuxtLink to="/dashboard/sales"><a class="nav-link">Dashboard</a></NuxtLink>
                         </li>
+
                         <li class="nav-item dropdown px-2">
                             <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Account
                             </a>
                             <ul class="dropdown-menu dropdown-menu-lg-end text-capitalize" aria-labelledby="accountDropdown">
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#login">Log In</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li>
+                                <li><a v-if="!user" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#login">Log In</a></li>
+                                <li><a v-if="!user" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li>
+                                <li> <NuxtLink to="/account"><a v-if="user"  class="dropdown-item" >View Account Info</a></NuxtLink></li>
+                                <li><a v-if="user" @click="signout" class="dropdown-item">Sign Out</a></li>
                             </ul>
                         </li>
 
@@ -43,22 +46,25 @@
                 </div>
             </div>
         </nav>
-
-        <!-- 
-            
-                MODAL: SIGN UP 
-        
-        -->
-           
-
-
     </div>
 </template>
 
 <script>
-    export default {
 
+export default {
+
+    computed: {
+    user() {
+      return this.$store.state.user && this.$store.state.user.uid
     }
+  },
+    methods:{
+        signout(){
+            this.$fire.auth.signOut()
+            this.$router.push('/')
+        }
+    }
+}
 </script>
 
 <style scoped>

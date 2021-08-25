@@ -13,7 +13,10 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap' },
     ],
     script: [
-      { src: 'https://kit.fontawesome.com/483b59b551.js', crossorigin: 'anonymous' }
+      { src: 'https://kit.fontawesome.com/483b59b551.js', crossorigin: 'anonymous' },
+      { src: "https://code.jquery.com/jquery-3.3.1.slim.min.js", type: "text/javascript" },
+      { src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js",type: "text/javascript" },
+      { src: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js", type: "text/javascript" }
     ]
   },
 
@@ -33,6 +36,9 @@ export default {
   buildModules: [
     //'@nuxtjs/google-fonts'
   ],
+  // router: {
+  //   middleware: ['auth']
+  // },
 
   // googleFonts: {
   //   families: {
@@ -61,7 +67,15 @@ export default {
         services: {
           firestore: true,
           storage: true,
-          auth: true 
+          auth: {
+            persistence: 'local', // default
+            initialize: {
+              // onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+              onAuthStateChangedAction: 'onAuthStateChangedAction',
+              subscribeManually: false
+            },
+            ssr: false, // default
+          }
         }
       }
     ],
