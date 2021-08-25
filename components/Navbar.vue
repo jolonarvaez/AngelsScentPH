@@ -27,16 +27,18 @@
                         <li class="nav-item px-2">
                             <NuxtLink to="/dashboard/sales"><a class="nav-link">Dashboard</a></NuxtLink>
                         </li>
-                        <li class="nav-item px-2">
-                            <!-- <b-nav-item-dropdown text="Account" right>
-                                <b-dropdown-item v-b-modal.signup class="text-center">Sign Up</b-dropdown-item>
-                                <b-dropdown-item v-b-modal.login class="text-center">Log In</b-dropdown-item>
-                            </b-nav-item-dropdown> -->
-
-                            Account Details link
-                            <a class="nav-link" href="/account">Account</a> 
-                           
+                        <li class="nav-item dropdown px-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-lg-end text-capitalize" aria-labelledby="accountDropdown">
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#login">Log In</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li>
+                            </ul>
                         </li>
+
+                        <SignupModal />
+                        <LoginModal />
                     </ul>
                 </div>
             </div>
@@ -60,71 +62,26 @@
 </script>
 
 <style scoped>
-    .header{
-        font-size: 12px;
-    }
+.header{
+    font-size: 12px;
+}
 
-    .logo{
-        width: 75px;
-        height: auto;
-    }
+.logo{
+    width: 75px;
+    height: auto;
+}
 
-    .logo-text{
-        font-size: 0.55rem;
-        letter-spacing: 2px;
-    }
+.logo-text{
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+}
 
-    /*the following styles are used for the modals*/
+li a {
+    text-decoration: none;
+}
 
-    .signup-container{
-        width: 900px;
-    }
-
-    .login-container{
-        width: 400px;
-    }
-
-    .header-btn {
-        border: none;
-    }
-
-    .form-format{
-        font-family: Inter;
-        font-style: normal;
-        font-weight: lighter;
-        color: #9F9A96;
-        background-color: #f6f6f6;
-        border: #ececec;
-    }
-
-    .show-btn{
-        border: #ececec;
-        border-left: none;
-    }
-
-    .validation-text{
-        font-family: Inter;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 20px; /* identical to box height, or 143% */
-        letter-spacing: 0.2px;
-        color: #DC3915;
-    }
-
-    .modal-text {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 20.5px;
-    }
-
-    .btn-container{
-        width: 335px;
-    }
-
-    .button {
-        background: #9F9A96;
-        border-radius: 8px;
-    }
+.dropdown-item{
+    font-size: 0.85rem;
+    /* color: #79808F; */
+}
 </style>

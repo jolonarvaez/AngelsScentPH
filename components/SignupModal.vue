@@ -1,217 +1,56 @@
 <template>
+
 <div class="modal fade" id="signup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
-            <div class="row border-bottom">
-                <div class="col">
-                    <b-button class="text-uppercase" block>Sign Up</b-button>
+            <div class="d-flex m-auto">
+                <div class="p-2 mx-3">Sign Up</div>
+                <div class="p-2 mx-3">Log In</div>
+            </div>
+        </div>
+        <div class="modal-body text-capitalized">
+            <div class="input group">
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex justify-content-between">
+                             <input class="form-format me-2 p-1" id="text" type="text" placeholder="First Name"></input>
+                             <input class="form-format ms-2 p-1" id="text" type="text" placeholder="Last Name"></input>
+                        </div>
+                        <div class="d-flex">
+                             <p class="col validation-text mb-2">First name required</p>
+                             <p class="col validation-text ms-3 mb-2">Last name required</p>
+                        </div>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Contact Number"></input>
+                        <p class="col validation-text mb-2">Contact number required</p>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Email"></input>
+                        <p class="col validation-text mb-2">E-mail required</p>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password"></input>
+                        <p class="col validation-text mb-2">Invalid password</p>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Confirm Password"></input> 
+                        <p class="col validation-text mb-2">Password does not match</p>
                     </div>
                     <div class="col">
-                        <b-button v-b-modal.login class="text-uppercase" block>Log In</b-button>
+                        <input class="form-format w-100 mb-2 p-1" id="text" type="text" placeholder="Street Address"></input>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Street Address 2"></input>
+                        <p class="col validation-text mb-4">Street Address Required</p>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="City"></input>
+                        <p class="col validation-text mb-2">City required</p>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Province"></input>
+                        <p class="col validation-text mb-2">Province requried</p>
+                        <input class="form-format w-100 my-2 p-1" id="text" type="text" placeholder="Zipcode"></input>
+                        <p class="col validation-text mb-2">Zipcode required</p>
                     </div>
                 </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            ...
+            </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn register-btn">Register</button>
         </div>
         </div>
     </div>
 </div>
-
-<b-modal ref="signup-modal" id="signup" size="xl" centered hide-header hide-footer no-stacking>
-            <div class="container-fluid d-flex justify-content-center regular">
-                <div class="signup-container my-1">
-                    
-                    <!-- Header -->
-                    <div class="row border-bottom">
-                        <div class="col">
-                            <b-button class="text-uppercase" block>Sign Up</b-button>
-                        </div>
-                        <div class="col">
-                            <b-button v-b-modal.login class="text-uppercase" block>Log In</b-button>
-                        </div>
-                    </div>
-                    
-                    <!-- Name and Address-->
-                    <b-row>
-                        <!-- First Name -->
-                        <b-col sm="3">
-                            <p class="validation-text my-2">First name required</p>
-                            <b-form-input class="form-format" id="text" type="text" placeholder="First Name"></b-form-input>
-                        </b-col>
-
-                        <!-- Last Name --> 
-                        <b-col sm="3">
-                            <p class="validation-text my-2">Last name required</p>
-                            <b-form-input class="form-format" id="text" type="text" placeholder="Last Name"></b-form-input>
-                        </b-col>
-
-                        <!-- Street Address -->
-                        <b-col sm="6">
-                            <p class="validation-text my-2">Street address required</p>
-                            <b-form-input class="form-format" id="text" type="text" placeholder="Street Address"></b-form-input>
-                        </b-col>
-                    </b-row>
-
-                    <!-- Contact Number and Street Address 2 -->
-                    <b-row>
-                        <b-col sm="6">
-                            <p class="validation-text my-2">Contact number required</p>
-                            <b-form-input class="form-format" id="number" type="number" placeholder="Contact Number"></b-form-input>
-                        </b-col>
-
-                        <b-col sm="6">
-                            <p class="validation-text my-2">  </p>
-                            <b-form-input class="form-format" id="text" type="text" placeholder="Street Address 2"></b-form-input>
-                        </b-col>
-                    </b-row>
-                    
-                    <!-- Email and City -->
-                    <b-row>
-                        <b-col>
-                            <p class="validation-text my-2">Invalid email address / email address required</p>
-                            <b-form-input class="form-format" id="email" type="email" placeholder="Email"></b-form-input>
-                        </b-col>
-
-                        <b-col>
-                            <p class="validation-text my-2">City required</p>
-                            <b-form-input class="form-format" id="text" type="text" placeholder="City"></b-form-input>
-                        </b-col>
-                    </b-row>
-
-                    <!-- Password and Province -->
-                    <b-row>
-                        <!-- Password -->
-                        <b-col>
-                            <p class="validation-text my-2">Invalid password / password required </p>
-                            <b-input-group>
-                                <b-form-input class="form-format" id="password" type="password" placeholder="Password"></b-form-input>
-                                <b-input-group-append>
-                                    <b-button class="form-format show-btn">Show</b-button> 
-                                </b-input-group-append>
-                            </b-input-group> 
-                        </b-col>
-
-                        <!-- Province -->
-                        <b-col>
-                            <p class="validation-text my-2">Province required</p>
-                            <b-form-input class="form-format" id="text" type="text" placeholder="Province"></b-form-input>
-                        </b-col>
-                    </b-row>
-
-                    <!-- Confirm Password and Zipcode -->
-                    <b-row class="mb-3">
-                        <b-col>
-                            <p class="validation-text my-2">Password does not match / Password required</p>
-                            <b-input-group>
-                                <b-form-input class="form-format" id="password" type="password" placeholder="Confirm Password"></b-form-input>
-                                <b-input-group-append>
-                                    <b-button class="form-format show-btn">Show</b-button> 
-                                </b-input-group-append>
-                            </b-input-group> 
-                        </b-col>
-
-                        <b-col>
-                            <p class="validation-text my-2">Zipcode required</p>
-                            <b-form-input class="form-format" id="number" type="number" placeholder="Zipcode"></b-form-input>
-                        </b-col>
-                    </b-row>
-
-                    <!-- BUTTON: Sign Up -->
-                    <div class="d-flex justify-content-center my-1">
-                        <div class="row btn-container">
-                            <div class="col">
-                                <b-button class="button text-uppercase" block>Sign Up</b-button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- BUTTON: Continue as Guest -->
-                    <div class="d-flex justify-content-center">
-                        <div class="row btn-container">
-                            <div class="col">
-                                <p class="modal-text text-center text-uppercase my-1">OR</p>
-                                <b-button class="button text-uppercase" block>Continue as Guest</b-button>
-                            </div>
-                        </div>
-                    </div>
-
-                <!-- Container END -->
-                </div>
-            </div>
-        </b-modal>
-
-        <!-- 
-                
-                MODAL: LOG IN  
-                
-        -->
-        <b-modal ref="login-modal" id="login" centered hide-header hide-footer>
-            <div class="container-fluid d-flex justify-content-center regular">
-                <div class="login-container my-1">
-
-                    <!-- Header -->
-                    <div class="row">
-                        <div class="col">
-                            <b-button class="text-uppercase" block>Sign Up</b-button>
-                        </div>
-                        <div class="col">
-                            <b-button class="text-uppercase" block>Log In</b-button>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col">
-                            <p class="validation-text my-2">Invalid email address / Email address required</p>
-                            <b-form-input class="form-format" id="email" type="email" placeholder="Email"></b-form-input>
-                        </div>
-                    </div>
-
-                    <!-- Password Form -->
-                    <div class="row">
-                        <div class="col">
-                            <p class="validation-text my-2">Invalid password / Password required</p>
-                            <b-input-group>
-                                <b-form-input class="form-format" id="password" type="password" placeholder="Password"></b-form-input>
-                                <b-input-group-append>
-                                    <b-button class="form-format show-btn">Show</b-button> 
-                                </b-input-group-append>
-                            </b-input-group> 
-                            
-                            <!-- Forgot Password -->
-                            <div class="d-flex justify-content-end">
-                                <b-link class="validation-text mt-1 mb-2" href="#">Forgot Password?</b-link>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex justify-content-center">
-                        <div class="row btn-container">
-                            <div class="col">
-                                <b-button class="button text-uppercase" block>Log In</b-button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- [Log In] Continue as Guest -->
-                    <div class="d-flex justify-content-center">
-                        <div class="btn-container my-1">
-                            <p class="modal-text text-center my-1 py-2">OR</p>
-                            <b-button class="button text-uppercase" block>Continue as Guest</b-button>
-                        </div>
-                    </div>
-
-
-                <!-- Container END -->    
-                </div>
-            </div>
-        </b-modal> 
 </template>
 
 <script>
@@ -219,16 +58,13 @@
 
 <style scoped>
 
-.signup-container{
-    width: 900px;
-}
-
-.login-container{
-    width: 400px;
-}
-
 .header-btn {
     border: none;
+}
+
+.register-btn{
+    background-color: #9F9A96;
+    color: white;
 }
 
 .form-format{
@@ -238,6 +74,7 @@
     color: #9F9A96;
     background-color: #f6f6f6;
     border: #ececec;
+    font-size: 0.8rem;
 }
 
 .show-btn{
