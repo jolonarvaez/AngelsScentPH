@@ -27,9 +27,18 @@
                         <li class="nav-item px-2">
                             <NuxtLink to="/dashboard/sales"><a class="nav-link">Dashboard</a></NuxtLink>
                         </li>
-                        <li class="nav-item px-2">
-                            <NuxtLink to="/account"><a class="nav-link">Account</a></NuxtLink>
+                        <li class="nav-item dropdown px-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-lg-end text-capitalize" aria-labelledby="accountDropdown">
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#login">Log In</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li>
+                            </ul>
                         </li>
+
+                        <SignupModal />
+                        <LoginModal />
                     </ul>
                 </div>
             </div>
@@ -60,5 +69,10 @@ export default {
 
 li a {
     text-decoration: none;
+}
+
+.dropdown-item{
+    font-size: 0.85rem;
+    /* color: #79808F; */
 }
 </style>
