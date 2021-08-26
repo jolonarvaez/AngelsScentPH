@@ -61,8 +61,8 @@ export default {
             path = path.replace(/\s+/g, '-').toLowerCase()
 
             try {
-                await this.$fire.firestore.collection('admin').doc(uid).set({
-                name,email })
+                await this.$fire.firestore.collection('users').doc(uid).set({
+                name,email, role: 'admin' })
             } catch (e) {
                 alert(e)
             }

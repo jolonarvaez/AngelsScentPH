@@ -45,6 +45,10 @@ export default {
         }
     },
     methods: {
+        async asyncdata( $fire, store ){
+            // let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
+            // console.log(docRef)
+        },
         async submit(event) {
              event.preventDefault()
 
@@ -53,21 +57,27 @@ export default {
 
             try {
                 const result = await this.$fire.auth.signInWithEmailAndPassword(this.email, this.password)
-                .then(user => {
-                    // $(document).ready(function() {
-                    //     $("#login").modal("hide");
-        
-                    // });
+                    console.log(result.user)
+                    let docRef = this.$fire.firestore.collection('users').doc(result.user.uid)
+
+                    docRef.get().then((doc) => {
+                        if (doc.exists) {
+                            console.log("Document data:", doc.data());
+                            if(doc.data().role == "admin")
+                                this.$store.commit('SET_ADMIN', true)
+                        } else {
+                            console.log("No such document!");
+                        }
+                    }).catch((error) => {
+                        console.log("Error getting document:", error);
+                    });
+
                     $("#login").hide()
                     $('.modal-backdrop').remove();
                     this.$router.push('/account')
-                })
             } catch (e) {
                 alert(e)
             }
-        },
-        closeModal(){
-            
         }
     }
 }

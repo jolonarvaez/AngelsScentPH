@@ -36,15 +36,9 @@ export default {
   buildModules: [
     //'@nuxtjs/google-fonts'
   ],
-  // router: {
-  //   middleware: ['auth']
-  // },
-
-  // googleFonts: {
-  //   families: {
-  //     Inter: [300, 500, 700],
-  //   }
-  // },
+  router: {
+    middleware: ['auth']
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
