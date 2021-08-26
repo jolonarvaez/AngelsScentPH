@@ -21,6 +21,8 @@ export const state = () => ({
           uid,
           email
         })
+
+        
       }
     }
   }
