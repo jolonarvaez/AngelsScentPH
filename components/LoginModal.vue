@@ -14,9 +14,9 @@
                 
                     <div class="input group">
                         <div class="mx-4">
-                            <input v-model="email" class="form-format w-100 my-2 p-1" id="text" type="email" placeholder="Email">
+                            <input v-model="email" class="form-format w-100 my-2 p-1" type="email" placeholder="Email">
                             <p class="col validation-text mb-2">Invalid Email</p>
-                            <input v-model="password" class="form-format w-100 my-2 p-1" id="text" type="password" placeholder="Password">
+                            <input v-model="password" class="form-format w-100 my-2 p-1" type="password" placeholder="Password">
                             <p class="col validation-text mb-2">Invalid Password</p>
                         </div>
                     </div>
