@@ -50,4 +50,10 @@ li a {
     text-decoration: none;
 }
 
+.save-btn{
+    font-size: 0.8rem;
+    background-color: #9F9A96;
+    border-color: #9F9A96;
+    color: white;
+}
 </style>
