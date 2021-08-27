@@ -136,4 +136,9 @@ export default {
 .modal-backdrop {
    background-color: transparent;
 }
+
+form, input, label, p {
+    color: black !important;
+}
+
 </style>

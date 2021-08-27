@@ -39,7 +39,7 @@
                             <!-- <p class="col validation-text mb-2">City required</p> -->
                             <input class="form-format w-100 my-2 p-1" v-model="province" type="text" placeholder="Province" required>
                             <!-- <p class="col validation-text mb-2">Province requried</p> -->
-                            <input class="form-format w-100 my-2 p-1" v-model="zipcode" type="text" placeholder="Zipcode" required>
+                            <input class="form-format w-100 my-2 p-1" v-model="zipcode" type="number" placeholder="Zipcode" required>
                             <!-- <p class="col validation-text mb-2">Zipcode required</p> -->
                         </div>
                     </div>
@@ -155,5 +155,9 @@ export default {
 .button {
     background: #9F9A96;
     border-radius: 8px;
+}
+
+form, input, label, p {
+    color: black !important;
 }
 </style>
