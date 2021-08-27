@@ -6,7 +6,7 @@
         <div class="modal-header">
             <div class="d-flex m-auto">
                 <div class="p-2 mx-3">Sign Up</div>
-                <div class="p-2 mx-3">Log In</div>
+                <!-- <div class="p-2 mx-3">Log In</div> -->
             </div>
         </div>
         <form ref="registerForm" action="" @submit="submit">
@@ -15,32 +15,32 @@
                     <div class="row">
                         <div class="col">
                             <div class="d-flex justify-content-between">
-                                <input class="form-format me-2 p-1" v-model="fName" type="text" placeholder="First Name">
-                                <input class="form-format ms-2 p-1" v-model="lName" type="text" placeholder="Last Name">
+                                <input class="form-format me-2 p-1" v-model="fName" type="text" placeholder="First Name" required>
+                                <input class="form-format ms-2 p-1" v-model="lName" type="text" placeholder="Last Name" required>
                             </div>
-                            <div class="d-flex">
+                            <!-- <div class="d-flex">
                                 <p class="col validation-text mb-2">First name required</p>
                                 <p class="col validation-text ms-3 mb-2">Last name required</p>
-                            </div>
-                            <input class="form-format w-100 my-2 p-1" v-model="contactNo" type="text" placeholder="Contact Number">
-                            <p class="col validation-text mb-2">Contact number required</p>
-                            <input class="form-format w-100 my-2 p-1" v-model="email" type="text" placeholder="Email">
-                            <p class="col validation-text mb-2">E-mail required</p>
-                            <input class="form-format w-100 my-2 p-1" v-model="password" type="password" placeholder="Password">
-                            <p class="col validation-text mb-2">Invalid password</p>
-                            <input class="form-format w-100 my-2 p-1" type="password" placeholder="Confirm Password">
-                            <p class="col validation-text mb-2">Password does not match</p>
+                            </div> -->
+                            <input class="form-format w-100 my-2 p-1" v-model="contactNo" type="number" placeholder="Contact Number" required>
+                            <!-- <p class="col validation-text mb-2">Contact number required</p> -->
+                            <input class="form-format w-100 my-2 p-1" v-model="email" type="text" placeholder="Email" requried>
+                            <!-- <p class="col validation-text mb-2">E-mail required</p> -->
+                            <input class="form-format w-100 my-2 p-1" v-model="password" type="password" placeholder="Password" required>
+                            <!-- <p class="col validation-text mb-2">Invalid password</p> -->
+                            <!-- <input class="form-format w-100 my-2 p-1" type="password" placeholder="Confirm Password"> -->
+                            <!-- <p class="col validation-text mb-2">Password does not match</p> -->
                         </div>
                         <div class="col">
-                            <input class="form-format w-100 mb-2 p-1" v-model="streetAdd" type="text" placeholder="Street Address">
+                            <input class="form-format w-100 mb-2 p-1" v-model="streetAdd" type="text" placeholder="Street Address" required>
                             <input class="form-format w-100 my-2 p-1" type="text" placeholder="Street Address 2">
-                            <p class="col validation-text mb-4">Street Address Required</p>
-                            <input class="form-format w-100 my-2 p-1" v-model="city" type="text" placeholder="City">
-                            <p class="col validation-text mb-2">City required</p>
-                            <input class="form-format w-100 my-2 p-1" v-model="province" type="text" placeholder="Province">
-                            <p class="col validation-text mb-2">Province requried</p>
-                            <input class="form-format w-100 my-2 p-1" v-model="zipcode" type="text" placeholder="Zipcode">
-                            <p class="col validation-text mb-2">Zipcode required</p>
+                            <!-- <p class="col validation-text mb-4">Street Address Required</p> -->
+                            <input class="form-format w-100 my-2 p-1" v-model="city" type="text" placeholder="City" required>
+                            <!-- <p class="col validation-text mb-2">City required</p> -->
+                            <input class="form-format w-100 my-2 p-1" v-model="province" type="text" placeholder="Province" required>
+                            <!-- <p class="col validation-text mb-2">Province requried</p> -->
+                            <input class="form-format w-100 my-2 p-1" v-model="zipcode" type="text" placeholder="Zipcode" required>
+                            <!-- <p class="col validation-text mb-2">Zipcode required</p> -->
                         </div>
                     </div>
                 </div>

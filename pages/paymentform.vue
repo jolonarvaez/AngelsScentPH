@@ -4,74 +4,73 @@
             Payment Form
         </div>
         <div class="container-fluid d-flex flex-column regular text-uppercase">
-            <div class="shadow payment-box mt-3 mb-2 px-3 py-2 mx-auto w-75">
+            <div class="shadow payment-box mt-3 mb-4 px-3 py-2 mx-auto w-75">
                 <form class="px-4">
                     <div class="row px-4">
                         <div class="col-sm-3 my-3">
-                            <label for="firstNameInput" class="form-label">Order Number</label>
-                            <input type="firstName" class="form-control" id="firstNameInput" aria-describedby="emailHelp">
+                            <label for="orderInput" class="form-label">Order Number</label>
+                            <input type="text" class="form-control" id="orderInput"   required>
                         </div>
 
                     </div>
                     <div class="row px-4">
                         <div class="col-sm-6 my-3">
-                            <label for="emailInput" class="form-label">First Name</label>
-                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="firstName" class="form-control" id="firstName" required>
                         </div>
                         <div class="col-sm-6 my-3">
-                            <label for="contactNumberInput" class="form-label">Last Name</label>
-                            <input type="contactNumber" class="form-control" id="contactNumberInput" aria-describedby="emailHelp">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="lastName" class="form-control" id="lastName" required>
                         </div>
                     </div>
                     <div class="row px-4 my-3">
                         <div class="col-sm-6 my-3">
-                            <label for="subjectInput" class="form-label">Email Address</label>
-                            <input type="subject" class="form-control" id="subjectInput" aria-describedby="emailHelp">
+                            <label for="emailInput" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="emailInput" required>
                         </div>
                         <div class="col-sm-6 my-3">
-                            <label for="subjectInput" class="form-label">Contact Number</label>
-                            <input type="subject" class="form-control" id="subjectInput" aria-describedby="emailHelp">
+                            <label for="contactInput" class="form-label">Contact Number</label>
+                            <input type="number" class="form-control" id="contactInput"   required>
                         </div>
                     </div>
 
                     <div class="row px-4 my-3 d-flex justify-content-between">
                         <div class="col-sm-3 my-3">
-                            <label for="subjectInput" class="form-label">Total Amount</label>
-                            <input type="subject" class="form-control" id="subjectInput" aria-describedby="emailHelp">
+                            <label for="totalInput" class="form-label">Total Amount</label>
+                            <input type="number" class="form-control" id="totalInput"   required>
                         </div>
                         <div class="col-sm-6 my-3">
-                            <label for="subjectInput" class="form-label">Gcash Transaction Number</label>
-                            <input type="subject" class="form-control" id="subjectInput" aria-describedby="emailHelp">
+                            <label for="gcashInput" class="form-label">Gcash Transaction Number</label>
+                            <input type="number" class="form-control" id="gcashInput" required>
                         </div>
                     </div>
 
                     <div class="row px-4 my-3 pb-1">
                         <div class="col-sm-6">
                             <label for="formFile">Screenshot / Receipt for proof of transaction</label>
-                            <input type="file" id="formFile">
+                            <input type="file" id="formFile" accept="image/png, image/gif, image/jpeg" required>
                         </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="shadow-sm text-uppercase btn btn-light submit-btn regular mt-2 px-4 py-2">Submit Form</button>
                     </div>
                 </form>
             </div>
-            <div class="row m-auto">
-                <b-button v-b-modal.confirmation class="shadow-sm text-uppercase btn btn-light submit-btn w-100 regular mt-2 px-4 py-2">Submit Form</b-button>
-            </div>
             
-            <!-- Confimation Popup -->
+            
+            <!-- Confimation Popup
             <b-modal ref="payment-modal" id="confirmation" centered hide-header hide-footer >
-                <!-- Text Container -->
                 <div class="container-fluid d-flex flex-column regular">
                     <div class="payment-container mt-4 mb-2 mx-auto">
                         <p class="payment-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
                     </div>
                 </div>
-                <!-- Button Container -->
                 <div class="container-fluid d-flex justify-content-center regular">
                     <div class="btn-container mt-4 mb-2">
                         <b-button class="button text-uppercase pb-2 mt-3 mb-4" block @click="hideModal">Okay</b-button>
                     </div>
                 </div>
-            </b-modal>
+            </b-modal> -->
         </div>
     </div>
 </template>
