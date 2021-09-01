@@ -9,13 +9,13 @@
             </NuxtLink>
         </div>
 
-        <div class="container-fluid">
-            <div class="d-flex justify-content-around">
-                <div class="mx-auto"> 
-                    <img src="~/assets/product.jpg" class="mx-auto">
+        <div class="container-fluid mt-4">
+            <div class="row d-flex justify-content-around my-2">
+                <div class="col"> 
+                    <img :src="data.img" class="mx-auto d-block product-img img-fluid">
                 </div>
 
-                <div class="col-md-6"> 
+                <div class="col-md-6 mb-4"> 
                     <div class="container-fluid">
                         <div class="text-uppercase d-flex flex-column">
                             <div class="product-title regular">{{data.name}}</div>
@@ -100,7 +100,10 @@ export default {
 </script>
 
 <style>
-
+.product-img{
+    max-width: 20rem;
+    border-radius: 10px;
+}
 .product-title-header{
     font-size: 1.5rem;
     border-style: solid;

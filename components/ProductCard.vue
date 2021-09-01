@@ -1,6 +1,6 @@
 <template>
     <div class="card border-0 text-center my-2 mx-4" style="width: 14rem;">
-        <img src="~/assets/product.jpg" class="card-img-top m-auto" style="width: 7.5rem;" alt="...">
+        <img :src="img" class="card-img-top m-auto" style="width: 7.5rem;" alt="...">
         <div class="card-body">
             <h5 class="card-title text-uppercase medium">{{name}}</h5>
             <div class="card-text regular my-1">{{weight}}ML</div>
@@ -19,7 +19,8 @@ export default {
         name: String,
         price: Number,
         weight: Number,
-        path: String
+        path: String, 
+        img: String
     }
 }
 </script>

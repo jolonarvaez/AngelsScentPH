@@ -23,7 +23,8 @@
                                 :name="product.name"
                                 :price="product.price"
                                 :weight="product.weight"
-                                :path="`/product/${product.id}`"/>
+                                :path="`/product/${product.id}`"
+                                :img="product.img"/>
                         </div>
                         
                     </div>
@@ -35,7 +36,8 @@
                                 :name="product.name"
                                 :price="product.price"
                                 :weight="product.weight"
-                                :path="`/product/${product.id}`"/>
+                                :path="`/product/${product.id}`"
+                                :img="product.img"/>
                         </div>
                     </div>
                 </div>

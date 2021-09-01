@@ -3,15 +3,19 @@
         <div class="cart-header text-center text-uppercase py-2 regular">
             Shopping Cart
         </div>
+
+        <p v-if="items.length == 0">
+          Cart is currently empty.
+        </p>
+
         <div class="container-fluid text-uppercase my-5">
-            <div class="row">
+            <div class="row d-flex justify-content-center mx-auto">
                 <div class="col-lg-7">
                     <div class="card shadow round-table mb-4">
                         <div class="table-responsive">
                             <table class="table regular table-striped text-center borderless mb-4">
                                 <thead>
                                     <tr>
-                                        <th scope ="col"></th>
                                         <th scope ="col">Item</th>
                                         <th scope ="col"></th>
                                         <th scope ="col">Price</th>
@@ -21,61 +25,25 @@
                                     </tr>
                                 </thead>
                                 <tbody class="align-middle">
-                                    <tr>
-                                        <td>
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                
-                                            </label>
-                                            </div>
-                                        </td>
+                                    <tr :key="item.id" v-for="item in items">
                                         <td><img src="~/assets/product.jpg" class="img-thumbnail"></td>
                                         <td class="text-left">
-                                            <div>Adelaide</div>
-                                            <div class="light">10 ML</div>
+                                            <div>{{ item.name }}</div>
+                                            <div class="light">{{ item.weight }} ML</div>
                                         </td>
-                                        <td>₱ 60.00</td>
+                                        <td>₱ {{ item.price }}.00</td>
                                         <td>
                                             <div class="row">
                                                 <div class="col d-flex flex-row justify-content-center mt-2">
                                                     <div class="def-number-input number-input safari_only">
-                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                                                        <input class="quantity" name="quantity" :value=1 min="1" type="number">
-                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                                        <button v-on:click='subtractItem(item.id)' class="minus"></button>
+                                                        <input :id='item.id+" qty"' class="quantity" name="quantity" :value="item.qty" min="0" type="number">
+                                                        <button v-on:click='addItem(item.id)' class="plus"></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>₱ 60.00</td>
-                                        <td>Remove</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                            </label>
-                                            </div>
-                                        </td>
-                                        <td><img src="~/assets/product.jpg" class="img-thumbnail"></td>
-                                        <td class="text-left">
-                                            <div>Adelaide</div>
-                                            <div class="light">10 ML</div>
-                                        </td>
-                                        <td>₱ 60.00</td>
-                                        <td>
-                                            <div class="row">
-                                                <div class="col d-flex flex-row justify-content-center mt-2">
-                                                    <div class="def-number-input number-input safari_only">
-                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                                                        <input class="quantity" name="quantity" :value=1 min="1" type="number">
-                                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>₱ 60.00</td>
+                                        <td :id='item.id+" subtotal"'>₱ {{ item.subtotal }}.00</td>
                                         <td>Remove</td>
                                     </tr>
                                 </tbody>
@@ -83,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md d-flex align-items-center flex-column">
+                <div class="col-md-5 d-flex align-items-center flex-column">
                     <div class="shadow card round-table summary medium w-75">
                         <div class="card-body">
                             <div class="card-title">
@@ -91,15 +59,15 @@
                             </div>
                             <div class="row d-flex flex-row my-2">
                                 <div class="col">Subtotal</div>
-                                <div class="col">₱ 620.00</div>
+                                <div class="col">₱ {{ total }}.00</div>
                             </div>
                             <div class="row d-flex flex-row my-2">
                                 <div class="col">Total Qty</div>
-                                <div class="col">4</div>
+                                <div class="col">{{ totalQty }}</div>
                             </div>
                             <div class="row d-flex flex-row my-2">
                                 <div class="col">Total Weight</div>
-                                <div class="col">220 ML</div>
+                                <div class="col">{{ totalWeight }} ML</div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +80,80 @@
 
 <script>
 export default {
+    data(){
+        return{
+                items: [
+                        {
+                            name: "product1",
+                            id: 1, 
+                            weight: 10, 
+                            price: 60, 
+                            qty: 1, 
+                            subtotal: 60
+                        },
+                        {
+                            name: "product2",
+                            id: 2,
+                            weight: 120, 
+                            price: 60,
+                            qty: 2,
+                            subtotal: 120
+                        },
 
+                    ],
+                total: 0, 
+                totalQty: 0, 
+                totalWeight: 0
+            }
+    },
+    // computed: {
+    //     total(){
+    //         return {
+    //             total: 0
+    //         }
+    //     }
+    // },
+    methods: {
+        addItem(id){
+            let item = this.items.find(obj => obj.id === id)
+            item.qty++
+            item.subtotal = item.price * item.qty
+            this.updateTotal()
+            this.updateTotalQty()
+            this.updateTotalWeight()
+        },
+        subtractItem(id){
+            let item = this.items.find(obj => obj.id === id)
+            if(item.qty > 1){
+                item.qty--
+                item.subtotal = item.price * item.qty
+            }
+            this.updateTotal()
+            this.updateTotalQty()
+            this.updateTotalWeight()
+        },
+        updateTotal(){
+            var sum = 0
+            for(var i = 0; i < this.items.length; i++){
+                sum += this.items[i].subtotal
+            }
+            this.total = sum
+        },
+        updateTotalQty(){
+            var sum = 0
+            for(var i = 0; i < this.items.length; i++){
+                sum += this.items[i].qty
+            }
+            this.totalQty = sum
+        },
+        updateTotalWeight(){
+            var sum = 0
+            for(var i = 0; i < this.items.length; i++){
+                sum += (this.items[i].weight * this.items[i].qty)
+            }
+            this.totalWeight = sum
+        }
+    }
 }
 </script>
 
