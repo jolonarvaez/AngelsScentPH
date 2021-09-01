@@ -50,9 +50,15 @@
                                 Available Stock: 100
                             </div>
                         </div>
-                        <div class="text-center">
-                            <button type="button" class="shadow btn btn-light add mt-4">ADD TO CART</button>
+                        <div class="def-number-input number-input safari_only m-auto my-2">
+                            <button type="button" @click="() => qty--" class="minus decrease"></button>
+                            <input v-model="qty" class="quantity" name="quantity" min="1" type="number">
+                            <button type="button" @click="() => qty++" class="plus increase"></button>
                         </div>
+                        <div class="text-center">
+                            <button type="button" @click="addToCart()" class="shadow btn btn-light add mt-2">ADD TO CART</button>
+                        </div>
+                        
                     </div> 
                 </div>
             </div>
@@ -90,11 +96,42 @@
     
 <script>
 export default {
+    data(){
+        return {
+            qty: 1
+        }
+    },
+    watch: {
+        qty: function(newQty, oldQty) {
+            if (newQty <= 0) {
+                this.qty = 1
+            }
+        }
+    },
     async asyncData({$fire, params}) {
         let slug = params.slug;
         let docRef = $fire.firestore.collection('products').doc(slug)
         let data = await docRef.get().then(doc => doc.data())
-        return{data}
+        return{data, slug}
+    },
+    methods: {
+        addToCart(){
+            const item = {
+            name: this.data.name,
+            price: this.data.price,
+            qty: this.qty,
+            weight: this.data.weight,
+            productid: this.slug
+        }
+        console.log(item)
+        if (this.$fire.auth.currentUser) {
+            let ref =  this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
+                .collection('cart').add({
+                ...item,
+                })
+            }
+        }
+
     }
 }
 </script>
@@ -154,5 +191,93 @@ export default {
      color: #9F9A96;
  }
 
+number-input input[type="number"] {
+-webkit-appearance: textfield;
+-moz-appearance: textfield;
+appearance: textfield;
+}
+
+.number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+}
+
+.number-input {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.number-input button {
+-webkit-appearance: none;
+background-color: transparent;
+border: none;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+margin: 0;
+position: relative;
+}
+
+.number-input button:before,
+.number-input button:after {
+display: inline-block;
+position: absolute;
+content: '';
+height: 2px;
+transform: translate(-50%, -50%);
+}
+
+.number-input button.plus:after {
+transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+text-align: center;
+}
+
+.number-input.number-input {
+border: 1px solid #ced4da;
+width: 7rem;
+border-radius: .25rem;
+background-color: white;
+}
+
+.number-input.number-input button {
+width: 2.6rem;
+height: .7rem;
+}
+
+
+
+.number-input.number-input button.minus {
+padding-left: 10px;
+}
+
+.number-input.number-input button:before,
+.number-input.number-input button:after {
+width: .7rem;
+background-color: #c4c4c4;
+}
+
+.number-input.number-input input[type=number] {
+max-width: 3rem;
+padding: .5rem;
+border: 1px solid #ced4da;
+border-width: 0 1px;
+font-size: 1rem;
+height: 1.5rem;
+color: #495057;
+}
+
+@media not all and (min-resolution:.001dpcm) {
+@supports (-webkit-appearance: none) and (stroke-color:transparent) {
+
+.number-input.def-number-input.safari_only button:before,
+.number-input.def-number-input.safari_only button:after {
+margin-top: -.3rem;
+}
+}
+}
 
 </style>
