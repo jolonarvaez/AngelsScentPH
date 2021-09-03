@@ -28,21 +28,21 @@
                                         <td><img :src="item.img" class="img-fluid rounded"></td>
                                         <td class="text-left">
                                             <div>{{ item.name }}</div>
-                                            <div class="light">{{ item.weight }} ML</div>
+                                            <div class="light">{{ item.weight }}ML</div>
                                         </td>
-                                        <td>₱ {{ item.price }}.00</td>
+                                        <td>₱{{ item.price }}.00</td>
                                         <td>
                                             <div class="row">
                                                 <div class="col d-flex flex-row justify-content-center mt-2">
                                                     <div class="def-number-input number-input safari_only">
                                                         <button v-on:click='subtractItem(item.id)' class="minus"></button>
-                                                        <input :id='item.id+" qty"' class="quantity" name="quantity" :value="item.qty" min="0" type="number">
+                                                        <input :id='item.id+" qty"' class="quantity" name="quantity" :value="item.qty" min="0" type="number" disabled>
                                                         <button v-on:click='addItem(item.id)' class="plus"></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td :id='item.id+" subtotal"'>₱ {{ item.subtotal }}.00</td>
+                                        <td :id='item.id+" subtotal"'>₱{{ item.subtotal }}.00</td>
                                         <td><div v-on:click='onDelete(item.id)' class="remove">Remove</div></td>
                                     </tr>
                                 </tbody>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="row d-flex flex-row my-2">
                                 <div class="col">Subtotal</div>
-                                <div class="col">₱ {{ total }}.00</div>
+                                <div class="col">₱{{ total }}.00</div>
                             </div>
                             <div class="row d-flex flex-row my-2">
                                 <div class="col">Total Qty</div>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="row d-flex flex-row my-2">
                                 <div class="col">Total Weight</div>
-                                <div class="col">{{ totalWeight }} ML</div>
+                                <div class="col">{{ totalWeight }}ML</div>
                             </div>
                         </div>
                     </div>
@@ -108,22 +108,14 @@ export default {
             return { items }
         },
         addItem(id){
-            let item = this.items.find(obj => obj.id === id)
-            item.qty++
-            item.subtotal = item.price * item.qty
-            this.updateTotal()
-            this.updateTotalQty()
-            this.updateTotalWeight()
+           this.$store.commit('cart/increaseQty', id)
         },
         subtractItem(id){
             let item = this.items.find(obj => obj.id === id)
-            if(item.qty > 1){
-                item.qty--
-                item.subtotal = item.price * item.qty
+
+            if (item.qty !== 1) {
+                this.$store.commit('cart/decreaseQty', id)
             }
-            this.updateTotal()
-            this.updateTotalQty()
-            this.updateTotalWeight()
         },
         onDelete(id){    
             let item = this.items.find(obj => obj.id === id)

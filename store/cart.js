@@ -24,7 +24,6 @@ export const mutations = {
       let idx = state.items.findIndex(obj => obj.productid === item.productid)
 
       if (idx !== -1) {
-        state.items[idx].qty += item.qty
         state.items[idx].subtotal = state.items[idx].qty * state.items[idx].price
       } else {
         state.items.push(item)
