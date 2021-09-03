@@ -16,21 +16,21 @@
                                         <div class="container-fluid my-2 account-section">
                                             <div class="my-2">
                                                 <div class="text-uppercase medium">First Name</div>
-                                                <div class="section-body medium">Choi</div>
+                                                <div class="section-body medium">{{ data.fName }}</div>
                                             </div>
                                             <div class="my-2">
                                                 <div class="text-uppercase medium">Last Name</div>
-                                                <div class="section-body medium">Soobin</div>
+                                                <div class="section-body medium">{{ data.lName}}</div>
                                             </div>
                                             
                                             <div class="my-2">
                                                 <div class="text-uppercase medium">Email</div>
-                                                <div class="section-body medium">choisoobin@tubatu.net</div>
+                                                <div class="section-body medium">{{ data.email }}</div>
                                             </div>
 
                                             <div class="my-2">
                                                 <div class="text-uppercase medium">Phone Number</div>
-                                                <div class="section-body medium">+639123345678</div>
+                                                <div class="section-body medium">{{ data.contactNo }}</div>
                                             </div>
                                             
                                             <div class="my-2">
@@ -38,7 +38,7 @@
                                                 <div class="section-body medium">******</div>
                                             </div>
                                             <div class="d-flex justify-content-center">
-                                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Profile Information</button>
+                                                <button @click="checkData()" type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Profile Information</button>
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                 <div class="container-fluid my-2 account-section">
                                     <div class="my-2">
                                         <div class="text-uppercase medium">Address Line 1</div>
-                                        <div class="section-body medium">Choi Soobin</div>
+                                        <div class="section-body medium">{{ data.streetAdd }}</div>
                                     </div>
                                     <div class="my-2">
                                         <div class="text-uppercase medium">Address Line 2</div>
@@ -60,17 +60,17 @@
                                     
                                     <div class="my-2">
                                         <div class="text-uppercase medium">City</div>
-                                        <div class="section-body medium">Seoul</div>
+                                        <div class="section-body medium">{{ data.city }}</div>
                                     </div>
 
                                     <div class="my-2">
-                                        <div class="text-uppercase medium">Region</div>
-                                        <div class="section-body medium">Korea</div>
+                                        <div class="text-uppercase medium">Province</div>
+                                        <div class="section-body medium">{{ data.province }}</div>
                                     </div>
 
                                     <div class="my-2">
                                         <div class="text-uppercase medium">Zipcoded</div>
-                                        <div class="section-body medium">1980</div>
+                                        <div class="section-body medium">{{ data.zipcode }}</div>
                                     </div>
                                     
                                     <div class="d-flex justify-content-center">
@@ -98,7 +98,17 @@
 
 <script>
 export default {
-
+    async asyncData({ $fire, store }){
+        let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
+        let data = await docRef.get().then(doc => doc.data())
+        console.log(data)
+        return{ data }
+    },
+    methods: {
+        // checkData(){
+        //     console.log(this.data)
+        // }
+    }
 }
 </script>
 

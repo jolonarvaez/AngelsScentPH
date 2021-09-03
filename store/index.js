@@ -22,7 +22,47 @@ export const state = () => ({
           email
         })
 
-        
+        let ref = this.$fire.firestore.collection('users').doc(uid)
+        let doc = await ref.get()
+
+        if (doc.exists) {
+          let data = doc.data()
+
+          if (data && data.role === 'admin') {
+            state.commit('SET_ADMIN', true)
+          }
+
+          state.commit('SET_CONTACT', {
+            phoneNo: data.phoneNo,
+            address: data.address
+          })
+
+          // Load cart
+          doc.ref.collection('cart')
+            .onSnapshot(docs => {
+              
+              let cart = docs.docs.map(doc => {
+                let { name, price, qty, weight, subtotal, img, productid } = doc.data()
+                
+                let item = {
+                  id: doc.id,
+                  name,
+                  price,
+                  qty,
+                  weight,
+                  subtotal,
+                  img,
+                  productid
+                }
+                return item
+              })
+
+              state.commit('cart/setItems', cart)
+            })
+          
+        }
+
+        this.$router.push('/account')
       }
     }
   }

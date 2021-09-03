@@ -1,6 +1,8 @@
 export const state = () => ({
   items: [],
-  total: 0.0
+  total: 0.0,
+  totalWeight: 0,
+  totalQty: 0
 })
 
 export const mutations = {
@@ -18,8 +20,8 @@ export const mutations = {
     this.commit('cart/updateTotal')
   },
   addItem(state, item) {
-    if (!this.$fire.auth.currentUser) {
-      let idx = state.items.findIndex(obj => obj.productid === item.productid && JSON.stringify(obj.variations) === JSON.stringify(item.variations))
+    if (this.$fire.auth.currentUser) {
+      let idx = state.items.findIndex(obj => obj.productid === item.productid)
 
       if (idx !== -1) {
         state.items[idx].qty += item.qty
@@ -28,14 +30,17 @@ export const mutations = {
         state.items.push(item)
       }
     }
-
     this.commit('cart/updateTotal')
   },
   updateTotal(state) {
     state.total = 0
+    state.totalQty = 0
+    state.totalWeight = 0
 
     state.items.map(item => {
       state.total += item.subtotal
+      state.totalWeight += item.weight * item.qty
+      state.totalQty += item.qty
     })
   },
   increaseQty(state, id) {

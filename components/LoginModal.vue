@@ -63,6 +63,8 @@ export default {
                             console.log("Document data:", doc.data());
                             if(doc.data().role == "admin")
                                 this.$store.commit('SET_ADMIN', true)
+                                
+                            // this.$store.commit("SET_USER", result.user.uid, result.user.email)
                         } else {
                             console.log("No such document!");
                         }
@@ -72,7 +74,6 @@ export default {
 
                     $("#login").hide()
                     $('.modal-backdrop').remove();
-                    this.$router.push('/account')
             } catch (e) {
                 alert(e)
             }

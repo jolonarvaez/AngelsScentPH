@@ -26,7 +26,7 @@
                                 </thead>
                                 <tbody class="align-middle">
                                     <tr :key="item.id" v-for="item in items">
-                                        <td><img src="~/assets/product.jpg" class="img-thumbnail"></td>
+                                        <td><img :src="item.img" class="img-fluid rounded"></td>
                                         <td class="text-left">
                                             <div>{{ item.name }}</div>
                                             <div class="light">{{ item.weight }} ML</div>
@@ -80,40 +80,33 @@
 
 <script>
 export default {
-    data(){
-        return{
-                items: [
-                        {
-                            name: "product1",
-                            id: 1, 
-                            weight: 10, 
-                            price: 60, 
-                            qty: 1, 
-                            subtotal: 60
-                        },
-                        {
-                            name: "product2",
-                            id: 2,
-                            weight: 120, 
-                            price: 60,
-                            qty: 2,
-                            subtotal: 120
-                        },
-
-                    ],
-                total: 0, 
-                totalQty: 0, 
-                totalWeight: 0
-            }
+    computed: {
+        items() {
+            return this.$store.state.cart.items
+        },
+        total() {
+            return this.$store.state.cart.total
+        },
+        totalWeight() {
+            return this.$store.state.cart.totalWeight
+        },
+        totalQty() {
+            return this.$store.state.cart.totalQty
+        },
     },
-    // computed: {
-    //     total(){
-    //         return {
-    //             total: 0
-    //         }
-    //     }
-    // },
     methods: {
+        async asyncData( {$fire, store} ){
+            let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
+                                        .collection('cart')
+            let documents =  await docRef.get()
+
+            let items = []
+            await Promise.all(documents.docs.map(document => { //remove map for single document
+                items.push({id: document.id, ...document.data()})
+            }))
+            console.log(store.state)
+            return { items }
+        },
         addItem(id){
             let item = this.items.find(obj => obj.id === id)
             item.qty++

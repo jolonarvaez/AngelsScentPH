@@ -115,23 +115,41 @@ export default {
         return{data, slug}
     },
     methods: {
-        addToCart(){
+        async addToCart(){
             const item = {
             name: this.data.name,
             price: this.data.price,
             qty: this.qty,
             weight: this.data.weight,
-            productid: this.slug
+            productid: this.slug,
+            subtotal: this.data.price * this.qty,
+            img: this.data.img
         }
-        console.log(item)
         if (this.$fire.auth.currentUser) {
-            let ref =  this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
-                .collection('cart').add({
-                ...item,
+            let docRef = this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
+                      .collection('cart').where('productid', '==', item.productid)    
+
+            let doc = await docRef.get()
+            let cartItem = !doc.empty ? await doc.docs[0].ref.get().then(doc => doc.data()) : null
+
+            if (cartItem) {
+                doc.docs[0].ref.update({
+                    qty: cartItem.qty + item.qty,
+                    subtotal: (cartItem.qty + item.qty) * item.price
                 })
+            
+                this.$store.commit('cart/addItem', { ...item})
+                console.log(this.$store.state.cart)
+            } else{
+                    let ref = await this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
+                        .collection('cart').add({
+                        ...item
+                    })
+                    this.$store.commit('cart/addItem', { ...item})
+                    console.log(this.$store.state.cart)
+                }
             }
         }
-
     }
 }
 </script>
