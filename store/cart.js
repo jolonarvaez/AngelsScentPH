@@ -10,7 +10,7 @@ export const mutations = {
     state.items = state.items.filter(item => item.id !== id)
 
     if (uid) {
-      this.$fire.firestore.collection('customers').doc(uid).collection('cart').doc(id).delete()
+      this.$fire.firestore.collection('users').doc(uid).collection('cart').doc(id).delete()
     }
 
     this.commit('cart/updateTotal')

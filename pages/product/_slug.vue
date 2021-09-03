@@ -146,7 +146,6 @@ export default {
                         ...item
                     })
                     this.$store.commit('cart/addItem', { ...item})
-                    console.log(this.$store.state.cart)
                 }
             }
         }

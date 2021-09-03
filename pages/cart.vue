@@ -4,14 +4,13 @@
             Shopping Cart
         </div>
 
-        <p v-if="items.length == 0">
-          Cart is currently empty.
-        </p>
-
         <div class="container-fluid text-uppercase my-5">
             <div class="row d-flex justify-content-center mx-auto">
                 <div class="col-lg-7">
-                    <div class="card shadow round-table mb-4">
+                    <p v-if="items.length == 0" class="text-center">
+                        Cart is currently empty.
+                    </p>
+                    <div v-if="items.length > 0" class="card shadow round-table mb-4">
                         <div class="table-responsive">
                             <table class="table regular table-striped text-center borderless mb-4">
                                 <thead>
@@ -44,7 +43,7 @@
                                             </div>
                                         </td>
                                         <td :id='item.id+" subtotal"'>₱ {{ item.subtotal }}.00</td>
-                                        <td>Remove</td>
+                                        <td><div v-on:click='onDelete(item.id)' class="remove">Remove</div></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -96,6 +95,7 @@ export default {
     },
     methods: {
         async asyncData( {$fire, store} ){
+            console.log(store.state.cart)
             let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
                                         .collection('cart')
             let documents =  await docRef.get()
@@ -124,6 +124,14 @@ export default {
             this.updateTotal()
             this.updateTotalQty()
             this.updateTotalWeight()
+        },
+        onDelete(id){    
+            let item = this.items.find(obj => obj.id === id)
+            this.$store.commit('cart/remove', { 
+                id: item.id, 
+                uid: this.$fire.auth.currentUser.uid
+            })
+            console.log(this.$fire.auth.currentUser.uid)
         },
         updateTotal(){
             var sum = 0
@@ -157,6 +165,10 @@ export default {
     border-style: solid;
     border-width: 2px 0;
     border-color: #E5E5E5;
+}
+
+.remove{
+    cursor: pointer;
 }
 
 .product-col{
