@@ -54,11 +54,10 @@
                                 <div class="medium text-uppercase mb-2">Shipping Information</div>
                                 <div class="container-fluid d-flex flex-column">
                                     <div class="section-body text-uppercase">
-                                        CHOI SOOBIN
+                                        {{ data.fName}} {{ data.lName }}
                                     </div>
-                                    <div class="section-body text-uppercase w-50">
-                                        1234 MAGIC ST. 9 QUARTER PLATFORM AND SMTH CROWN PUMA 0X1 LOVESONG IF 
-                                        YOUR ADRESS SMTH IS TOO LONG.... HONESTLY 3 LINES WORTH SMTH
+                                    <div class="section-body text-uppercase w-75">
+                                        {{ data.streetAdd}} {{ data.city }} {{ data.province}} {{ data.zipcode }}
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +71,12 @@
 
 <script>
 export default {
-
+    async asyncData({ $fire, store }){
+        let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
+        let data = await docRef.get().then(doc => doc.data())
+        console.log(data)
+        return{ data }
+    }
 }
 </script>
 

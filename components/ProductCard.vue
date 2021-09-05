@@ -28,7 +28,12 @@ export default {
 <style scoped>
 
 .card{
+    transition: box-shadow .3s;
     background-color: #FAFAFA;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .card-title{

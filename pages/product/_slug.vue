@@ -52,7 +52,7 @@
                         </div>
                         <div class="def-number-input number-input safari_only m-auto my-2">
                             <button type="button" @click="() => qty--" class="minus decrease"></button>
-                            <input v-model="qty" class="quantity" name="quantity" min="1" type="number">
+                            <input v-model="qty" class="quantity" name="quantity" min="1" type="number" disabled>
                             <button type="button" @click="() => qty++" class="plus increase"></button>
                         </div>
                         <div class="text-center">

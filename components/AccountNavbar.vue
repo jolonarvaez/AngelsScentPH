@@ -2,10 +2,10 @@
 <div class="col-2">
     <ul class="nav flex-column account-info shadow text-uppercase medium text-end py-2">
         <li class="nav-item">
-           <NuxtLink to="/account"><a class="nav-link">Account <br>Information</a></NuxtLink>
+           <NuxtLink to="/account/info"><a class="nav-link">Account <br>Information</a></NuxtLink>
         </li>
         <li class="nav-item">
-            <NuxtLink to="/orderlist"><a class="nav-link">Order List</a></NuxtLink>
+            <NuxtLink to="/account/orderlist"><a class="nav-link">Order List</a></NuxtLink>
         </li>
     </ul>
 </div>

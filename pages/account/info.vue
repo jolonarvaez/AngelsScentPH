@@ -69,7 +69,7 @@
                                     </div>
 
                                     <div class="my-2">
-                                        <div class="text-uppercase medium">Zipcoded</div>
+                                        <div class="text-uppercase medium">Zipcode</div>
                                         <div class="section-body medium">{{ data.zipcode }}</div>
                                     </div>
                                     
@@ -103,11 +103,6 @@ export default {
         let data = await docRef.get().then(doc => doc.data())
         console.log(data)
         return{ data }
-    },
-    methods: {
-        // checkData(){
-        //     console.log(this.data)
-        // }
     }
 }
 </script>
