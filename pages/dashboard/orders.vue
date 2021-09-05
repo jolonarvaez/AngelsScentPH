@@ -17,7 +17,7 @@
                                    Pending Orders
                                 </div>
                                 <div class="table-responsive">
-                                    <table class="table align-middle table-hover text-center text-uppercase regular">
+                                    <table class="table align-middle text-center table-hover regular">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Order Number</th>
@@ -30,35 +30,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>27006</td>
-                                                <td>07-14-21</td>
-                                                <td>Paid</td>
-                                                <td>Shipping</td>
-                                                <td>₱70.00</td>
-                                                <td>Choi Soobin</td>
-                                                <td class="d-flex flex-column"> 
-                                                    <div class="dropdown">
-                                                        <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Choose Action
-                                                        </a>
-
-                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                            <li><a class="dropdown-item" href="#">Mark as Paid</a></li>
-                                                            <li><a class="dropdown-item" href="#">Mark as Shipping</a></li>
-                                                            <li><a class="dropdown-item" href="#">Mark as Cancelled</a></li>
-                                                        </ul>
-                                                    </div>       
-                                                    <button type="button" class="text-uppercase btn save-btn btn-outline-light mx-3 my-2">Save Changes</button>                               
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>270106</td>
-                                                <td>07-13-21</td>
-                                                <td>Paid</td>
-                                                <td>Unfulfuilled</td>
-                                                <td>₱70.00</td>
-                                                <td>Choi Soobin</td>
+                                            <tr v-for="order in pending" @click="goToDetails(order.id)">
+                                                <td>{{ order.id }}</td>
+                                                <td>{{ order.dateOrdered.toDate() }}</td>
+                                                <td>{{ order.paymentStatus }}</td>
+                                                <td>{{ order.orderStatus }}</td>
+                                                <td>₱{{ order.total }}.00</td>
+                                                <td>{{ order.name }}</td>
                                                 <td class="d-flex flex-column"> 
                                                     <div class="dropdown">
                                                         <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,7 +64,7 @@
                                    Fulfilled Orders
                                 </div>
                                 <div class="table-responsive">
-                                    <table class="table table-hover text-center text-uppercase regular">
+                                    <table class="table table-hover text-center regular">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Order Number</th>
@@ -98,21 +76,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>27006</td>
-                                                <td>07-14-21</td>
-                                                <td>Paid</td>
-                                                <td>Shipping</td>
-                                                <td>₱70.00</td>
-                                                <td>Choi Soobin</td>
-                                            </tr>
-                                            <tr>
-                                                <td>270106</td>
-                                                <td>07-13-21</td>
-                                                <td>Paid</td>
-                                                <td>Unfulfuilled</td>
-                                                <td>₱70.00</td>
-                                                <td>Choi Soobin</td>
+                                            <tr v-for="order in fulfilled" @click="goToDetails(order.id)">
+                                                <td>{{ order.id }}</td>
+                                                <td>{{ order.dateOrdered.toDate() }}</td>
+                                                <td>{{ order.paymentStatus }}</td>
+                                                <td>{{ order.orderStatus }}</td>
+                                                <td>₱{{ order.total }}.00</td>
+                                                <td>{{ order.name }}</td>
                                             </tr>
                                         </tbody>
                                     </table> 
@@ -138,21 +108,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>27006</td>
-                                                <td>07-14-21</td>
-                                                <td>Paid</td>
-                                                <td>Shipping</td>
-                                                <td>₱70.00</td>
-                                                <td>Choi Soobin</td>
-                                            </tr>
-                                            <tr>
-                                                <td>270106</td>
-                                                <td>07-13-21</td>
-                                                <td>Paid</td>
-                                                <td>Unfulfuilled</td>
-                                                <td>₱70.00</td>
-                                                <td>Choi Soobin</td>
+                                             <tr v-for="order in cancelled" @click="goToDetails(order.id)">
+                                                <td>{{ order.id }}</td>
+                                                <td>{{ order.dateOrdered.toDate() }}</td>
+                                                <td>{{ order.paymentStatus }}</td>
+                                                <td>{{ order.orderStatus }}</td>
+                                                <td>₱{{ order.total }}.00</td>
+                                                <td>{{ order.name }}</td>
                                             </tr>
                                         </tbody>
                                     </table> 
@@ -171,6 +133,25 @@
 
 <script>
 export default {
+    async asyncData({$fire}){
+        let collection = $fire.firestore.collection('orders')
+        let documents = await collection.get()
+
+        let array = []
+        await Promise.all(documents.docs.map(document => { //remove map for single document
+            array.push({id: document.id, ...document.data()})
+        }))
+
+        let pending = array.filter(document => document.orderStatus == "Pending")
+        let fulfilled = array.filter(document => document.orderStatus == "Fulfilled")
+        let cancelled = array.filter(document => document.orderStatus == "Cancelled")
+        return{pending, fulfilled, cancelled}
+    },
+    methods: {
+        goToDetails(orderId){
+            this.$router.push("/orderdetail/" + orderId);
+        }
+    }
 
 }
 </script>
