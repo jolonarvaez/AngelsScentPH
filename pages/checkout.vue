@@ -23,22 +23,13 @@
                                     </tr>
                                 </thead>
                                 <tbody class="regular">
-                                    <tr>
-                                        <td class="d-flex flex-column">
-                                            <div>Adelaide</div>
+                                    <tr :key="item.id" v-for="item in items">
+                                        <td>
+                                            <div>{{ item.name }}</div>
                                         </td>
-                                        <td>10 ml</td>
-                                        <td>1</td>
-                                        <td>₱60.00</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="d-flex flex-column">
-                                            <div>Adelaide</div>
-                                        </td>
-                                        <td>50 ml</td>
-                                        <td>2</td>
-                                        <td>₱250.00</td>
+                                        <td>{{ item.weight }}ML</td>
+                                        <td>{{ item.qty }}</td>
+                                        <td>₱{{ item.price }}.00</td>
                                     </tr>
                                 </tbody>
 
@@ -49,7 +40,7 @@
                                         </td>
                                         <td></td>
                                         <td></td>
-                                        <td>3</td>
+                                        <td>{{ totalQty }}</td>
                                     </tr>
 
                                     <tr>
@@ -58,7 +49,7 @@
                                         </td>
                                         <td></td>
                                         <td></td>
-                                        <td>110 ml</td>
+                                        <td>{{ totalWeight }}ML</td>
                                     </tr>
                                 </tbody>
             
@@ -67,7 +58,7 @@
                                         <td>Subtotal</td>
                                         <td></td>
                                         <td></td>
-                                        <td>₱560.00</td>
+                                        <td>₱{{ total }}.00</td>
                                     </tr>
                                     <tr>
                                         <td>Shipping Fee</td>
@@ -82,7 +73,7 @@
                                         <td>Total</td>
                                         <td></td>
                                         <td></td>
-                                        <td>₱560.00</td>
+                                        <td>₱{{ total }}.00</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -96,13 +87,22 @@
                         
                         <div class="my-3">
                             <div class="text-uppercase">Name</div>
-                            <div class="details regular">Choi Soobin</div>
+                            <div class="details regular">{{ data.fName }} {{ data.lName }}</div>
                         </div>
-                        
+
+                        <div class="my-3">
+                            <div class="text-uppercase">Email</div>
+                            <div class="details regular">{{ data.email}}</div>
+                        </div>
+
+                        <div class="my-3">
+                            <div class="text-uppercase">Contact Number</div>
+                            <div class="details regular">{{ data.contactNo}}</div>
+                        </div>
 
                         <div class="my-3">
                             <div class="text-uppercase">Shipping Address</div>
-                            <div class="details regular">1234 MAGIC ST. 9 QUARTER PLATFORM AND  SMTH SMTH SMTHCROWN PUMA 0X1 LOVESONG IF YOUR SMTH SMTH  ADRESS SMTH  IS TOO LONG.... HONESTLY  SMTH SMTH 3 LINES WORTH SMTH</div>
+                            <div class="details regular">{{ data.streetAdd}} {{ data.city }} {{ data.province}} {{ data.zipcode }}</div>
                         </div>
                     </div>
                     
@@ -137,7 +137,7 @@
 
                     <br/>
                     <div class="mt-3 d-flex justify-content-around"> 
-                        <button type="button" class="shadow text-uppercase btn btn-light button regular">Complete Order</button>
+                        <button @click="createOrder()" type="button" class="shadow text-uppercase btn btn-light button regular">Complete Order</button>
                     </div>
 
                 </div>
@@ -148,6 +148,49 @@
 
 <script>
 export default {
+    computed: {
+            items() {
+                return this.$store.state.cart.items
+            },
+            total() {
+                return this.$store.state.cart.total
+            },
+            totalWeight() {
+                return this.$store.state.cart.totalWeight
+            },
+            totalQty() {
+                return this.$store.state.cart.totalQty
+            }
+        },
+
+    async asyncData({ $fire, store }){
+        let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
+        let data = await docRef.get().then(doc => doc.data())
+        return{ data }
+    },
+    methods: {
+        createOrder(){
+            try {
+                var items = []
+                items = this.items
+                this.$fire.firestore.collection("orders").add({
+                    name: this.data.fName + ' ' + this.data.lName,
+                    email: this.data.email, 
+                    address: this.data.streetAdd+ ' ' + this.data.city + ' ' + this.data.province + ' ' + this.data.zipcode, 
+                    contactNo: this.data.contactNo,
+                    paymentStatus: "Pending",
+                    orderStatus: "Unfulfilled",
+                    total: this.total,
+                    items: items,
+                    dateOrdered: this.$fireModule.firestore.Timestamp.now()
+                })
+                 this.$store.commit('cart/empty', this.$store.state.user && this.$store.state.user.uid ? this.$store.state.user.uid : null)
+                this.$router.push('/products')
+            } catch (e) {
+                alert(e)
+            }
+        }
+    }
 
 }
 </script>

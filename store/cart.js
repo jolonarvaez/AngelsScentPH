@@ -64,7 +64,7 @@ export const mutations = {
 
     if (uid) {
       let batch = this.$fire.firestore.batch()
-      let cartRef = this.$fire.firestore.collection('customers').doc(uid).collection('cart')
+      let cartRef = this.$fire.firestore.collection('users').doc(uid).collection('cart')
 
       cartRef.get().then(async snapshot => {
         await Promise.all(snapshot.docs.map(async doc => {
