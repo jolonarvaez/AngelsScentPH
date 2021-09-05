@@ -3,7 +3,7 @@
         <div class="account-header text-center text-uppercase py-2 regular">
             Account
         </div>
-        <div class="container-fluid account-bg">
+        <div class="container-fluid">
             <div class="row py-3">
                 <AccountNavbar />
                 <div class="col-10">
@@ -13,10 +13,10 @@
                                 <div class="section-title medium text-uppercase mb-3">Order List</div>
                                 <div class="container-fluid my-2 account-section">
                                     <div class="table-responsive">
-                                        <table class="table table-hover text-center text-uppercase">
+                                        <table class="table table-hover text-start">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Order Num</th>
+                                                    <th scope="col">Order Number</th>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Payment Status</th>
                                                     <th scope="col">Order Status</th>
@@ -24,26 +24,12 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>120600</td>
-                                                    <td>07-15-21</td>
-                                                    <td>PAID</td>
-                                                    <td>UNFULFILLED</td>
-                                                    <td>P310.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>030819</td>
-                                                    <td>07-13-21</td>
-                                                    <td>PAID</td>
-                                                    <td>FULFILLED</td>
-                                                    <td>P250.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>270006</td>
-                                                    <td>07-14-21</td>
-                                                    <td>PAID</td>
-                                                    <td>SHIPPING</td>
-                                                    <td>P60.00</td>
+                                                <tr :key="order.id" v-for="order in orders" @click="goToDetails(order.id)" class="table-row">
+                                                    <td>{{ order.id }}</td>
+                                                    <td>{{ order.dateOrdered.toDate() }}</td>
+                                                    <td>{{ order.paymentStatus }}</td>
+                                                    <td>{{ order.orderStatus }}</td>
+                                                    <td>P{{ order.total }}.00</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -74,14 +60,29 @@ export default {
     async asyncData({ $fire, store }){
         let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
         let data = await docRef.get().then(doc => doc.data())
-        console.log(data)
-        return{ data }
+        
+        let orderRef = $fire.firestore.collection('orders').where("userId", "==" , store.state.user.uid)
+        let documents = await orderRef.get()
+
+        let orders = []
+        await Promise.all(documents.docs.map(document => { //remove map for single document
+            orders.push({id: document.id, ...document.data()})
+        }))
+        console.log(orders)
+        return{ data, orders }
+    },
+    methods: {
+        goToDetails(orderId){
+            this.$router.push("/orderdetail/" + orderId);
+        }
     }
 }
 </script>
 
 <style scoped>
-
+.table-row{
+    cursor: pointer;
+}
 .account-bg{
     background-color: #FAFAFA;
 }

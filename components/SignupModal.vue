@@ -93,7 +93,7 @@ export default {
                 await this.createUserDocument(result.user.uid, result.user.email, this.fName, this.lName, this.contactNo, this.streetAdd, this.city, this.province, this.zipcode)
                 $("#signup").hide()
                 $('.modal-backdrop').remove();
-                this.$router.push('/account')
+                this.$router.push('/account/info')
 
 
             } catch (e) {

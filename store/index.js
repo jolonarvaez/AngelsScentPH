@@ -62,7 +62,7 @@ export const state = () => ({
           
         }
 
-        this.$router.push('/account')
+        this.$router.push('/account/info')
       }
     }
   }

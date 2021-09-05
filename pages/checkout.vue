@@ -174,6 +174,7 @@ export default {
                 var items = []
                 items = this.items
                 this.$fire.firestore.collection("orders").add({
+                    userId: this.$store.state.user.uid,
                     name: this.data.fName + ' ' + this.data.lName,
                     email: this.data.email, 
                     address: this.data.streetAdd+ ' ' + this.data.city + ' ' + this.data.province + ' ' + this.data.zipcode, 
