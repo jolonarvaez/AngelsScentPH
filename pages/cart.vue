@@ -70,7 +70,9 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="shadow text-uppercase btn btn-light checkout w-75 regular mt-4">Proceed to Checkout</button>
+                    <div v-if="items.length > 0" class=" w-100 d-flex justify-content-center">
+                        <NuxtLink class="shadow text-uppercase btn btn-light checkout regular mt-4" to ="/checkout">Proceed to Checkout</NuxtLink>
+                    </div>
                 </div>
             </div>
         </div>

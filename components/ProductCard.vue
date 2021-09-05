@@ -1,13 +1,13 @@
 <template>
-    <div class="card border-0 text-center my-2 mx-4" style="width: 14rem;">
-        <img :src="img" class="card-img-top m-auto" style="width: 7.5rem;" alt="...">
+    <div class="card border-0 text-center my-2 mx-4" style="width: 12rem;">
+        <img :src="img" class="card-img-top m-auto mt-3" style="width: 7.5rem;" alt="...">
         <div class="card-body">
             <h5 class="card-title text-uppercase medium">{{name}}</h5>
             <div class="card-text regular my-1">{{weight}}ML</div>
-            <div class="card-text light my-1">₱{{price}}</div>
+            <div class="card-text light my-1">₱{{price}}.00</div>
         </div>
         <NuxtLink :to="path">
-            <button type="button" class="text-uppercase btn btn-light view-btn regular my-2 mx-1">View Product</button>
+            <button type="button" class="text-uppercase btn btn-light view-btn regular my-2 w-75">View Product</button>
         </NuxtLink>
     </div>
     

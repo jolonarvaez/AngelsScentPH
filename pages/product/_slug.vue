@@ -154,6 +154,12 @@ export default {
 </script>
 
 <style>
+
+.card:hover{
+    transition: box-shadow .3s;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
 .product-img{
     max-width: 20rem;
     border-radius: 10px;
