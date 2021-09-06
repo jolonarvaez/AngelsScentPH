@@ -26,7 +26,7 @@
                             <p>Product Description</p>
                         </div>
                         <div class="col-sm-9">
-                            <textarea id="productDesc" class="form-control border border-secondary" rows="3"></textarea>
+                            <textarea id="productDesc" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="row mt-3 pt-2">
@@ -73,7 +73,12 @@
                         <div class="col-sm-3">
                             <p>Status</p>
                         </div>
-                       
+                        <div class="col-sm-3">
+                            <select class="form-select">
+                                <option value="1" selected>LISTED</option>
+                                <option value="2">NOT LISTED</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
