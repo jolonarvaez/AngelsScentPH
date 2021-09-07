@@ -17,12 +17,12 @@
                                     Order Insight
                                 </div>
                                 <div class="light py-2">
-                                    <div class="py-2"> 0 Cancelled Orders </div>
-                                    <div class="py-2"> 0 Fulflled Orders </div>
-                                    <div class="py-2"> 0 Pending Orders </div>
-                                    <div class="py-2 mt-4"> 0 Paid Orders </div>
-                                    <div class="py-2"> 0 Unpaid Orders </div>
-                                    <div class="py-2 mt-4"> 0 Total Orders </div>
+                                    <div class="py-2"> {{ cancelledSum }} Cancelled Orders </div>
+                                    <div class="py-2"> {{ fulfilledSum }} Fulfilled Orders </div>
+                                    <div class="py-2"> {{ pendingSum }} Pending Orders </div>
+                                    <div class="py-2 mt-4"> {{ paidSum }} Paid Orders </div>
+                                    <div class="py-2"> {{ unpaidSum }} Unpaid Orders </div>
+                                    <div class="py-2 mt-4"> {{ ordersSum }} Total Orders </div>
                                 </div>
                             </div>   
                             <div class="col-lg-4 rounded dashboard-bg mx-4 d-flex flex-column my-2">
@@ -45,6 +45,34 @@
 
 <script>
 export default {
+    async asyncData({$fire}) {
+         let collection = $fire.firestore.collection('orders')
+         let documents = await collection.get()
+
+         let orders = []
+         await Promise.all(documents.docs.map(document => { //remove map for single document
+            orders.push({id: document.id, ...document.data()})
+        }))
+
+        let pending = orders.filter(document => document.orderStatus == "Pending")
+        let pendingSum = pending.length
+        
+        let fulfilled = orders.filter(document => document.orderStatus == "Fulfilled")
+        let fulfilledSum = fulfilled.length
+        
+        let cancelled = orders.filter(document => document.orderStatus == "Cancelled")
+        let cancelledSum = cancelled.length
+
+        let paid = orders.filter(document => document.paymentStatus == "Paid")
+        let paidSum = paid.length
+
+        let unpaid = orders.filter(document => document.paymentStatus == "Unpaid")
+        let unpaidSum = unpaid.length
+
+        let ordersSum = orders.length
+
+        return{pendingSum, fulfilledSum, cancelledSum, paidSum, unpaidSum, ordersSum}
+    }
 
 }
 </script>
