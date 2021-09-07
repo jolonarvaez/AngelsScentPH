@@ -30,7 +30,6 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" @click="changeOrderStatus('Pending')">Pending</a></li>
-                                    <li><a class="dropdown-item" @click="changeOrderStatus('Shipping')">Shipping</a></li>
                                     <li><a class="dropdown-item" @click="changeOrderStatus('Fulfilled')">Fulfilled</a></li>
                                     <li><a class="dropdown-item" @click="changeOrderStatus('Cancelled')">Cancelled</a></li>
                                 </ul>
