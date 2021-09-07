@@ -63,7 +63,7 @@ export default {
                             console.log("Document data:", doc.data());
                             if(doc.data().role == "admin")
                                 this.$store.commit('SET_ADMIN', true)
-                                
+                                this.$router.push("/dashboard/sales")
                             // this.$store.commit("SET_USER", result.user.uid, result.user.email)
                         } else {
                             console.log("No such document!");

@@ -56,13 +56,13 @@ export const state = () => ({
                 }
                 return item
               })
-
+              
+              
               state.commit('cart/setItems', cart)
             })
           
         }
-
-        this.$router.push('/account/info')
+          this.$router.push('/products')
       }
     }
   }

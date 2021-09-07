@@ -136,7 +136,7 @@
                     </div> 
 
                     <br/>
-                    <div class="mt-3 d-flex justify-content-around"> 
+                    <div v-if="items.length > 0" class="mt-3 d-flex justify-content-around"> 
                         <button @click="createOrder()" type="button" class="shadow text-uppercase btn btn-light button regular">Complete Order</button>
                     </div>
 

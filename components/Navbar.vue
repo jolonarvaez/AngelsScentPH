@@ -24,11 +24,17 @@
                         <li class="nav-item px-2">
                             <NuxtLink to="/contact"><a class="nav-link">Contact Us</a></NuxtLink>
                         </li>
-                        <li v-if="isAdmin" class="nav-item px-2">
-                            <NuxtLink to="/dashboard/sales"><a class="nav-link">Dashboard</a></NuxtLink>
+                        <li v-if="isAdmin" class="nav-item dropdown px-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="dashboardDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-lg-end text-capitalize" aria-labelledby="dashboardDropDown">
+                                <li> <NuxtLink to="/dashboard/sales"><a v-if="user"  class="dropdown-item" >View Dashboard</a></NuxtLink></li>
+                                <li><a v-if="user" @click="signout" class="dropdown-item">Sign Out</a></li>
+                            </ul>
                         </li>
 
-                        <li class="nav-item dropdown px-2">
+                        <li v-if="!isAdmin" class="nav-item dropdown px-2">
                             <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Account
                             </a>
