@@ -27,7 +27,7 @@
                                 <tbody>
                                     <tr v-for="order in fulfilled" @click="goToDetails(order.id)">
                                         <td>{{ order.id }}</td>
-                                        <td class="text-uppercase">{{ order.dateOrdered.toDate() }}1</td>
+                                        <td class="text-uppercase">{{ order.dateOrdered.toDate() }}</td>
                                         <td class="text-uppercase">{{ order.paymentStatus }}</td>
                                         <td class="text-uppercase">{{ order.orderStatus }}</td>
                                         <td class="text-uppercase">₱{{ order.total }}.00</td>
