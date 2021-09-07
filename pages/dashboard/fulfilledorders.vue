@@ -13,9 +13,9 @@
                             Fulfilled Orders
                         </div>
                         <div class="table-responsive h-100">
-                            <table class="table align-middle table-hover text-center text-uppercase regular">
+                            <table class="table align-middle table-hover text-center regular">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-uppercase">
                                         <th scope="col">Order Number</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Payment Status</th>
@@ -25,21 +25,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>27006</td>
-                                        <td>07-14-21</td>
-                                        <td>Paid</td>
-                                        <td>Shipping</td>
-                                        <td>₱70.00</td>
-                                        <td>Choi Soobin</td>
-                                    </tr>
-                                    <tr>
-                                        <td>270106</td>
-                                        <td>07-13-21</td>
-                                        <td>Paid</td>
-                                        <td>Unfulfuilled</td>
-                                        <td>₱70.00</td>
-                                        <td>Choi Soobin</td>
+                                    <tr v-for="order in fulfilled" @click="goToDetails(order.id)">
+                                        <td>{{ order.id }}</td>
+                                        <td class="text-uppercase">{{ order.dateOrdered.toDate() }}1</td>
+                                        <td class="text-uppercase">{{ order.paymentStatus }}</td>
+                                        <td class="text-uppercase">{{ order.orderStatus }}</td>
+                                        <td class="text-uppercase">₱{{ order.total }}.00</td>
+                                        <td class="text-uppercase">{{ order.name }}</td>
                                     </tr>
                                 </tbody>
                             </table> 
@@ -53,6 +45,27 @@
 
 <script>
 export default {
+
+    async asyncData({$fire}) {
+         let collection = $fire.firestore.collection('orders')
+         let documents = await collection.get()
+
+         let orders = []
+         await Promise.all(documents.docs.map(document => { //remove map for single document
+            orders.push({id: document.id, ...document.data()})
+        }))
+
+        console.log(orders)
+
+        let fulfilled = orders.filter(document => document.orderStatus == "Fulfilled")
+
+        return{fulfilled}
+    },
+    methods: {
+        goToDetails(orderId){
+            this.$router.push("/dashboard/orderdetail/" + orderId);
+        }
+    }
 
 }
 </script>

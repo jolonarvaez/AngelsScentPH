@@ -13,63 +13,25 @@
                             Pending Orders
                         </div>
                         <div class="table-responsive h-100">
-                            <table class="table align-middle table-hover text-center text-uppercase regular">
+                            <table class="table align-middle table-hover regular">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-uppercase">
                                         <th scope="col">Order Number</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Payment Status</th>
                                         <th scope="col">Order Status</th>
                                         <th scope="col">Total</th>
-                                        <th scope="col">Customer Name</th>
-                                        <th scope="col">Choose Action</th>
-                                        
+                                        <th scope="col">Customer Name</th> 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>27006</td>
-                                        <td>07-14-21</td>
-                                        <td>Paid</td>
-                                        <td>Shipping</td>
-                                        <td>₱70.00</td>
-                                        <td>Choi Soobin</td>
-                                        <td class="d-flex flex-column"> 
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Choose Action
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item" href="#">Mark as Paid</a></li>
-                                                    <li><a class="dropdown-item" href="#">Mark as Shipping</a></li>
-                                                    <li><a class="dropdown-item" href="#">Mark as Cancelled</a></li>
-                                                </ul>
-                                            </div>       
-                                            <button type="button" class="text-uppercase btn save-btn btn-outline-light mx-3 my-2">Save Changes</button>                               
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>270106</td>
-                                        <td>07-13-21</td>
-                                        <td>Paid</td>
-                                        <td>Unfulfuilled</td>
-                                        <td>₱70.00</td>
-                                        <td>Choi Soobin</td>
-                                        <td class="d-flex flex-column"> 
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Choose Action
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item" href="#">Mark as Paid</a></li>
-                                                    <li><a class="dropdown-item" href="#">Mark as Shipping</a></li>
-                                                    <li><a class="dropdown-item" href="#">Mark as Cancelled</a></li>
-                                                </ul>
-                                            </div>       
-                                            <button type="button" class="text-uppercase btn save-btn btn-outline-light mx-3 my-2">Save Changes</button>                               
-                                        </td>
+                                    <tr v-for="order in pending" @click="goToDetails(order.id)">
+                                        <td>{{ order.id }}</td>
+                                        <td class="text-uppercase">{{ order.dateOrdered.toDate() }}</td>
+                                        <td class="text-uppercase">{{ order.paymentStatus }}</td>
+                                        <td class="text-uppercase">{{ order.orderStatus }}</td>
+                                        <td class="text-uppercase">₱{{ order.total }}.00</td>
+                                        <td class="text-uppercase">{{ order.name }}</td>
                                     </tr>
                                 </tbody>
                             </table> 
@@ -83,7 +45,26 @@
 
 <script>
 export default {
+    async asyncData({$fire}) {
+         let collection = $fire.firestore.collection('orders')
+         let documents = await collection.get()
 
+         let orders = []
+         await Promise.all(documents.docs.map(document => { //remove map for single document
+            orders.push({id: document.id, ...document.data()})
+        }))
+
+        console.log(orders)
+
+        let pending = orders.filter(document => document.orderStatus == "Pending")
+
+        return{pending}
+    },
+    methods: {
+        goToDetails(orderId){
+            this.$router.push("/dashboard/orderdetail/" + orderId);
+        }
+    }
 }
 </script>
 
@@ -91,6 +72,10 @@ export default {
 
 table{
     font-size: 0.85rem;
+}
+
+tr{
+    cursor: pointer;
 }
 
 .save-btn{
