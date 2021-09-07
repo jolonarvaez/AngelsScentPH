@@ -179,8 +179,8 @@ export default {
                     email: this.data.email, 
                     address: this.data.streetAdd+ ' ' + this.data.city + ' ' + this.data.province + ' ' + this.data.zipcode, 
                     contactNo: this.data.contactNo,
-                    paymentStatus: "Unpaid",
-                    orderStatus: "Pending",
+                    paymentStatus: "Pending",
+                    orderStatus: "Unfulfilled",
                     total: this.total,
                     items: items,
                     dateOrdered: this.$fireModule.firestore.Timestamp.now()

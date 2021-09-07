@@ -1,6 +1,6 @@
 <template>
     <div class="card border-0 text-center my-2 mx-4" style="width: 12rem;">
-        <img :src="img" class="card-img-top m-auto" alt="...">
+        <img :src="img" class="card-img-top m-auto mt-3" style="width: 7.5rem;" alt="...">
         <div class="card-body">
             <h5 class="card-title text-uppercase medium">{{name}}</h5>
             <div class="card-text regular my-1">{{weight}}ML</div>
