@@ -99,7 +99,7 @@
                                                 <td class="text-uppercase">{{ order.paymentStatus }}</td>
                                                 <td class="text-uppercase">{{ order.orderStatus }}</td>
                                                 <td class="text-uppercase">₱{{ order.total }}.00</td>
-                                                <td class="text-uppercase">{{ order.name }}</td>
+                                                <td >{{ order.name }}</td>
                                             </tr>
                                         </tbody>
                                     </table> 
@@ -122,16 +122,29 @@ export default {
          let collection = $fire.firestore.collection('orders')
          let documents = await collection.get()
 
-         let orders = []
-         await Promise.all(documents.docs.map(document => { //remove map for single document
-            orders.push({id: document.id, ...document.data()})
+        let pending = []
+        let pendingRef = collection.where("orderStatus", "==", "Pending").limit(10)
+        let pendingDocs = await pendingRef.get()
+
+        await Promise.all(pendingDocs.docs.map(document => { //remove map for single document
+            pending.push({id: document.id, ...document.data()})
         }))
 
-        console.log(orders)
+        let fulfilled = []
+        let fulfilledRef = collection.where("orderStatus", "==", "Fulfilled").limit(10)
+        let fulfilledDocs = await fulfilledRef.get()
 
-        let pending = orders.filter(document => document.orderStatus == "Pending")
-        let fulfilled = orders.filter(document => document.orderStatus == "Fulfilled")
-        let cancelled = orders.filter(document => document.orderStatus == "Cancelled")
+        await Promise.all(fulfilledDocs.docs.map(document => { //remove map for single document
+            fulfilled.push({id: document.id, ...document.data()})
+        }))
+
+        let cancelled = []
+        let cancelledRef = collection.where("orderStatus", "==", "Cancelled").limit(10)
+        let cancelledDocs = await cancelledRef.get()
+
+        await Promise.all(cancelledDocs.docs.map(document => { //remove map for single document
+            cancelled.push({id: document.id, ...document.data()})
+        }))
 
         return{pending, fulfilled, cancelled}
     },
