@@ -9,7 +9,7 @@
                 <NuxtLink to=""><a class="nav-link">Product <br>Inventory</a></Nuxtlink>
             </li>
             <li class="nav-item regular">
-                <NuxtLink to=""><a class="nav-link" href="">Add Product</a></Nuxtlink>
+                <NuxtLink to="/dashboard/addproduct"><a class="nav-link">Add Product</a></Nuxtlink>
             </li>
             <li class="nav-item mt-4">
                 <span class="navbar-brand">Orders and Sales</span>
