@@ -3,7 +3,7 @@
         <p class="mt-2 mb-4">---ASSIGNMENT NEEDED---</p>
         <br>
         
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guestWarning">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#guestWarning">
             Guest Account Warning
         </button>
 
@@ -21,9 +21,9 @@
 
                         <div class="container-fluid d-flex justify-content-center regular">
                             <div class="btn-container mt-4 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-primary text-uppercase py-2 mt-3" block>Sign Up</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase py-2 mt-3" block>Sign Up</button>
                                 <p class="popup-text text-center my-1 py-2">OR</p>
-                                <button type="button" class="btn btn-primary text-uppercase py-2 mb-4" block>Log In</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase py-2 mb-4" block>Log In</button>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
         </div>
         
         <!-- Confirmation Message -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target='#confirmation'>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target='#confirmation'>
             Contact Us + Payment Form Confirmation
         </button>
 
@@ -49,7 +49,7 @@
 
                         <div class="container-fluid d-flex justify-content-center regular">
                             <div class="btn-container mt-4 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-primary text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
 
 
         <!-- Delete Account -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target='#deleteAccount'>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target='#deleteAccount'>
             Delete Account
         </button>
 
@@ -80,8 +80,8 @@
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Delete</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Go Back</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-foramt text-uppercase">Delete</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -109,8 +109,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Log Out</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Log Out</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@
 
                         <div class="container-fluid d-flex justify-content-center regular">
                             <div class="btn-container mt-2 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-primary text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
                             </div>
                         </div>
                     </div>
@@ -164,8 +164,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Log Out</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Log Out</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -193,8 +193,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Confirm</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Go Back</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Confirm</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -222,8 +222,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Remove</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Remove</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -252,8 +252,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Proceed</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Go Back</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Proceed</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -282,8 +282,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Proceed</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Go Back</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Proceed</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -312,8 +312,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Log Out</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Log Out</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -342,8 +342,8 @@
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Delete</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-primary text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Delete</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -375,7 +375,7 @@
 
                         <div class="container-fluid d-flex justify-content-center regular">
                             <div class="btn-container mt-2 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-primary text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
                             </div>
                         </div>
                     </div>
@@ -383,6 +383,127 @@
             </div>
         </div>
 
+        <!-- Edit Profile -->
+
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editProfile">
+            Edit Profile
+        </button>
+
+        <div class="modal fade" id="editProfile" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="container-fluid border-bottom d-flex justify-content-center medium">
+                            <p class="text-uppercase">New Profile Information</p>
+                        </div>
+
+                        <div class="container-fluid border-bottom d-flex justify-content-center">
+                            <div class="edit-container my-1">
+                                <div class="row my-4">
+                                    <div class="col">
+                                        <input type="text" class="form-control form-format" id="text" placeholder="First Name">
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="text" class="form-control form-format" id="text" placeholder="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="row-md-12 my-4">
+                                    <input type="email" class="form-control form-format" id="email" placeholder="Email">
+                                </div>
+
+                                <div class="row-md-12 my-4">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control form-format" id="password" placeholder="Password">
+                                        <button type="button" class="btn btn-primary form-format show-btn">Show</button>
+                                    </div>
+                                </div>
+
+                                <div class="row-md-12 my-4">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control form-format" id="password" placeholder="Confirm Password">
+                                        <button type="button" class="btn btn-primary form-format show-btn">Show</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="container-fluid d-flex justify-content-center my-4">
+                            <div class="row btn-container">
+                                <div class="col d-grid gap-2">
+                                    <button type="submit" class="btn btn-secondary btn-format">Save</button>
+                                </div>
+
+                                <div class="col d-grid gap-2">
+                                    <button type="button" class="btn btn-secondary btn-format">Discard</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Shipping -->
+
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editShipping">
+            Edit Shipping
+        </button>
+
+        <div class="modal fade" id="editShipping" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="container-fluid border-bottom d-flex justify-content-center medium">
+                            <p class="text-uppercase">New Shipping Information</p>
+                        </div>
+
+                        <div class="container-fluid border-bottom d-flex justify-content-center">
+                            <div class="edit-container my-1">
+                                <div class="row-md-12 mt-4 mb-2">
+                                    <input type="text" class="form-control form-format" id="text" placeholder="Street Address">
+                                </div>
+
+                                <div class="row-md-12 my-2">
+                                    <input type="text" class="form-control form-format" id="text" placeholder="Street Address 2">
+                                </div>
+
+                                <div class="row-md-12 my-4">
+                                    <input type="text" class="form-control form-format" id="text" placeholder="City">
+                                </div>
+
+                                <div class="row-md-12 my-4">
+                                    <input type="text" class="form-control form-format" id="text" placeholder="Province">
+                                </div>
+
+                                <div class="row-md-12 my-4">
+                                    <input type="text" class="form-control form-format" id="text" placeholder="Zipcode">
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="container-fluid d-flex justify-content-center my-4">
+                            <div class="row btn-container">
+                                <div class="col d-grid gap-2">
+                                    <button type="submit" class="btn btn-secondary btn-format">Save</button>
+                                </div>
+
+                                <div class="col d-grid gap-2">
+                                    <button type="button" class="btn btn-secondary btn-format">Discard</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </template>
@@ -408,6 +529,10 @@
 
     .signup-container{
         width: 900px;
+    }
+
+    .edit-container{
+        width: 400px;
     }
 
     .header-btn {
@@ -458,7 +583,7 @@
         font-size: 20.5px;
     }
 
-    .btn {
+    .btn-format {
         background: #9F9A96;
         border-radius: 8px;
     }
@@ -480,5 +605,9 @@
         font-style: normal;
         font-weight: 300;
         font-size: 20.5px;
+    }
+
+    .large-modal {
+        width: 1500px;
     }
 </style>
