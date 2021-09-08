@@ -46,20 +46,24 @@
                                     Height: {{ data.height }}cm
                                 </div>
                             </div>
-                            <div class="text-uppercase mt-1">
-                                Available Stock: 100
+                            <div v-if="data.qty > 0" class="text-uppercase mt-1">
+                                Available Stock: {{ data.qty }}
+                                
+                            </div>
+                            <div v-if="data.qty == 0" class="text-uppercase mt-1 medium">
+                                Out of Stock
                             </div>
                         </div>
-                        <div class="def-number-input number-input safari_only m-auto my-2">
+                        <div v-if="data.qty > 0" class="def-number-input number-input safari_only m-auto my-2">
                             <button type="button" @click="() => qty--" class="minus decrease"></button>
                             <input v-model="qty" class="quantity" name="quantity" min="1" type="number" disabled>
                             <button type="button" @click="() => qty++" class="plus increase"></button>
                         </div>
-                        <div class="text-center">
+                        <div v-if="data.qty > 0" class="text-center">
                             <button type="button" @click="addToCart()" class="shadow btn btn-light add mt-2" data-bs-toggle="modal" data-bs-target="#addToCart">ADD TO CART</button>
                         </div>
 
-                        <div class="modal fade" id="addToCart" tabindex="-1">
+                        <div v-if="data.qty > this.qty" class="modal fade" id="addToCart" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -116,6 +120,9 @@
 </template>
     
 <script>
+
+import $ from 'jquery'
+
 export default {
     data(){
         return {
@@ -137,38 +144,51 @@ export default {
     },
     methods: {
         async addToCart(){
-            const item = {
-            name: this.data.name,
-            price: this.data.price,
-            qty: this.qty,
-            weight: this.data.weight,
-            productid: this.slug,
-            subtotal: this.data.price * this.qty,
-            img: this.data.img
-        }
-        if (this.$fire.auth.currentUser) {
-            let docRef = this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
-                      .collection('cart').where('productid', '==', item.productid)    
 
-            let doc = await docRef.get()
-            let cartItem = !doc.empty ? await doc.docs[0].ref.get().then(doc => doc.data()) : null
+            if(this.checkQty() != true){
 
-            if (cartItem) {
-                doc.docs[0].ref.update({
-                    qty: cartItem.qty + item.qty,
-                    subtotal: (cartItem.qty + item.qty) * item.price
-                })
-            
-                this.$store.commit('cart/addItem', { ...item})
-                console.log(this.$store.state.cart)
-            } else{
-                    let ref = await this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
-                        .collection('cart').add({
-                        ...item
-                    })
-                    this.$store.commit('cart/addItem', { ...item})
+                const item = {
+                    name: this.data.name,
+                    price: this.data.price,
+                    qty: this.qty,
+                    weight: this.data.weight,
+                    productid: this.slug,
+                    subtotal: this.data.price * this.qty,
+                    img: this.data.img
                 }
+
+                if (this.$fire.auth.currentUser) {
+                    let docRef = this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
+                            .collection('cart').where('productid', '==', item.productid)    
+
+                    let doc = await docRef.get()
+                    let cartItem = !doc.empty ? await doc.docs[0].ref.get().then(doc => doc.data()) : null
+
+                    if (cartItem) {
+                        doc.docs[0].ref.update({
+                            qty: cartItem.qty + item.qty,
+                            subtotal: (cartItem.qty + item.qty) * item.price
+                        })
+                    
+                        this.$store.commit('cart/addItem', { ...item})
+                        console.log(this.$store.state.cart)
+                    } else{
+                            let ref = await this.$fire.firestore.collection('users').doc(this.$store.state.user.uid)
+                                .collection('cart').add({
+                                ...item
+                            })
+                            this.$store.commit('cart/addItem', { ...item})
+                        }
+                    }
+                }
+        },
+        checkQty(){
+            if(this.qty > this.data.qty){
+                alert("Quantity exceeds available stock")
+                return true
             }
+            else
+                return false
         }
     }
 }

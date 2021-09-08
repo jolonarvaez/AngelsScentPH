@@ -8,7 +8,7 @@
                     <p class="text-uppercase">New Profile Information</p>
                 </div>
 
-                <form>
+                <form @submit="submit">
                     <div class="container-fluid border-bottom d-flex justify-content-center">
                         <div class="edit-container my-1">
                             <div class="row my-4">
@@ -50,7 +50,7 @@
                     <div class="container-fluid d-flex justify-content-center my-4">
                         <div class="row btn-container">
                             <div class="col d-grid gap-2">
-                                <button type="submit" @click="saveCh" class="btn btn-secondary btn-format">Save</button>
+                                <button type="submit" class="btn btn-secondary btn-format">Save</button>
                             </div>
 
                             <div class="col d-grid gap-2">
@@ -66,6 +66,9 @@
 </template>
 
 <script>
+
+import $ from 'jquery'
+
 export default {
     props:{
         id: String, 
@@ -75,19 +78,28 @@ export default {
         contactNo: String
     },
     methods:{
-        saveChanges(){
-             try {
+        async submit(event){
+            event.preventDefault()
+            try {
                 this.$fire.firestore.collection("users").doc(this.id).update({
                     fName: this.fName.trim(),
                     lName: this.lName.trim(), 
                     email: this.email.trim(),
                     contactNo: this.contactNo.trim() 
                 })
+
+                this.$fire.auth.currentUser.updateEmail(this.email.trim())
+                .then(() => {
+               
+                });
+                console.log(this.fName)
+                this.$router.app.refresh()
+                $('#editProfile').hide()
+                $('.modal-backdrop').remove();
                  
             } catch (e) {
                 alert(e)
             }
-            window.location.reload()
         }
     }
 }

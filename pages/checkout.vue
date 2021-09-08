@@ -213,7 +213,7 @@ export default {
                 })
                  this.$store.commit('cart/empty', this.$store.state.user && this.$store.state.user.uid ? this.$store.state.user.uid : null)
                  $('.modal-backdrop').remove();
-                this.$router.push('/products')
+                this.$router.push('/account/orderlist')
             } catch (e) {
                 alert(e)
             }

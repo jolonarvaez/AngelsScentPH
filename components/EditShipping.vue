@@ -7,40 +7,41 @@
                 <div class="container-fluid border-bottom d-flex justify-content-center medium">
                     <p class="text-uppercase">New Shipping Information</p>
                 </div>
+                <form @submit="submit">
+                    <div class="container-fluid border-bottom d-flex justify-content-center">
+                        <div class="edit-container my-1">
+                            <div class="row-md-12 mt-4 mb-2">
+                                <input v-model="streetAdd" type="text" class="form-control form-format" id="text" placeholder="Street Address" required>
+                            </div>
 
-                <div class="container-fluid border-bottom d-flex justify-content-center">
-                    <div class="edit-container my-1">
-                        <div class="row-md-12 mt-4 mb-2">
-                            <input v-model="streetAdd" type="text" class="form-control form-format" id="text" placeholder="Street Address" required>
+                            <div class="row-md-12 my-4">
+                                <input v-model="city" type="text" class="form-control form-format" id="text" placeholder="City" required>
+                            </div>
+
+                            <div class="row-md-12 my-4">
+                                <input v-model="province" type="text" class="form-control form-format" id="text" placeholder="Province" required>
+                            </div>
+
+                            <div class="row-md-12 my-4">
+                                <input v-model="zipcode" type="text" class="form-control form-format" id="text" placeholder="Zipcode" required>
+                            </div>
                         </div>
 
-                        <div class="row-md-12 my-4">
-                            <input v-model="city" type="text" class="form-control form-format" id="text" placeholder="City" required>
-                        </div>
-
-                        <div class="row-md-12 my-4">
-                            <input v-model="province" type="text" class="form-control form-format" id="text" placeholder="Province" required>
-                        </div>
-
-                        <div class="row-md-12 my-4">
-                            <input v-model="zipcode" type="text" class="form-control form-format" id="text" placeholder="Zipcode" required>
-                        </div>
+                        
                     </div>
 
-                    
-                </div>
+                    <div class="container-fluid d-flex justify-content-center my-4">
+                        <div class="row btn-container">
+                            <div class="col d-grid gap-2">
+                                <button type="submit" class="btn btn-secondary btn-format">Save</button>
+                            </div>
 
-                <div class="container-fluid d-flex justify-content-center my-4">
-                    <div class="row btn-container">
-                        <div class="col d-grid gap-2">
-                            <button type="button" @click="saveChanges()" class="btn btn-secondary btn-format">Save</button>
-                        </div>
-
-                        <div class="col d-grid gap-2">
-                            <button type="button" class="btn btn-secondary btn-format" data-bs-dismiss="modal">Discard</button>
+                            <div class="col d-grid gap-2">
+                                <button type="button" class="btn btn-secondary btn-format" data-bs-dismiss="modal">Discard</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -49,6 +50,9 @@
 </template>
 
 <script>
+
+import $ from 'jquery'
+
 export default {
     props:{
         id: String, 
@@ -58,7 +62,8 @@ export default {
         zipcode: String 
     },
     methods:{
-        saveChanges(){
+        async submit(event){
+            event.preventDefault()
              try {
                 this.$fire.firestore.collection("users").doc(this.id).update({
                     streetAdd: this.streetAdd.trim(),
@@ -66,11 +71,13 @@ export default {
                     province: this.province.trim(),
                     zipcode: this.zipcode.trim() 
                 })
+                this.$router.app.refresh()
+                $('#editShipping').hide()
+                $('.modal-backdrop').remove();
                  
             } catch (e) {
                 alert(e)
             }
-            window.location.reload()
         }
     }
 }
