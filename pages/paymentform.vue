@@ -52,36 +52,40 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="shadow-sm text-uppercase btn btn-light submit-btn regular mt-2 px-4 py-2">Submit Form</button>
+                        <button type="submit" class="shadow-sm text-uppercase btn btn-light submit-btn regular mt-2 px-4 py-2" data-bs-toggle="modal" data-bs-target="#confirmation">Submit Form</button>
                     </div>
                 </form>
             </div>
             
-            
-            <!-- Confimation Popup
-            <b-modal ref="payment-modal" id="confirmation" centered hide-header hide-footer >
-                <div class="container-fluid d-flex flex-column regular">
-                    <div class="payment-container mt-4 mb-2 mx-auto">
-                        <p class="payment-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
+            <!-- MODAL -->
+            <div class="modal fade" id="confirmation" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <!-- Text Container -->
+                            <div class="container-fluid d-flex flex-column regular">
+                                <div class="confirmation-container mt-4 mb-2 mx-auto">
+                                    <p class="confirmation-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
+                                </div>
+                            </div>
+
+                            <!-- Button Container -->
+                            <div class="container-fluid d-flex justify-content-center regular">
+                                <div class="btn-container mt-4 mb-2 d-grid gap-2">
+                                    <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" data-bs-dismiss="modal">Okay</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="container-fluid d-flex justify-content-center regular">
-                    <div class="btn-container mt-4 mb-2">
-                        <b-button class="button text-uppercase pb-2 mt-3 mb-4" block @click="hideModal">Okay</b-button>
-                    </div>
-                </div>
-            </b-modal> -->
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        methods: {
-            hideModal() {
-                this.$refs['payment-modal'].hide()
-            } 
-        }
+        
     }
 </script>
 
@@ -105,12 +109,12 @@
         color: white;
     }
 
-    .payment-container{
+    .confirmation-container {
         background: #FFFFFF;
         border-radius: 25px;
     }
 
-    .payment-text{
+    .confirmation-text {
         font-family: Inter;
         font-style: normal;
         font-weight: 300;
@@ -121,7 +125,7 @@
         width: 335px;
     }
 
-    .button {
+    .btn-format {
         background: #9F9A96;
         border-radius: 8px;
     }
