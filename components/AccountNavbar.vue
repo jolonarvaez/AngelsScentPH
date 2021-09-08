@@ -2,10 +2,10 @@
 <div class="col-2">
     <ul class="nav flex-column account-info shadow text-uppercase medium text-end py-2">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/account">Account <br>Information</a>
+           <NuxtLink to="/account"><a class="nav-link">Account <br>Information</a></NuxtLink>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/orderlist">Order List</a>
+            <NuxtLink to="/orderlist"><a class="nav-link">Order List</a></NuxtLink>
         </li>
     </ul>
 </div>
@@ -31,4 +31,9 @@ export default {
     background-color: white;
     border-radius: 10px;
 }
+
+li a {
+    text-decoration: none;
+}
+
 </style>

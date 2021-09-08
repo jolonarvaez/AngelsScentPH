@@ -24,7 +24,7 @@
                         <li class="nav-item px-2">
                             <NuxtLink to="/contact"><a class="nav-link">Contact Us</a></NuxtLink>
                         </li>
-                        <li class="nav-item px-2">
+                        <li v-if="isAdmin" class="nav-item px-2">
                             <NuxtLink to="/dashboard/sales"><a class="nav-link">Dashboard</a></NuxtLink>
                         </li>
 
@@ -56,6 +56,9 @@ export default {
     computed: {
     user() {
       return this.$store.state.user && this.$store.state.user.uid
+    },
+    isAdmin() {
+      return this.$store.state.isAdmin
     }
   },
     methods:{

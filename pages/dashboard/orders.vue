@@ -17,7 +17,7 @@
                                    Pending Orders
                                 </div>
                                 <div class="table-responsive">
-                                    <table class="table table-hover text-center text-uppercase regular">
+                                    <table class="table align-middle table-hover text-center text-uppercase regular">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Order Number</th>
@@ -27,7 +27,6 @@
                                                 <th scope="col">Total</th>
                                                 <th scope="col">Customer Name</th>
                                                 <th scope="col">Choose Action</th>
-                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -38,7 +37,19 @@
                                                 <td>Shipping</td>
                                                 <td>₱70.00</td>
                                                 <td>Choi Soobin</td>
-                                                <td>                                       
+                                                <td class="d-flex flex-column"> 
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Choose Action
+                                                        </a>
+
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                            <li><a class="dropdown-item" href="#">Mark as Paid</a></li>
+                                                            <li><a class="dropdown-item" href="#">Mark as Shipping</a></li>
+                                                            <li><a class="dropdown-item" href="#">Mark as Cancelled</a></li>
+                                                        </ul>
+                                                    </div>       
+                                                    <button type="button" class="text-uppercase btn save-btn btn-outline-light mx-3 my-2">Save Changes</button>                               
                                                 </td>
                                             </tr>
                                             <tr>
@@ -48,13 +59,26 @@
                                                 <td>Unfulfuilled</td>
                                                 <td>₱70.00</td>
                                                 <td>Choi Soobin</td>
-                                                <td></td>
+                                                <td class="d-flex flex-column"> 
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Choose Action
+                                                        </a>
+
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                            <li><a class="dropdown-item" href="#">Mark as Paid</a></li>
+                                                            <li><a class="dropdown-item" href="#">Mark as Shipping</a></li>
+                                                            <li><a class="dropdown-item" href="#">Mark as Cancelled</a></li>
+                                                        </ul>
+                                                    </div>       
+                                                    <button type="button" class="text-uppercase btn save-btn btn-outline-light mx-3 my-2">Save Changes</button>                               
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table> 
                                 </div>
                                 <div class="text-uppercase text-center medium table-link">
-                                    <a href="/dashboard/pendingorders">show all pending orders</a>
+                                    <NuxtLink to="/dashboard/pendingorders"><a>show all pending orders</a></NuxtLink>
                                 </div>
                             </div>
                             <div class="rounded dashboard-bg p-2 mt-4">
@@ -71,8 +95,6 @@
                                                 <th scope="col">Order Status</th>
                                                 <th scope="col">Total</th>
                                                 <th scope="col">Customer Name</th>
-                                                <th scope="col">Choose Action</th>
-                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -83,7 +105,6 @@
                                                 <td>Shipping</td>
                                                 <td>₱70.00</td>
                                                 <td>Choi Soobin</td>
-                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>270106</td>
@@ -92,13 +113,12 @@
                                                 <td>Unfulfuilled</td>
                                                 <td>₱70.00</td>
                                                 <td>Choi Soobin</td>
-                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table> 
                                 </div>
                                 <div class="text-uppercase text-center medium table-link">
-                                    <a href="/dashboard/fulfilledorders">show all fulfilled orders</a>
+                                    <NuxtLink to="/dashboard/fulfilledorders"><a href="/dashboard/fulfilledorders">show all fulfilled orders</a></NuxtLink>
                                 </div>
                             </div>
                             <div class="rounded dashboard-bg p-2 mt-4">
@@ -115,7 +135,6 @@
                                                 <th scope="col">Order Status</th>
                                                 <th scope="col">Total</th>
                                                 <th scope="col">Customer Name</th>
-                                                <th scope="col">Choose Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -126,7 +145,6 @@
                                                 <td>Shipping</td>
                                                 <td>₱70.00</td>
                                                 <td>Choi Soobin</td>
-                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>270106</td>
@@ -135,13 +153,12 @@
                                                 <td>Unfulfuilled</td>
                                                 <td>₱70.00</td>
                                                 <td>Choi Soobin</td>
-                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table> 
                                 </div>
                                 <div class="text-uppercase text-center medium table-link">
-                                    <a href="/dashboard/cancelledorders">show all cancelled orders</a>
+                                    <NuxtLink to="/dashboard/cancelledorders"><a>show all cancelled orders</a></NuxtLink>
                                 </div>
                             </div>
                         </div>
@@ -204,5 +221,10 @@ table{
 a{
     color: #79808F;
 }
+
+ a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+ }
 
 </style>

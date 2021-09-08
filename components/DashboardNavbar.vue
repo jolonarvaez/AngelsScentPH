@@ -6,23 +6,20 @@
                 <span class="navbar-brand">Products</span>
             </li>
             <li class="nav-item light regular">
-                <a class="nav-link" href="">Product <br>Inventory</a>
+                <NuxtLink to=""><a class="nav-link">Product <br>Inventory</a></Nuxtlink>
             </li>
             <li class="nav-item regular">
-                <a class="nav-link" href="">Add Product</a>
+                <NuxtLink to=""><a class="nav-link" href="">Add Product</a></Nuxtlink>
             </li>
             <li class="nav-item mt-4">
                 <span class="navbar-brand">Orders and Sales</span>
             </li>
             <li class="nav-item regular">
-                <a class="nav-link" href="/dashboard/orders">Orders</a>
+                 <NuxtLink to="/dashboard/orders"><a class="nav-link">Orders</a></Nuxtlink>
             </li>
             <li class="nav-item regular">
-                <a class="nav-link" href="/dashboard/sales">Sales Data</a>
+                <NuxtLink to="/dashboard/sales"><a class="nav-link" href="/dashboard/sales">Sales Data</a></Nuxtlink>
             </li>  
-            <li class="nav-item regular">
-                <a class="nav-link" href="#">Log out</a>
-            </li>
         </ul>
     </ul>
 </div>
@@ -47,5 +44,16 @@ export default {
 .account-list, .account-info{
     background-color: white;
     border-radius: 10px;
+}
+
+li a {
+    text-decoration: none;
+}
+
+.save-btn{
+    font-size: 0.8rem;
+    background-color: #9F9A96;
+    border-color: #9F9A96;
+    color: white;
 }
 </style>

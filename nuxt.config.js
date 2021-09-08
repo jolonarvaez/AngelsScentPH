@@ -9,7 +9,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/logo_favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap' },
     ],
     script: [
@@ -26,7 +26,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/imports.js', mode: 'client' }
+    { src: '~/plugins/imports.js', mode: 'client' },
+    { src: '~/plugins/vuex-persist', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -36,15 +37,9 @@ export default {
   buildModules: [
     //'@nuxtjs/google-fonts'
   ],
-  // router: {
-  //   middleware: ['auth']
-  // },
-
-  // googleFonts: {
-  //   families: {
-  //     Inter: [300, 500, 700],
-  //   }
-  // },
+  router: {
+    middleware: ['auth']
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
