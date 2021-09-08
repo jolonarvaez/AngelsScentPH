@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="row mt-3 pt-5 w-100 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-lg btn-block w-75" id = "submit">Save Changes</button>
+                        <button type="submit" class="btn btn-lg btn-block w-50 save-btn btn-outline-light text-uppercase" id = "submit">Save Changes</button>
                     </div>
                     
                 </div>
@@ -105,8 +105,8 @@
 }
 #submit{
     background-color: #9F9A96;
-    font-weight: bold;
     color: white;
+    border-radius: 8px;
 }
 .round{
     border-radius: 30px;

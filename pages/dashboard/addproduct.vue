@@ -95,8 +95,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-4"></div>
-                                <div class="col-sm-4">
-                                    <button type="submit" class="btn w-75 pt py-2 px-3" id = "submit">Add product</button>
+                                <div class="col-sm-4 d-flex justify-content-center my-5">
+                                    <button type="submit" class="btn w-75 pt py-2 px-3 save-btn btn-outline-light text-uppercase" id = "submit">Add product</button>
+                                    
                                 </div>
                                 <div class="col-sm-4"></div>
                             </div>
@@ -113,7 +114,5 @@
     background-color: #9F9A96;
     color: white;
     border-radius: 8px;
-    font-weight: bold;
-
 }
 </style>
