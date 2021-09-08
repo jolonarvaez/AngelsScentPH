@@ -56,7 +56,28 @@
                             <button type="button" @click="() => qty++" class="plus increase"></button>
                         </div>
                         <div class="text-center">
-                            <button type="button" @click="addToCart()" class="shadow btn btn-light add mt-2">ADD TO CART</button>
+                            <button type="button" @click="addToCart()" class="shadow btn btn-light add mt-2" data-bs-toggle="modal" data-bs-target="#addToCart">ADD TO CART</button>
+                        </div>
+
+                        <div class="modal fade" id="addToCart" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <!-- Text Container -->
+                                        <div class="container-fluid d-flex flex-column regular">
+                                            <div class="confirmation-container mt-4 mb-2 mx-auto">
+                                                <p class="confirmation-text text-center mt-4 mb-2 py-2">Noted! We have added this product to your shopping cart.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid d-flex justify-content-center regular">
+                                            <div class="btn-container mt-2 mb-2 d-grid gap-2">
+                                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" data-bs-dismiss="modal">Okay</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                     </div> 

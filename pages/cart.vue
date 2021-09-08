@@ -43,7 +43,10 @@
                                             </div>
                                         </td>
                                         <td :id='item.id+" subtotal"'>₱{{ item.subtotal }}.00</td>
-                                        <td><div v-on:click='onDelete(item.id)' class="remove">Remove</div></td>
+                                        <!-- <td><div v-on:click='onDelete(item.id)' class="remove" data-bs-toggle="modal" data-bs-target="#removeCart">Remove</div></td> -->
+                                        <td><div class="remove" data-bs-toggle="modal" :data-bs-target='"#removeCart"+item.id'>Remove</div></td>
+
+                                        <RemoveCart :id="item.id" />
                                     </tr>
                                 </tbody>
                             </table>
@@ -80,6 +83,7 @@
 </template>
 
 <script>
+
 export default {
     computed: {
         items() {

@@ -137,9 +137,32 @@
 
                     <br/>
                     <div v-if="items.length > 0" class="mt-3 d-flex justify-content-around"> 
-                        <button @click="createOrder()" type="button" class="shadow text-uppercase btn btn-light button regular">Complete Order</button>
+                        <button type="button" class="shadow text-uppercase btn btn-light button regular" data-bs-toggle="modal" data-bs-target="#checkOut">Complete Order</button>
                     </div>
 
+                    <div class="modal fade" id="checkOut" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="container-fluid d-flex flex-column regular">
+                                        <div class="popup-container mt-4 mb-2 mx-auto">
+                                            <!-- Text -->
+                                            <div class="row border-bottom">
+                                                <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Once you submit your order, you will not be able to edit it. Proceed with check out and complete your order?</p></div>
+                                            </div>
+
+                                            <div class="d-flex justify-content-center">
+                                                <div class="row btn-container mt-4 mb-2">
+                                                    <div class="col d-grid gap-2"><button type="button"  @click="createOrder()" class="btn btn-secondary btn-format text-uppercase">Proceed</button></div>
+                                                    <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Go Back</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,7 +170,10 @@
 </template>
 
 <script>
+import $ from 'jquery'
+
 export default {
+    
     computed: {
             items() {
                 return this.$store.state.cart.items
@@ -186,6 +212,7 @@ export default {
                     dateOrdered: this.$fireModule.firestore.Timestamp.now()
                 })
                  this.$store.commit('cart/empty', this.$store.state.user && this.$store.state.user.uid ? this.$store.state.user.uid : null)
+                 $('.modal-backdrop').remove();
                 this.$router.push('/products')
             } catch (e) {
                 alert(e)
