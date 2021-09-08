@@ -65,7 +65,7 @@
                             <!-- Text Container -->
                             <div class="container-fluid d-flex flex-column regular">
                                 <div class="confirmation-container mt-4 mb-2 mx-auto">
-                                    <p class="confirmation-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
+                                    <p class="text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
                                 </div>
                             </div>
 
@@ -112,13 +112,6 @@
     .confirmation-container {
         background: #FFFFFF;
         border-radius: 25px;
-    }
-
-    .confirmation-text {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 20.5px;
     }
 
     .btn-container{
