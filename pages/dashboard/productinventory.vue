@@ -31,52 +31,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="my-5">
-                                                    <td><ins>ADELAIDE</ins></td>
-                                                    <td>
-                                                        <div class="image d-flex">
-                                                            <img src="~/assets/product.jpg" class="mx-auto" style="width: 7.5rem;">
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-truncate" style="max-width: 1rem;">SMELLS LIKE BURBERRY OR SMTH</td>
-                                                    <td>15’’</td>
-                                                    <td>11’’</td>
-                                                    <td>12’’</td>
-                                                    <td>10 ML</td>
-                                                    <td>₱60.00</td>
-                                                    <td>15</td>
-                                                    <td>Listed</td>
-                                                    <td>
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                           <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light">Edit</button>
-                                                            <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light">Delete</button>
-                                                        </div>
-                                                        
-                                                    </td>
-                                            </tr>
-                                           
-                                            <tr class="my-5">
-                                                    <td><ins>ADELAIDE</ins></td>
-                                                    <td>
-                                                        <div class="image d-flex">
-                                                            <img src="~/assets/product.jpg" class="mx-auto" style="width: 7.5rem;">
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-truncate" style="max-width: 1rem;">SMELLS LIKE THE SONG OF THE YEAR</td>
-                                                    <td>15’’</td>
-                                                    <td>11’’</td>
-                                                    <td>12’’</td>
-                                                    <td>50 ML</td>
-                                                    <td>₱250.00</td>
-                                                    <td>15</td>
-                                                    <td>Hidden</td>
-                                                    <td>
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                           <button class="btn mb-2 text-uppercase save-btn btn-outline-light">Edit</button>
-                                                            <button class="btn mb-2 text-uppercase save-btn btn-outline-light">Delete</button>
-                                                        </div>
-                                                        
-                                                    </td>
+                                            <tr :key="product.id" v-for="product in products" class="my-5">
+                                                <td><ins>{{ product.name }}</ins></td>
+                                                <td>
+                                                    <div class="image d-flex">
+                                                        <img :src="product.img" class="mx-auto" style="width: 7.5rem;">
+                                                    </div>
+                                                </td>
+                                                <td class="text-truncate" style="max-width: 1rem;">{{ product.description }}</td>
+                                                <td>{{ product.length }}</td>
+                                                <td>{{ product.width }}</td>
+                                                <td>{{ product.height }}</td>
+                                                <td>{{ product.weight }}ML</td>
+                                                <td>₱{{ product.price }}.00</td>
+                                                <td>{{ product.qty }}</td>
+                                                <td>Listed</td>
+                                                <td>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light">Edit</button>
+                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light">Delete</button>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table> 
@@ -92,6 +67,17 @@
 
 <script>
 export default {
+    async asyncData({$fire}) {
+        let collection = $fire.firestore.collection('products') //.doc(document.id)
+        let documents = await collection.get()
+        
+        let products = []
+        await Promise.all(documents.docs.map(document => { //remove map for single document
+            products.push({id: document.id, ...document.data()})
+        }))
+
+        return{products}
+    } 
 }
 </script>
 
