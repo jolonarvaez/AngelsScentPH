@@ -33,13 +33,15 @@
                                                 <div class="section-body medium">{{ data.contactNo }}</div>
                                             </div>
                                             
-                                            <div class="my-2">
-                                                <div class="text-uppercase medium">Password</div>
-                                                <div class="section-body medium">******</div>
-                                            </div>
                                             <div class="d-flex justify-content-center">
-                                                <button @click="checkData()" type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Profile Information</button>
+                                                <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2" data-bs-toggle="modal" data-bs-target="#editProfile">Edit Profile Information</button>
                                             </div>
+                                            <EditProfile 
+                                                :id="data.id"
+                                                :email="data.email"
+                                                :contactNo="data.contactNo"
+                                                :fName="data.fName"
+                                                :lName="data.lName"/>
                                         </div>
                                     </div>
                                 </div>
@@ -52,10 +54,6 @@
                                     <div class="my-2">
                                         <div class="text-uppercase medium">Address Line 1</div>
                                         <div class="section-body medium">{{ data.streetAdd }}</div>
-                                    </div>
-                                    <div class="my-2">
-                                        <div class="text-uppercase medium">Address Line 2</div>
-                                        <div class="section-body medium">N/A</div>
                                     </div>
                                     
                                     <div class="my-2">
@@ -74,8 +72,14 @@
                                     </div>
                                     
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Edit Shipping Information</button>
+                                        <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2" data-bs-toggle="modal" data-bs-target="#editShipping">Edit Shipping Information</button>
                                     </div>
+                                    <EditShipping 
+                                        :id="data.id" 
+                                        :streetAdd="data.streetAdd"
+                                        :city="data.city"
+                                        :province="data.province"
+                                        :zipcode="data.zipcode"/>
                                 </div>
                             </div>
                         </div>
@@ -101,6 +105,7 @@ export default {
     async asyncData({ $fire, store }){
         let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
         let data = await docRef.get().then(doc => doc.data())
+        data.id = store.state.user.uid
         console.log(data)
         return{ data }
     }
