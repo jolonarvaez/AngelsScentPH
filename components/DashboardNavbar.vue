@@ -6,7 +6,7 @@
                 <span class="navbar-brand">Products</span>
             </li>
             <li class="nav-item light regular">
-                <NuxtLink to=""><a class="nav-link">Product <br>Inventory</a></Nuxtlink>
+                <NuxtLink to="/dashboard/productinventory"><a class="nav-link">Product <br>Inventory</a></Nuxtlink>
             </li>
             <li class="nav-item regular">
                 <NuxtLink to="/dashboard/addproduct"><a class="nav-link">Add Product</a></Nuxtlink>
