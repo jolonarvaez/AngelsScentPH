@@ -132,8 +132,8 @@ export default {
                 let orderStatusBtn = document.getElementById('orderDropDown')
 
                 this.$fire.firestore.collection("orders").doc(id).update({
-                    paymentStatus: paymentStatusBtn.innerText,
-                    orderStatus: orderStatusBtn.innerText
+                    paymentStatus: paymentStatusBtn.innerText.trim(),
+                    orderStatus: orderStatusBtn.innerText.trim()
                 })
                  
             } catch (e) {
