@@ -41,9 +41,31 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="shadow-sm text-uppercase btn btn-light submit-btn regular mt-2 px-4 py-2">Submit Inquiry</button>
+                    <button type="submit" class="shadow-sm text-uppercase btn btn-light submit-btn regular mt-2 px-4 py-2" data-bs-toggle="modal" data-bs-target="#confirmation">Submit Inquiry</button>
                 </div>
             </form>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="confirmation" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Text Container -->
+                        <div class="container-fluid d-flex flex-column regular">
+                            <div class="confirmation-container mt-4 mb-2 mx-auto">
+                                <p class="confirmation-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid d-flex justify-content-center regular">
+                            <div class="btn-container mt-4 mb-2 d-grid gap-2">
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" data-bs-dismiss="modal">Okay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -56,25 +78,46 @@ export default {
 
 <style scoped>
 
-textarea{
-    font-size: 0.8rem;
-}
-.contact-header{
-    font-size: 1.5rem;
-    border-style: solid;
-    border-width: 2px 0;
-    border-color: #E5E5E5;
-}
+    textarea{
+        font-size: 0.8rem;
+    }
+    .contact-header{
+        font-size: 1.5rem;
+        border-style: solid;
+        border-width: 2px 0;
+        border-color: #E5E5E5;
+    }
 
-.contact-box{
-    background-color: #FAFAFA;
-    border-radius: 10px;
-}
+    .contact-box{
+        background-color: #FAFAFA;
+        border-radius: 10px;
+    }
 
-.submit-btn{
-    background-color: #9F9A96;
-    border-color: #9F9A96;
-    color: white;
-}
+    .submit-btn{
+        background-color: #9F9A96;
+        border-color: #9F9A96;
+        color: white;
+    }
+
+    .confirmation-container {
+        background: #FFFFFF;
+        border-radius: 25px;
+    }
+
+    .confirmation-text {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20.5px;
+    }
+
+    .btn-container{
+        width: 335px;
+    }
+
+    .btn-format {
+        background: #9F9A96;
+        border-radius: 8px;
+    }
 
 </style>
