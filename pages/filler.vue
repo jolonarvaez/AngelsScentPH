@@ -3,6 +3,7 @@
         <p class="mt-2 mb-4">---ASSIGNMENT NEEDED---</p>
         <br>
         
+        <!-- Guest Warning -->
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#guestWarning">
             Guest Account Warning
         </button>
@@ -21,69 +22,9 @@
 
                         <div class="container-fluid d-flex justify-content-center regular">
                             <div class="btn-container mt-4 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-secondary btn-format text-uppercase py-2 mt-3" block>Sign Up</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase py-2 mt-3" data-bs-target="#signup" data-bs-toggle="modal" data-bs-dismiss="modal">Sign Up</button>
                                 <p class="popup-text text-center my-1 py-2">OR</p>
-                                <button type="button" class="btn btn-secondary btn-format text-uppercase py-2 mb-4" block>Log In</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Confirmation Message -->
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target='#confirmation'>
-            Contact Us + Payment Form Confirmation
-        </button>
-
-        <div class="modal fade" id="confirmation" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <!-- Text Container -->
-                        <div class="container-fluid d-flex flex-column regular">
-                            <div class="confirmation-container mt-4 mb-2 mx-auto">
-                                <p class="confirmation-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid d-flex justify-content-center regular">
-                            <div class="btn-container mt-4 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Delete Account -->
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target='#deleteAccount'>
-            Delete Account
-        </button>
-
-        <div class="modal fade" id="deleteAccount">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="container-fluid d-flex flex-column regular">
-                            <div class="popup-container mt-4 mb-2 mx-auto">
-                                <!-- Text -->
-                                <div class="row border-bottom">
-                                    <div class="col">
-                                        <p class="deleteaccount-text text-center mt-4 mb-1 py-2">Are you sure you want to delete your account? If you do, you will not be able to access your order list and other account privileges anymore.</p>
-                                        <p class="deleteaccount-text text-center mb-4 py-2">Proceed?</p>
-                                    </div>
-                                </div>
-
-                                <!-- Buttons -->
-                                <div class="d-flex justify-content-center">
-                                    <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-foramt text-uppercase">Delete</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
-                                    </div>
-                                </div>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase py-2 mb-4" data-bs-target="#login" data-bs-toggle="modal" data-bs-dismiss="modal">Log In</button>
                             </div>
                         </div>
                     </div>
@@ -104,13 +45,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mb-4 py-2">Sorry, this feature is restricted to buyer accounts. If you want to go further, you can log out of your admin account to proceed to checkout.</p></div>
+                                    <div class="col"><p class="select-text text-center mb-4 py-2">Sorry, this feature is restricted to buyer accounts. If you want to go further, you can log out of your admin account to proceed to checkout.</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- TODO: LOG OUT BUTTON --> 
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Log Out</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +80,7 @@
 
                         <div class="container-fluid d-flex justify-content-center regular">
                             <div class="btn-container mt-2 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" data-bs-dismiss="modal">Okay</button>
                             </div>
                         </div>
                     </div>
@@ -159,13 +101,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mb-4 py-2">Sorry, this page can only be accessed by an admin account. To proceed, log out of your buyer account and log in again with your admin account.</p></div>
+                                    <div class="col"><p class="select-text text-center mb-4 py-2">Sorry, this page can only be accessed by an admin account. To proceed, log out of your buyer account and log in again with your admin account.</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- TODO: LOGOUT BUTTON -->
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Log Out</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss>Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -188,13 +131,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Do you wish to proceed? Once you press confirm, the status of your order will change and you will not be able to request a refund.</p></div>
+                                    <div class="col"><p class="select-text text-center mt-2 mb-4 py-2">Do you wish to proceed? Once you press confirm, the status of your order will change and you will not be able to request a refund.</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- TODO: CONFIRM BUTTON -->
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Confirm</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Go Back</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -217,13 +161,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Are you sure you want to remove this from your shopping cart?</p></div>
+                                    <div class="col"><p class="select-text text-center mt-2 mb-4 py-2">Are you sure you want to remove this from your shopping cart?</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- REMOVE BUTTON -->
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Remove</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -247,13 +192,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Are you sure you want to cancel your order?</p></div>
+                                    <div class="col"><p class="select-text text-center mt-2 mb-4 py-2">Are you sure you want to cancel your order?</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- TODO: PROCEED BUTTON -->
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Proceed</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Go Back</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -277,13 +223,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Once you submit your order, you will not be able to edit it. Proceed with check out and complete your order?</p></div>
+                                    <div class="col"><p class="select-text text-center mt-2 mb-4 py-2">Once you submit your order, you will not be able to edit it. Proceed with check out and complete your order?</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- TODO: PROCEED BUTTON -->
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Proceed</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Go Back</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -307,13 +254,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Sorry, this feature is restricted to buyer accounts. If you want to go further, you can log out of your admin account to proceed to checkout.</p></div>
+                                    <div class="col"><p class="select-text text-center mt-2 mb-4 py-2">Sorry, this feature is restricted to buyer accounts. If you want to go further, you can log out of your admin account to proceed to checkout.</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- TODO: LOG OUT BUTTON -->
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Log Out</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -337,13 +285,14 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Are you sure you want to delete this product and remove it from your inventory?</p></div>
+                                    <div class="col"><p class="select-text text-center mt-2 mb-4 py-2">Are you sure you want to delete this product and remove it from your inventory?</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
+                                        <!-- TODO: DELETE BUTTON --> 
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Delete</button></div>
-                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Cancel</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-toggle="modal">Cancel</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -375,7 +324,71 @@
 
                         <div class="container-fluid d-flex justify-content-center regular">
                             <div class="btn-container mt-2 mb-2 d-grid gap-2">
-                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" block>Okay</button>
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" data-bs-dismiss="modal">Okay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <p class="mt-2 mb-4">---ASSIGNED ALREADY---</p>
+        <br>
+
+        <!-- Confirmation Message -->
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target='#confirmation'>
+            Contact Us + Payment Form Confirmation
+        </button>
+
+        <div class="modal fade" id="confirmation" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Text Container -->
+                        <div class="container-fluid d-flex flex-column regular">
+                            <div class="confirmation-container mt-4 mb-2 mx-auto">
+                                <p class="confirmation-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid d-flex justify-content-center regular">
+                            <div class="btn-container mt-4 mb-2 d-grid gap-2">
+                                <button type="button" class="btn btn-secondary btn-format text-uppercase pb-2 mt-3 mb-4" data-bs-dismiss="modal">Okay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Delete Account -->
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target='#deleteAccount'>
+            Delete Account
+        </button>
+
+        <div class="modal fade" id="deleteAccount">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container-fluid d-flex flex-column regular">
+                            <div class="popup-container mt-4 mb-2 mx-auto">
+                                <!-- Text -->
+                                <div class="row border-bottom">
+                                    <div class="col">
+                                        <p class="select-text text-center mt-4 mb-1 py-2">Are you sure you want to delete your account? If you do, you will not be able to access your order list and other account privileges anymore.</p>
+                                        <p class="select-text text-center mb-4 py-2">Proceed?</p>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="d-flex justify-content-center">
+                                    <div class="row btn-container mt-4 mb-2">
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Delete</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase">Go Back</button></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -510,11 +523,7 @@
 
 <script>
     export default {
-        methods: {
-            hideModal() {
-                this.$refs['payment-modal'].hide()
-            } 
-        }
+        
     }
 </script>
 
@@ -545,11 +554,11 @@
         font-weight: lighter;
         color: #9F9A96;
         background-color: #f6f6f6;
-        border: #ececec;
+        border-color: #ececec;
     }
 
     .show-btn{
-        border: #ececec;
+        border-color: #ececec;
         border-left: none;
     }
 
@@ -588,7 +597,7 @@
         border-radius: 8px;
     }
 
-    .deleteaccount-text {
+    .select-text {
         font-family: Inter;
         font-style: normal;
         font-weight: 300;
