@@ -7,17 +7,17 @@
             <div class="row py-3">
                 <DashboardNavbar />
                 <div class="col-10">
-                    <div class="shadow container-fluid data-bg p-3">
+                    <div class="shadow container-fluid data-bg float-left p-3 w-75">
                         <div class="table-header medium text-uppercase py-3">
                                 Add product
                         </div>
-                        <div id="content" class="container-fluid d-flex flex-column regular text-uppercase p-5 w-100 bg justify-content-center">
+                        <div id="content" class="container-fluid d-flex flex-column regular text-uppercase p-3 w-100 bg justify-content-center ">
                             <div class="row mt-3 pt-2 d-flex">
                                 <div class="col-sm-2">
                                     <p>Product Name</p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="w-75 border border-secondary" type="text" id="productName" required>
+                                    <input class="w-100 border border-secondary" type="text" id="productName" required>
                                 </div>
                                 <div class="col-sm-6"></div>
                             </div>
@@ -35,7 +35,7 @@
                                     <p>Length</p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="w-75 border border-secondary" type="text" id="length" required>
+                                    <input class="w-100 border border-secondary" type="text" id="length" required>
                                 </div>
                                 <div class="col-sm-6"></div>
                             </div>
@@ -44,7 +44,7 @@
                                     <p>Width</p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="w-75 border border-secondary" type="text" id="width" required>
+                                    <input class="w-100 border border-secondary" type="text" id="width" required>
                                 </div>
                                 <div class="col-sm-6"></div>
                             </div>
@@ -53,7 +53,7 @@
                                     <p>Height</p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="w-75 border border-secondary" type="text" id="height" required>
+                                    <input class="w-100 border border-secondary" type="text" id="height" required>
                                 </div>
                                 <div class="col-sm-6"></div>
                             </div>
@@ -62,7 +62,7 @@
                                     <p>Weight (In ml)</p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="w-75 border border-secondary" type="text" id="weight" required>
+                                    <input class="w-100 border border-secondary" type="text" id="weight" required>
                                 </div>
                                 <div class="col-sm-6"></div>
                             </div>
@@ -71,7 +71,7 @@
                                     <p>Price</p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="w-75 border border-secondary" type="text" id="price" required>
+                                    <input class="w-100 border border-secondary" type="text" id="price" required>
                                 </div>
                                 <div class="col-sm-6"></div>
                             </div>
@@ -80,7 +80,7 @@
                                     <p>Quantity</p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="w-75 border border-secondary" type="text" id="quantity" required>
+                                    <input class="w-100 border border-secondary" type="text" id="quantity" required>
                                 </div>
                                 <div class="col-sm-6"></div>
                             </div>
