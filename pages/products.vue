@@ -55,7 +55,7 @@ export default{
         }
     },
     async asyncData({$fire}) {
-        let collection = $fire.firestore.collection('products') //.doc(document.id)
+        let collection = $fire.firestore.collection('products').where('display', '==', 'listed') //.doc(document.id)
         let documents = await collection.get()
         
         let array = []

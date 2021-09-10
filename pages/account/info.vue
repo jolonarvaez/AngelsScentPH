@@ -84,14 +84,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="shadow account-info p-3 mb-4 w-50 mx-auto">
+                    <!-- <div class="shadow account-info p-3 mb-4 w-50 mx-auto">
                         <div class="section-title medium text-uppercase mb-2 text-center">Account Deletion</div>
                         <div class="container-fluid my-2">
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="shadow text-uppercase btn btn-light editbtn regular p-3 mt-2">Delete Account</button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

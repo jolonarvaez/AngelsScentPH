@@ -56,7 +56,7 @@ export default {
 
         console.log(orders)
 
-        let pending = orders.filter(document => document.orderStatus == "Pending")
+        let pending = orders.filter(document => document.orderStatus == "Pending" || document.orderStatus == "Shipping")
 
         return{pending}
     },

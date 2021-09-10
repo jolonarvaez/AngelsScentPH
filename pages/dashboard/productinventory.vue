@@ -45,12 +45,26 @@
                                                 <td>{{ product.weight }}ML</td>
                                                 <td>₱{{ product.price }}.00</td>
                                                 <td>{{ product.qty }}</td>
-                                                <td>Listed</td>
+                                                <td>{{ product.display }}</td>
                                                 <td>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light">Edit</button>
-                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light">Delete</button>
+                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light" data-bs-toggle="modal" :data-bs-target='"#edit-modal"+product.id'>Edit</button>
+                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light" @click="deleteProduct(product.id)">Delete</button>
                                                     </div>
+
+                                                    <EditProduct 
+                                                        :id = "product.id"
+                                                        :name = "product.name"
+                                                        :description = "product.description"
+                                                        :length = "product.length"
+                                                        :width = "product.width"
+                                                        :height = "product.height"
+                                                        :weight = "product.weight"
+                                                        :price = "product.price"
+                                                        :qty = "product.qty"
+                                                        :display = "product.display"
+                                                    />
+
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -68,7 +82,7 @@
 <script>
 export default {
     async asyncData({$fire}) {
-        let collection = $fire.firestore.collection('products') //.doc(document.id)
+        let collection = $fire.firestore.collection('products').orderBy('name') //.doc(document.id)
         let documents = await collection.get()
         
         let products = []
@@ -77,7 +91,17 @@ export default {
         }))
 
         return{products}
-    } 
+    }, 
+    methods:{
+        deleteProduct(id){
+            this.$fire.firestore.collection("products").doc(id).delete().then(() => {
+                this.$router.app.refresh()
+                console.log("Document successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+        }
+    }
 }
 </script>
 

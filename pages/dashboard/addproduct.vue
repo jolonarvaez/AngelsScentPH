@@ -37,7 +37,7 @@
                                         <p>Length</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="length" class="w-75 border border-secondary" type="text" id="length" required>
+                                        <input v-model="length" class="w-75 border border-secondary" type="number" id="length" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -46,7 +46,7 @@
                                         <p>Width</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="width" class="w-75 border border-secondary" type="text" id="width" required>
+                                        <input v-model="width" class="w-75 border border-secondary" type="number" id="width" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -55,7 +55,7 @@
                                         <p>Height</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="height" class="w-75 border border-secondary" type="text" id="height" required>
+                                        <input v-model="height" class="w-75 border border-secondary" type="number" id="height" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -64,7 +64,7 @@
                                         <p>Weight (In ml)</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="weight" class="w-75 border border-secondary" type="text" id="weight" required>
+                                        <input v-model="weight" class="w-75 border border-secondary" type="number" id="weight" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -159,7 +159,8 @@ export default {
                     width: this.width,
                     price: this.price,
                     qty: this.qty,
-                    tag: this.tag
+                    tag: this.tag,
+                    display: 'listed'
                 })
                 this.$router.push('/products')
             } catch (e) {

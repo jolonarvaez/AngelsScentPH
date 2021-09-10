@@ -93,7 +93,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="order in cancelled" @click="goToDetails(order.id)">
+                                            <tr :key="order.id" v-for="order in cancelled" @click="goToDetails(order.id)">
                                                 <td>{{ order.id }}</td>
                                                 <td class="text-uppercase">{{ order.dateOrdered.toDate() }}</td>
                                                 <td class="text-uppercase">{{ order.paymentStatus }}</td>
@@ -124,9 +124,15 @@ export default {
 
         let pending = []
         let pendingRef = collection.where("orderStatus", "==", "Pending").limit(10)
+        let shippingRef = collection.where("orderStatus", "==", "Shipping").limit(10)
         let pendingDocs = await pendingRef.get()
+        let shippingDocs = await shippingRef.get()
 
         await Promise.all(pendingDocs.docs.map(document => { //remove map for single document
+            pending.push({id: document.id, ...document.data()})
+        }))
+
+        await Promise.all(shippingDocs.docs.map(document => { //remove map for single document
             pending.push({id: document.id, ...document.data()})
         }))
 
