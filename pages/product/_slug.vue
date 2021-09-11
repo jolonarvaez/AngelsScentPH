@@ -21,11 +21,41 @@
                             <div class="product-title regular">{{data.name}}</div>
                             <div class="light">₱{{data.price}}.00</div>
                             <div class="d-flex flex-row my-1 align-items-center">
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="far fa-star fa-xs mx-1"></i>
+                                <div v-if="sum == 1">
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                </div>
+                                <div v-if="sum == 2">
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                </div>
+                                <div v-if="sum == 3">
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                </div>
+                                <div v-if="sum == 4">
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="far fa-star fa-xs mx-1"></i>
+                                </div>
+                                <div v-if="sum == 5">
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                    <i class="fas fa-star fa-xs mx-1"></i>
+                                </div>
                                 <div class="light mx-2"> {{ productReviews.length}} Ratings </div>
                             </div> 
                         </div>
@@ -167,8 +197,15 @@ export default {
         }))
 
         let productReviews = reviews.filter(document => document.productId == slug)
-        
-        return{data, slug, productReviews}
+
+        let sum = 0;
+        for(var i = 0; i < productReviews.length; i++){
+            sum += parseInt(productReviews[i].rating)
+        }
+        sum = Math.floor(sum /= productReviews.length)
+        console.log(sum)
+
+        return{data, slug, productReviews, sum}
     },
     methods: {
         async addToCart(){
