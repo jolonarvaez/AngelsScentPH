@@ -94,6 +94,21 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="row mt-3 pt-2">
+                            <div class="col-sm-3">
+                                <p>Tag</p>
+                            </div>
+                            <div class="col-sm-3 dropdown">
+                                <button class="btn btn-secondary dropdown-toggle text-uppercase" type="button" id="tagDropDown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Choose tag
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" @click="changeTag('women')">Women</a></li>
+                                    <li><a class="dropdown-item" @click="changeTag('men')">Men</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
                         <div class="row mt-3 pt-5 w-100 d-flex justify-content-center">
                             <button type="submit" class="btn btn-lg btn-block w-50 save-btn btn-outline-light text-uppercase" id = "submit">Save Changes</button>
                         </div>
@@ -144,6 +159,7 @@ export default {
                     weight: this.weight, 
                     price: this.price, 
                     qty: this.qty, 
+                    tag: this.tag,
                     display: displayStatus
                 })
                 
@@ -163,6 +179,13 @@ export default {
 </script>
 
 <style scoped>
+.btn{
+    background-color: #9F9A96;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+
+}
 .bg{
     background-color: #FAFAFA;
 }

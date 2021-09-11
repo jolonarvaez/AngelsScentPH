@@ -27,6 +27,7 @@
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Qty</th>
                                                 <th scope="col">Status</th>
+                                                <th scope="col">Gender</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -46,6 +47,7 @@
                                                 <td>₱{{ product.price }}.00</td>
                                                 <td>{{ product.qty }}</td>
                                                 <td>{{ product.display }}</td>
+                                                <td>{{ product.tag }}</td>
                                                 <td>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light" data-bs-toggle="modal" :data-bs-target='"#edit-modal"+product.id'>Edit</button>
