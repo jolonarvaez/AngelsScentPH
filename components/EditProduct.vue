@@ -82,19 +82,30 @@
                                 <p>Status</p>
                             </div>
                             <div v-if="display == 'listed'" class="col-sm-3">
-                                <select :id="'displayoption'+id" class="form-select border border-secondary">
+                                <select id="displayoption" @click="changeSelected()" class="form-select border border-secondary">
                                     <option value="1" selected >LISTED</option>
                                     <option value="2" >HIDDEN</option>
                                 </select>
                             </div>
                             <div v-if="display == 'hidden'" class="col-sm-3">
-                                <select :id="'displayoption'+id" class="form-select border border-secondary">
+                                <select id="displayoption" class="form-select border border-secondary">
                                     <option value="1" >LISTED</option>
                                     <option value="2" selected >HIDDEN</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
+                            <div class="col-sm-3">
+                                <p>Tag</p>
+                            </div>
+                            <div v-if="display == 'listed'" class="col-sm-3">
+                                <select id="displayoption" @click="changeSelected()" class="form-select border border-secondary">
+                                    <option value="1" selected >Men</option>
+                                    <option value="2" >Women</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="row mt-3 pt-2">
                             <div class="col-sm-3">
                                 <p>Tag</p>
                             </div>
@@ -107,7 +118,7 @@
                                     <li><a class="dropdown-item" @click="changeTag('men')">Men</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <div class="row mt-3 pt-5 w-100 d-flex justify-content-center">
                             <button type="submit" class="btn btn-lg btn-block w-50 save-btn btn-outline-light text-uppercase" id = "submit">Save Changes</button>
@@ -138,19 +149,21 @@ export default {
         display: String
     },
     methods:{
+        changeTag(string){
+            let dropdown = document.getElementById('tagDropDown')
+            dropdown.innerText = string.trim()
+            this.tag = string.trim()
+        },
         async submit(event){
             event.preventDefault()
 
             var displayStatus
-            var e = document.getElementById("displayoption"+this.id);
+            var e = document.getElementById("displayoption");
             var num = e.options[e.selectedIndex].value;
-            console.log(num)
             if(num == 1)
                 displayStatus = 'listed'
-            else if(num == 2)
+            else
                 displayStatus = 'hidden'
-
-            console.log(displayStatus)
             
             try {
                 this.$fire.firestore.collection("products").doc(this.id).update({
@@ -199,5 +212,8 @@ export default {
 }
 .round{
     border-radius: 30px;
+}
+option{
+    background: white;
 }
 </style>
