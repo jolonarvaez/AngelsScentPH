@@ -99,17 +99,14 @@
                                      <div class="col-sm-2">
                                         <p>Tag</p>
                                     </div>
-                                    <div class="col-sm-4 dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle text-uppercase" type="button" id="tagDropDown" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Choose tag
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" @click="changeTag('women')">Women</a></li>
-                                            <li><a class="dropdown-item" @click="changeTag('men')">Men</a></li>
-                                        </ul>
+                                    <div class="col-sm-3">
+                                        <select id="displayoption" class="form-select border border-secondary">
+                                            <option value="1"  >MEN</option>
+                                            <option value="2" >WOMEN</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" mt-3>
                                     <div class="col-sm-4"></div>
                                     <div class="col-sm-4">
                                         <button type="submit" class="btn w-75 pt py-2 px-3 text-uppercase" id = "submit">Add product</button>

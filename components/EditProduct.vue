@@ -88,9 +88,9 @@
                                 </select>
                             </div>
                             <div v-if="display == 'hidden'" class="col-sm-3">
-                                <select id="displayoption" class="form-select border border-secondary">
-                                    <option value="1" >LISTED</option>
-                                    <option value="2" selected >HIDDEN</option>
+                                <select id="displayoption" @click="changeSelected()" class="form-select border border-secondary">
+                                    <option value="1"  >LISTED</option>
+                                    <option value="2" selected>HIDDEN</option>
                                 </select>
                             </div>
                         </div>
@@ -98,10 +98,10 @@
                             <div class="col-sm-3">
                                 <p>Tag</p>
                             </div>
-                            <div v-if="display == 'listed'" class="col-sm-3">
-                                <select id="displayoption" @click="changeSelected()" class="form-select border border-secondary">
-                                    <option value="1" selected >Men</option>
-                                    <option value="2" >Women</option>
+                            <div class="col-sm-3">
+                                <select id="displayoption" class="form-select border border-secondary">
+                                    <option value="1"  >MEN</option>
+                                    <option value="2" >WOMEN</option>
                                 </select>
                             </div>
                         </div>
