@@ -82,13 +82,13 @@
                                 <p>Status</p>
                             </div>
                             <div v-if="display == 'listed'" class="col-sm-3">
-                                <select id="displayoption" @click="changeSelected()" class="form-select border border-secondary">
+                                <select :id="'displayoption'+id" class="form-select border border-secondary">
                                     <option value="1" selected >LISTED</option>
                                     <option value="2" >HIDDEN</option>
                                 </select>
                             </div>
                             <div v-if="display == 'hidden'" class="col-sm-3">
-                                <select id="displayoption" class="form-select border border-secondary">
+                                <select :id="'displayoption'+id" class="form-select border border-secondary">
                                     <option value="1" >LISTED</option>
                                     <option value="2" selected >HIDDEN</option>
                                 </select>
@@ -127,12 +127,15 @@ export default {
             event.preventDefault()
 
             var displayStatus
-            var e = document.getElementById("displayoption");
+            var e = document.getElementById("displayoption"+this.id);
             var num = e.options[e.selectedIndex].value;
+            console.log(num)
             if(num == 1)
                 displayStatus = 'listed'
-            else
+            else if(num == 2)
                 displayStatus = 'hidden'
+
+            console.log(displayStatus)
             
             try {
                 this.$fire.firestore.collection("products").doc(this.id).update({
