@@ -30,9 +30,9 @@
                                     Customer Insight
                                 </div>
                                 <div class="light py-2">
-                                    <div class="py-2"> 0 Uniques Customers </div>
-                                    <div class="py-2"> 0 Repeat Customers </div>
-                                    <div class="py-2 mt-4"> 0 Total </div>
+                                    <div class="py-2"> {{ uniqueSum }} Uniques Customers </div>
+                                    <div class="py-2"> {{ repeatSum }} Repeat Customers </div>
+                                    <div class="py-2 mt-4"> {{ usersSum }} Registered Users Total </div>
                                 </div>   
                             </div>
                         </div>
@@ -46,15 +46,23 @@
 <script>
 export default {
     async asyncData({$fire}) {
-         let collection = $fire.firestore.collection('orders')
-         let documents = await collection.get()
+        let collection = $fire.firestore.collection('orders')
+        let documents = await collection.get()
+
+        let usersRef = $fire.firestore.collection('users')
+        let userDocs = await usersRef.get()
+
+        let users = [];
+        await Promise.all(userDocs.docs.map(document => { //remove map for single document
+            users.push({id: document.id, ...document.data()})
+        }))
 
          let orders = []
          await Promise.all(documents.docs.map(document => { //remove map for single document
             orders.push({id: document.id, ...document.data()})
         }))
 
-        let pending = orders.filter(document => document.orderStatus == "Pending")
+        let pending = orders.filter(document => document.orderStatus == "Pending" || document.orderStatus == "Shipping")
         let pendingSum = pending.length
         
         let fulfilled = orders.filter(document => document.orderStatus == "Fulfilled")
@@ -71,7 +79,27 @@ export default {
 
         let ordersSum = orders.length
 
-        return{pendingSum, fulfilledSum, cancelledSum, paidSum, unpaidSum, ordersSum}
+        users = users.filter(document => document.role != "admin")
+        let usersSum = users.length
+
+        let repeatSum = 0
+        let uniqueSum = 0 
+
+        for(var i = 0; i < users.length; i++){
+            var ctr = 0;
+            for(var j = 0; j < orders.length; j ++){
+                if(orders[j].userId == users[i].id)
+                    ctr++;
+                if(ctr == 2){
+                    repeatSum++
+                    break;
+                }    
+            }
+            if(ctr == 1)
+                uniqueSum++
+        }
+
+        return{pendingSum, fulfilledSum, cancelledSum, paidSum, unpaidSum, ordersSum, usersSum, repeatSum, uniqueSum}
     }
 
 }
