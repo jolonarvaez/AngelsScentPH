@@ -11,19 +11,23 @@
                     <div class="container-fluid border-bottom d-flex justify-content-center">
                         <div class="edit-container my-1">
                             <div class="row-md-12 mt-4 mb-2">
-                                <input v-model="streetAdd" type="text" class="form-control form-format" id="text" placeholder="Street Address" required>
+                                <label class="text-uppercase my-2" for="streetAdd">Street Address</label>
+                                <input v-model="streetAdd" type="text" class="form-control form-format" id="streetAdd" placeholder="Street Address" required>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                <input v-model="city" type="text" class="form-control form-format" id="text" placeholder="City" required>
+                                 <label class="text-uppercase my-2" for="city">City</label>
+                                <input v-model="city" type="text" class="form-control form-format" id="city" placeholder="City" required>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                <input v-model="province" type="text" class="form-control form-format" id="text" placeholder="Province" required>
+                                 <label class="text-uppercase my-2" for="province">Province</label>
+                                <input v-model="province" type="text" class="form-control form-format" id="province" placeholder="Province" required>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                <input v-model="zipcode" type="text" class="form-control form-format" id="text" placeholder="Zipcode" required>
+                                 <label class="text-uppercase my-2" for="zipcode">Zipcode</label>
+                                <input v-model="zipcode" type="text" class="form-control form-format" id="zipcode" placeholder="Zipcode" required>
                             </div>
                         </div>
 
