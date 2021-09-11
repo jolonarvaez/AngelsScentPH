@@ -80,8 +80,8 @@
                             <div class="text-uppercase">Contact Email</div>
                             <div class="details regular">{{ data.email }}</div>
                         </div>
-                        <div v-if=" data.orderStatus == 'Shipped'" class="d-flex justify-content-start mt-2">
-                            <NuxtLink class="text-uppercase text-right return regular" to="/">
+                        <div v-if=" data.orderStatus == 'Fulfilled'" class="d-flex justify-content-start mt-2">
+                            <NuxtLink class="text-uppercase text-right return regular" :to="'/productreview/'+slug">
                                 Review Products 
                             </NuxtLink>
                         </div>

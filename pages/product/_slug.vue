@@ -26,7 +26,7 @@
                                 <i class="fas fa-star fa-xs mx-1"></i>
                                 <i class="fas fa-star fa-xs mx-1"></i>
                                 <i class="far fa-star fa-xs mx-1"></i>
-                                <div class="light mx-2"> 2 Ratings </div>
+                                <div class="light mx-2"> {{ productReviews.length}} Ratings </div>
                             </div> 
                         </div>
 
@@ -89,29 +89,46 @@
             </div>
 
             <div class="col-8 mx-auto">
-                <div class="container d-flex flex-column my-2">
+                <div v-if="productReviews.length > 0" class="container d-flex flex-column my-2">
                     <div class="light text-uppercase ml-2">Product Reviews</div>
-                    <div class="shadow-sm box w-100 p-3 my-2 light">
-                        <div>Username</div>
-                        <div class="d-flex flex-row my-1 align-items-center">
-                                <i class="fas fa-star fa-xs mr-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="far fa-star fa-xs mx-1"></i>
-                            </div> 
-                        <div class="box-text mt-1">Better than most affordable perfumes that I’ve bought on Shoppee.</div>
-                    </div>
-                    <div class="shadow-sm box w-100 p-3 my-2 light">
-                        <div>Username</div>
-                        <div class="d-flex flex-row my-1 align-items-center">
-                                <i class="fas fa-star fa-xs mr-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="fas fa-star fa-xs mx-1"></i>
-                                <i class="far fa-star fa-xs mx-1"></i>
-                            </div> 
-                        <div class="box-text mt-1">Better than most affordable perfumes that I’ve bought on Shoppee.</div>
+                    <div v-for="review in productReviews" class="shadow-sm box w-100 p-3 my-2 light">
+                        <div>{{ review.name }}</div>
+                        <div v-if="review.rating == 1" class="d-flex flex-row my-1 align-items-center">
+                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                        </div> 
+                        <div v-if="review.rating == 2" class="d-flex flex-row my-1 align-items-center">
+                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                        </div> 
+                        <div v-if="review.rating == 3" class="d-flex flex-row my-1 align-items-center">
+                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                        </div> 
+                        <div v-if="review.rating == 4" class="d-flex flex-row my-1 align-items-center">
+                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="far fa-star fa-xs mx-1"></i>
+                        </div> 
+                        <div v-if="review.rating == 5" class="d-flex flex-row my-1 align-items-center">
+                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
+                        </div> 
+                        <div class="box-text mt-3">{{ review.review }}</div>
                     </div>
                 </div>
             </div>       
@@ -140,7 +157,18 @@ export default {
         let slug = params.slug;
         let docRef = $fire.firestore.collection('products').doc(slug)
         let data = await docRef.get().then(doc => doc.data())
-        return{data, slug}
+
+        let reviewRef = $fire.firestore.collection('reviews')
+        let reviewDocs = await reviewRef.get()
+
+        let reviews = []
+        await Promise.all(reviewDocs.docs.map(document => { //remove map for single document
+            reviews.push({id: document.id, ...document.data()})
+        }))
+
+        let productReviews = reviews.filter(document => document.productId == slug)
+        
+        return{data, slug, productReviews}
     },
     methods: {
         async addToCart(){
