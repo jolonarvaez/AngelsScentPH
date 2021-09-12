@@ -185,10 +185,7 @@ export default {
                     this.image = downloadURL
                 })
             })
-        },
-        previewImage(event){
-            this.image=event.target.files[0]
-        },
+        }
     }
 }
 </script>

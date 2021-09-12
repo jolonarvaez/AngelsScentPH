@@ -10,7 +10,7 @@
                                 <p>Product Photo</p>
                             </div>
                             <div class="col-sm-9">
-                                <input type="file" id="formFile" accept="image/png, image/gif, image/jpeg">
+                                <input class="form-control form-control-sm" type="file" @change="uploadImage" accept="image/png, image/gif, image/jpeg">
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -18,7 +18,7 @@
                                 <p>Product Name</p>
                             </div>
                             <div class="col-sm-9">
-                                <input v-model="name" class="w-75 border border-secondary" type="text" id="productName" required>
+                                <input v-model="name" class="w-75 border border-secondary" type="text" required>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -26,7 +26,7 @@
                                 <p>Product Description</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea v-model="description" id="productDesc" class="form-control border border-secondary" rows="3"></textarea>
+                                <textarea v-model="description" class="form-control border border-secondary" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -34,7 +34,7 @@
                                 <p>Length</p>
                             </div>
                             <div class="col-sm-9">
-                                <input v-model="length" class="w-75 border border-secondary" type="number" id="length" required>
+                                <input v-model="length" class="w-75 border border-secondary" type="number" min="1" required>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -42,7 +42,7 @@
                                 <p>Width</p>
                             </div>
                             <div class="col-sm-9">
-                                <input v-model="width" class="w-75 border border-secondary" type="number" id="width" required>
+                                <input v-model="width" class="w-75 border border-secondary" type="number" min="1" required>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -50,7 +50,7 @@
                                 <p>Height</p>
                             </div>
                             <div class="col-sm-9">
-                                <input v-model="height" class="w-75 border border-secondary" type="number" id="height" required>
+                                <input v-model="height" class="w-75 border border-secondary" type="number" min="1" required>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -58,7 +58,7 @@
                                 <p>Weight (In ml)</p>
                             </div>
                             <div class="col-sm-9">
-                                <input v-model="weight" class="w-75 border border-secondary" type="number" id="weight" required>
+                                <input v-model="weight" class="w-75 border border-secondary" type="number" min="1" required>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -66,7 +66,7 @@
                                 <p>Price</p>
                             </div>
                             <div class="col-sm-9">
-                                <input v-model="price" class="w-75 border border-secondary" type="number" id="price" required>
+                                <input v-model="price" class="w-75 border border-secondary" type="number"  min="1" required>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -74,7 +74,7 @@
                                 <p>Quantity</p>
                             </div>
                             <div class="col-sm-9">
-                                <input v-model="qty" class="w-75 border border-secondary" type="number" id="quantity" required>
+                                <input v-model="qty" class="w-75 border border-secondary" type="number" min="0" required>
                             </div>
                         </div>
                         <div class="row mt-3 pt-2">
@@ -82,13 +82,13 @@
                                 <p>Status</p>
                             </div>
                             <div v-if="display == 'listed'" class="col-sm-3">
-                                <select id="displayoption" @click="changeSelected()" class="form-select border border-secondary">
+                                <select :id="'displayoption'+id" class="form-select border border-secondary">
                                     <option value="1" selected >LISTED</option>
                                     <option value="2" >HIDDEN</option>
                                 </select>
                             </div>
                             <div v-if="display == 'hidden'" class="col-sm-3">
-                                <select id="displayoption" @click="changeSelected()" class="form-select border border-secondary">
+                                <select :id="'displayoption'+id" class="form-select border border-secondary">
                                     <option value="1"  >LISTED</option>
                                     <option value="2" selected>HIDDEN</option>
                                 </select>
@@ -98,10 +98,16 @@
                             <div class="col-sm-3">
                                 <p>Tag</p>
                             </div>
-                            <div class="col-sm-3">
-                                <select id="displayoption" class="form-select border border-secondary">
-                                    <option value="1"  >MEN</option>
+                            <div v-if="tag == 'men'" class="col-sm-3">
+                                <select :id="'tagoption'+id" class="form-select border border-secondary">
+                                    <option value="1" selected>MEN</option>
                                     <option value="2" >WOMEN</option>
+                                </select>
+                            </div>
+                            <div v-if="tag == 'women'" class="col-sm-3">
+                                <select :id="'tagoption'+id" class="form-select border border-secondary">
+                                    <option value="1">MEN</option>
+                                    <option value="2" select>WOMEN</option>
                                 </select>
                             </div>
                         </div>
@@ -121,7 +127,7 @@
                         </div> -->
                         
                         <div class="row mt-3 pt-5 w-100 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-lg btn-block w-50 save-btn btn-outline-light text-uppercase" id = "submit">Save Changes</button>
+                            <button type="submit" class="btn btn-lg btn-block w-50 save-btn btn-outline-light text-uppercase">Save Changes</button>
                         </div>
                     </div>
                 </form>
@@ -136,6 +142,11 @@
 import $ from 'jquery'
 
 export default {
+    data(){
+        return{
+            image: null
+        }
+    },
     props:{
         id: String,
         name: String, 
@@ -146,48 +157,90 @@ export default {
         weight: Number, 
         price: Number, 
         qty: Number, 
-        display: String
+        display: String,
+        tag: String
+    },
+    async asyncData(){
+        console.log(this.tag)
     },
     methods:{
-        changeTag(string){
-            let dropdown = document.getElementById('tagDropDown')
-            dropdown.innerText = string.trim()
-            this.tag = string.trim()
-        },
         async submit(event){
             event.preventDefault()
+            var displayStatus, tagStatus
 
-            var displayStatus
-            var e = document.getElementById("displayoption");
-            var num = e.options[e.selectedIndex].value;
-            if(num == 1)
+            var e = document.getElementById("displayoption"+this.id);
+            var displayNum = e.options[e.selectedIndex].value;
+
+            var t = document.getElementById("tagoption"+this.id);
+            var tagNum = t.options[t.selectedIndex].value;
+            
+            console.log(this.image)
+
+            if( displayNum == 1)
                 displayStatus = 'listed'
             else
                 displayStatus = 'hidden'
-            
-            try {
-                this.$fire.firestore.collection("products").doc(this.id).update({
-                    name: this.name.trim(), 
-                    description: this.description.trim(),
-                    length: this.length, 
-                    width: this.width,  
-                    height: this.height,
-                    weight: this.weight, 
-                    price: this.price, 
-                    qty: this.qty, 
-                    tag: this.tag,
-                    display: displayStatus
-                })
-                
-            } catch (e) {
-                alert(e)
+
+            if( tagNum == 1)
+                tagStatus = 'men'
+            else
+                tagStatus = 'women'
+
+            if(this.image == null){
+                try {
+                    this.$fire.firestore.collection("products").doc(this.id).update({
+                        name: this.name.trim(), 
+                        description: this.description.trim(),
+                        length: this.length, 
+                        width: this.width,  
+                        height: this.height,
+                        weight: this.weight, 
+                        price: this.price, 
+                        qty: this.qty, 
+                        tag: tagStatus,
+                        display: displayStatus
+                    })
+                    
+                } catch (e) {
+                    alert(e)
+                }
             }
+            else{
+                try {
+                    this.$fire.firestore.collection("products").doc(this.id).update({
+                        name: this.name.trim(), 
+                        description: this.description.trim(),
+                        length: this.length, 
+                        width: this.width,  
+                        height: this.height,
+                        weight: this.weight, 
+                        price: this.price, 
+                        qty: this.qty, 
+                        tag: tagStatus,
+                        display: displayStatus,
+                        img: this.image
+                    })
+                    
+                } catch (e) {
+                    alert(e)
+                }
+            }
+            
             this.$router.app.refresh()         
         },
-        changeSelected(){
-        //    var e = document.getElementById("displayoption");
-        //      var strUser = e.options[e.selectedIndex].value;
-        //      console.log(strUser)
+        uploadImage(e){
+            let file = e.target.files[0]
+            var storageRef = this.$fire.storage.ref(file.name)
+            let uploadTask = storageRef.put(file)
+
+            uploadTask.on('state changed', (snapshot) => {
+            }, (error) => {
+
+            }, () => {
+                uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) =>{
+                    this.image = downloadURL
+                })
+            })
         }
     }
 }
