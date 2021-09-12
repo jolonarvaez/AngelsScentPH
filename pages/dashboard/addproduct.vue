@@ -37,7 +37,7 @@
                                         <p>Length</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="length" class="w-75 border border-secondary" type="number" id="length" required>
+                                        <input v-model="length" class="w-75 border border-secondary" type="number" id="length" min="1" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -46,7 +46,7 @@
                                         <p>Width</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="width" class="w-75 border border-secondary" type="number" id="width" required>
+                                        <input v-model="width" class="w-75 border border-secondary" type="number" id="width" min="1" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -55,7 +55,7 @@
                                         <p>Height</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="height" class="w-75 border border-secondary" type="number" id="height" required>
+                                        <input v-model="height" class="w-75 border border-secondary" type="number" id="height" min="1" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -64,7 +64,7 @@
                                         <p>Weight (In ml)</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="weight" class="w-75 border border-secondary" type="number" id="weight" required>
+                                        <input v-model="weight" class="w-75 border border-secondary" type="number" id="weight" min="1" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -73,7 +73,7 @@
                                         <p>Price</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="price" class="w-75 border border-secondary" type="number" id="price" required>
+                                        <input v-model="price" class="w-75 border border-secondary" type="number" id="price" min="1" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -82,7 +82,7 @@
                                         <p>Quantity</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input v-model="qty" class="w-75 border border-secondary" type="number" id="quantity" required>
+                                        <input v-model="qty" class="w-75 border border-secondary" type="number" id="quantity" min="1" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -91,7 +91,7 @@
                                         <p>Product Photo</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="file" id="formFile" accept="image/png, image/gif, image/jpeg">
+                                        <input class="form-control form-control-sm" type="file" @change="uploadImage" id="formFile" accept="image/png, image/gif, image/jpeg" required>
                                     </div>
                                     <div class="col-sm-6"></div>
                                 </div>
@@ -100,9 +100,9 @@
                                         <p>Tag</p>
                                     </div>
                                     <div class="col-sm-3">
-                                        <select id="displayoption" class="form-select border border-secondary">
-                                            <option value="1"  >MEN</option>
-                                            <option value="2" >WOMEN</option>
+                                        <select id="tagoption" class="form-select border border-secondary">
+                                            <option value="1">MEN</option>
+                                            <option value="2">WOMEN</option>
                                         </select>
                                     </div>
                                 </div>
@@ -138,15 +138,22 @@ export default {
         }
     },
     methods: {
-        changeTag(string){
-            let dropdown = document.getElementById('tagDropDown')
-            dropdown.innerText = string.trim()
-            this.tag = string.trim()
+
+        data(){
+            return{
+                image: null
+            }
         },
         async submit(event){
             event.preventDefault()
+            var t = document.getElementById("tagoption");
+            var tagNum = t.options[t.selectedIndex].value;
+            if(tagNum == 1)
+                this.tag = 'men'
+            else
+                this.tag = 'women'
+
             try {
-                console.log(this.name)
                 this.$fire.firestore.collection("products").add({
                     name: this.name, 
                     description: this.description,
@@ -157,13 +164,31 @@ export default {
                     price: this.price,
                     qty: this.qty,
                     tag: this.tag,
-                    display: 'listed'
+                    display: 'listed',
+                    img: this.image
                 })
                 this.$router.push('/products')
             } catch (e) {
                 alert(e)
             }
-        }
+        },
+        uploadImage(e){
+            let file = e.target.files[0]
+            var storageRef = this.$fire.storage.ref(file.name)
+            let uploadTask = storageRef.put(file)
+
+            uploadTask.on('state changed', (snapshot) => {
+            }, (error) => {
+
+            }, () => {
+                uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) =>{
+                    this.image = downloadURL
+                })
+            })
+        },
+        previewImage(event){
+            this.image=event.target.files[0]
+        },
     }
 }
 </script>
