@@ -5,7 +5,7 @@
             <div class="modal-body">
 
                 <div class="container-fluid border-bottom d-flex justify-content-center medium">
-                    <p class="text-uppercase">New Shipping Information</p>
+                    <p class="text-uppercase">Shipping Information</p>
                 </div>
                 <form @submit="submit">
                     <div class="container-fluid border-bottom d-flex justify-content-center">

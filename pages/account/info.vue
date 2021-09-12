@@ -3,7 +3,7 @@
         <div class="account-header text-center text-uppercase py-2 regular">
             Account
         </div>
-        <div class="container-fluid account-bg">
+        <div class="container-fluid">
             <div class="row py-3">
                 <AccountNavbar />
                 <div class="col-10">

@@ -27,7 +27,7 @@
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Qty</th>
                                                 <th scope="col">Status</th>
-                                                <th scope="col">Gender</th>
+                                                <th scope="col">Tag</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -65,8 +65,8 @@
                                                         :price = "product.price"
                                                         :qty = "product.qty"
                                                         :display = "product.display"
+                                                        :tag = "product.tag"
                                                     />
-
                                                 </td>
                                             </tr>
                                         </tbody>

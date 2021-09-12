@@ -124,35 +124,35 @@
                     <div v-for="review in productReviews" class="shadow-sm box w-100 p-3 my-2 light">
                         <div>{{ review.name }}</div>
                         <div v-if="review.rating == 1" class="d-flex flex-row my-1 align-items-center">
-                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                         </div> 
                         <div v-if="review.rating == 2" class="d-flex flex-row my-1 align-items-center">
-                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                         </div> 
                         <div v-if="review.rating == 3" class="d-flex flex-row my-1 align-items-center">
-                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                         </div> 
                         <div v-if="review.rating == 4" class="d-flex flex-row my-1 align-items-center">
-                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="far fa-star fa-xs mx-1"></i>
                         </div> 
                         <div v-if="review.rating == 5" class="d-flex flex-row my-1 align-items-center">
-                            <i class="fas fa-star fa-xs mr-1"></i>
+                            <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>
                             <i class="fas fa-star fa-xs mx-1"></i>

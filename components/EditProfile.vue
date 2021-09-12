@@ -5,7 +5,7 @@
             <div class="modal-body">
 
                 <div class="container-fluid border-bottom d-flex justify-content-center medium">
-                    <p class="text-uppercase">New Profile Information</p>
+                    <p class="text-uppercase">Profile Information</p>
                 </div>
 
                 <form @submit="submit">
@@ -13,20 +13,24 @@
                         <div class="edit-container my-1">
                             <div class="row my-4">
                                 <div class="col">
-                                    <input type="text" class="form-control form-format" id="text" placeholder="First Name" v-model="fName">
+                                    <label class="medium text-uppercase" for="fName">First Name</label>
+                                    <input type="text" class="form-control form-format" maxlength = "20" id="fName" placeholder="First Name" v-model="fName" required>
                                 </div>
 
                                 <div class="col">
-                                    <input type="text" class="form-control form-format" id="text" placeholder="Last Name" v-model="lName">
+                                    <label class="medium text-uppercase" for="lName">Last Name</label>
+                                    <input type="text" class="form-control form-format" maxlength = "20" id="lName" placeholder="Last Name" v-model="lName" required>
                                 </div>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                <input type="email" class="form-control form-format" id="email" placeholder="Email" v-model="email">
+                                <label class="medium text-uppercase" for="email">Email</label>
+                                <input type="email" class="form-control form-format" id="email" placeholder="Email" v-model="email" requried>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                <input type="contactNo" class="form-control form-format" id="contactNo" placeholder="Contact Number" v-model="contactNo">
+                                <label class="medium text-uppercase" for="contactNo">Contact Number</label>
+                                <input type="contactNo" class="form-control form-format" id="contactNo" placeholder="Contact Number" v-model="contactNo" required>
                             </div>
 
                             <!-- <div class="row-md-12 my-4">
@@ -43,8 +47,6 @@
                                 </div>
                             </div> -->
                         </div>
-
-                        
                     </div>
 
                     <div class="container-fluid d-flex justify-content-center my-4">
