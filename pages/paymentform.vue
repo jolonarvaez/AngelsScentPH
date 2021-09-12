@@ -5,7 +5,7 @@
         </div>
         <div class="container-fluid d-flex flex-column regular text-uppercase">
             <div class="shadow payment-box mt-3 mb-4 px-3 py-2 mx-auto w-75">
-                <form class="px-4">
+                <form class="px-4" action="https://formspree.io/f/xeqvnjvb" method="POST">
                     <div class="row px-4">
                         <div class="col-sm-3 my-3">
                             <label for="orderInput" class="form-label">Order Number</label>
@@ -16,39 +16,39 @@
                     <div class="row px-4">
                         <div class="col-sm-6 my-3">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="firstName" class="form-control" id="firstName" required>
+                            <input type="firstName" class="form-control" id="firstName" name="First Name" required>
                         </div>
                         <div class="col-sm-6 my-3">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="lastName" class="form-control" id="lastName" required>
+                            <input type="lastName" class="form-control" id="lastName"  name="Last Name" required>
                         </div>
                     </div>
                     <div class="row px-4 my-3">
                         <div class="col-sm-6 my-3">
                             <label for="emailInput" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="emailInput" required>
+                            <input type="email" class="form-control" id="emailInput" name="Email" required>
                         </div>
                         <div class="col-sm-6 my-3">
                             <label for="contactInput" class="form-label">Contact Number</label>
-                            <input type="number" class="form-control" id="contactInput"   required>
+                            <input type="number" class="form-control" id="contactInput" name="Contact Number"  required>
                         </div>
                     </div>
 
                     <div class="row px-4 my-3 d-flex justify-content-between">
                         <div class="col-sm-3 my-3">
                             <label for="totalInput" class="form-label">Total Amount</label>
-                            <input type="number" class="form-control" id="totalInput"   required>
+                            <input type="number" class="form-control" id="totalInput"  name="Total Price"  required>
                         </div>
                         <div class="col-sm-6 my-3">
                             <label for="gcashInput" class="form-label">Gcash Transaction Number</label>
-                            <input type="number" class="form-control" id="gcashInput" required>
+                            <input type="number" class="form-control" id="gcashInput" name="Gcash Transaction Number" required>
                         </div>
                     </div>
 
                     <div class="row px-4 my-3 pb-1">
                         <div class="col-sm-6">
                             <label for="formFile">Screenshot / Receipt for proof of transaction</label>
-                            <input type="file" id="formFile" accept="image/png, image/gif, image/jpeg" required>
+                            <input type="file" id="formFile" accept="image/png, image/gif, image/jpeg" name="Upload" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
