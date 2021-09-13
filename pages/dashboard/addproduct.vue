@@ -157,12 +157,12 @@ export default {
                 this.$fire.firestore.collection("products").add({
                     name: this.name, 
                     description: this.description,
-                    weight: this.weight,
-                    length: this.length,
-                    height: this.height,
-                    width: this.width,
-                    price: this.price,
-                    qty: this.qty,
+                    weight: parseInt(this.weight),
+                    length: parseInt(this.length),
+                    height: parseInt(this.height),
+                    width: parseInt(this.width),
+                    price: parseInt(this.price),
+                    qty: parseInt(this.qty),
                     tag: this.tag,
                     display: 'listed',
                     img: this.image
