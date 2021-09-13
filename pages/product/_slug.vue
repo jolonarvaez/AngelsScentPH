@@ -80,7 +80,7 @@
                                 Available Stock: {{ data.qty }}
                                 
                             </div>
-                            <div v-if="data.qty <= 0" class="text-uppercase mt-1 medium">
+                            <div v-if="data.qty == 0" class="text-uppercase mt-1 medium">
                                 Out of Stock
                             </div>
                         </div>
@@ -99,11 +99,8 @@
                                     <div class="modal-body">
                                         <!-- Text Container -->
                                         <div class="container-fluid d-flex flex-column regular">
-                                            <div v-if="user" class="confirmation-container mt-4 mb-2 mx-auto">
+                                            <div class="confirmation-container mt-4 mb-2 mx-auto">
                                                 <p class="confirmation-text text-center mt-4 mb-2 py-2">Noted! We have added this product to your shopping cart.</p>
-                                            </div>
-                                            <div v-else class="confirmation-container mt-4 mb-2 mx-auto">
-                                                <p class="confirmation-text text-center mt-4 mb-2 py-2">Only registered users can add to the cart.</p>
                                             </div>
                                         </div>
 
@@ -174,11 +171,6 @@
 import $ from 'jquery'
 
 export default {
-    computed: {
-        user() {
-            return this.$store.state.user && this.$store.state.user.uid
-        },
-    },
     data(){
         return {
             qty: 1
@@ -256,7 +248,7 @@ export default {
                 }
         },
         checkQty(){
-            if(this.qty >= this.data.qty){
+            if(this.qty > this.data.qty){
                 alert("Quantity exceeds available stock")
                 return true
             }

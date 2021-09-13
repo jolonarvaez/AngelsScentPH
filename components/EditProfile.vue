@@ -23,10 +23,10 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="row-md-12 my-4">
+                            <div class="row-md-12 my-4">
                                 <label class="medium text-uppercase" for="email">Email</label>
                                 <input type="email" class="form-control form-format" id="email" placeholder="Email" v-model="email" requried>
-                            </div> -->
+                            </div>
 
                             <div class="row-md-12 my-4">
                                 <label class="medium text-uppercase" for="contactNo">Contact Number</label>
@@ -86,14 +86,15 @@ export default {
                 this.$fire.firestore.collection("users").doc(this.id).update({
                     fName: this.fName.trim(),
                     lName: this.lName.trim(), 
-                    // email: this.email.trim(),
+                    email: this.email.trim(),
                     contactNo: this.contactNo.trim() 
                 })
 
-                // this.$fire.auth.currentUser.updateEmail(this.email.trim())
-                // .then(() => {
+                this.$fire.auth.currentUser.updateEmail(this.email.trim())
+                .then(() => {
                
-                // });
+                });
+                console.log(this.fName)
                 this.$router.app.refresh()
                 $('#editProfile').hide()
                 $('.modal-backdrop').remove();

@@ -151,11 +151,6 @@ export default {
                 sum += (this.items[i].weight * this.items[i].qty)
             }
             this.totalWeight = sum
-        },
-        checkQty(){
-            for(var i = 0; i < this.items.length; i++){
-                
-            }
         }
     }
 }

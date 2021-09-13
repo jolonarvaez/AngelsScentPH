@@ -211,17 +211,8 @@ export default {
                     items: items,
                     dateOrdered: this.$fireModule.firestore.Timestamp.now()
                 })
-                
-                for(var i = 0; i < items.length; i++){
-                    console.log(items[i].productid)
-                    console.log(items[i].qty)
-                    this.$fire.firestore.collection("products").doc(items[i].productid).update({
-                        qty: this.$fireModule.firestore.FieldValue.increment(-items[i].qty)
-                    })
-                }
-
-                this.$store.commit('cart/empty', this.$store.state.user && this.$store.state.user.uid ? this.$store.state.user.uid : null)
-                $('.modal-backdrop').remove();
+                 this.$store.commit('cart/empty', this.$store.state.user && this.$store.state.user.uid ? this.$store.state.user.uid : null)
+                 $('.modal-backdrop').remove();
                 this.$router.push('/account/orderlist')
             } catch (e) {
                 alert(e)
