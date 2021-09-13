@@ -15,7 +15,7 @@ export const state = () => ({
         this.$router.push({
           path: '/products'
         })
-        this.$router.app.refresh()
+        // this.$router.app.refresh()
       } else {
         const { uid, email } = authUser
         state.commit('SET_USER', {
@@ -63,7 +63,6 @@ export const state = () => ({
             })
           
         }
-          this.$router.push('/products')
       }
     }
   }
