@@ -184,12 +184,12 @@ export default {
                     this.$fire.firestore.collection("products").doc(this.id).update({
                         name: this.name.trim(), 
                         description: this.description.trim(),
-                        length: this.length, 
-                        width: this.width,  
-                        height: this.height,
-                        weight: this.weight, 
-                        price: this.price, 
-                        qty: this.qty, 
+                        length: parseInt(this.length), 
+                        width: parseInt(this.width),  
+                        height: parseInt(this.height),
+                        weight: parseInt(this.weight), 
+                        price: parseInt(this.price), 
+                        qty: parseInt(this.qty), 
                         tag: tagStatus,
                         display: displayStatus
                     })
