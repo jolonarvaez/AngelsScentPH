@@ -25,12 +25,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="order in pending" @click="goToDetails(order.id)">
+                                    <tr :key="order.id" v-for="order in pending" @click="goToDetails(order.id)">
                                         <td>{{ order.id }}</td>
                                         <td class="text-uppercase">{{ order.dateOrdered.toDate() }}</td>
                                         <td class="text-uppercase">{{ order.paymentStatus }}</td>
                                         <td class="text-uppercase">{{ order.orderStatus }}</td>
-                                        <td class="text-uppercase">₱{{ order.total }}.00</td>
+                                        <td class="text-uppercase">₱{{ order.grandTotal }}.00</td>
                                         <td class="text-uppercase">{{ order.name }}</td>
                                     </tr>
                                 </tbody>

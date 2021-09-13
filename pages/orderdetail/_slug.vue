@@ -27,7 +27,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="regular">
-                                    <tr v-for="item in data.items">
+                                    <tr :key="item.id" v-for="item in data.items">
                                         <td>
                                             <div>{{ item.name }} <br> {{ item.weight }}ML</div>
                                         </td>
@@ -47,13 +47,13 @@
                                         <td>Shipping Fee</td>
                                         <td></td>
                                         <td></td>
-                                        <td>₱0.00</td>
+                                        <td>₱{{ data.shippingPrice}}.00</td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td></td>
                                         <td>Total</td>
-                                        <td>₱{{ data.total }}.00</td>
+                                        <td>₱{{ data.grandTotal }}.00</td>
                                     </tr>
                                 </tfoot>
                             </table>

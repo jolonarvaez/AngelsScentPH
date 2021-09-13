@@ -124,7 +124,7 @@
             <div class="col-8 mx-auto">
                 <div v-if="productReviews.length > 0" class="container d-flex flex-column my-2">
                     <div class="light text-uppercase ml-2">Product Reviews</div>
-                    <div v-for="review in productReviews" class="shadow-sm box w-100 p-3 my-2 light">
+                    <div :key="review.id" v-for="review in productReviews" class="shadow-sm box w-100 p-3 my-2 light">
                         <div>{{ review.name }}</div>
                         <div v-if="review.rating == 1" class="d-flex flex-row my-1 align-items-center">
                             <i class="fas fa-star fa-xs mx-1"></i>

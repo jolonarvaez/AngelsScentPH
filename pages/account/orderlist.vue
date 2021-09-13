@@ -29,7 +29,7 @@
                                                     <td>{{ order.dateOrdered.toDate() }}</td>
                                                     <td>{{ order.paymentStatus }}</td>
                                                     <td>{{ order.orderStatus }}</td>
-                                                    <td>P{{ order.total }}.00</td>
+                                                    <td>P{{ order.grandTotal }}.00</td>
                                                 </tr>
                                             </tbody>
                                         </table>

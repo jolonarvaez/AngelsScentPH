@@ -64,7 +64,7 @@
                                         <td>Shipping Fee</td>
                                         <td></td>
                                         <td></td>
-                                        <td>₱0.00</td>
+                                        <td>₱{{ shippingPrice }}.00</td>
                                     </tr>
                                 </tbody>
 
@@ -73,7 +73,7 @@
                                         <td>Total</td>
                                         <td></td>
                                         <td></td>
-                                        <td>₱{{ total }}.00</td>
+                                        <td>₱{{ grandTotal }}.00</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -175,19 +175,28 @@ import $ from 'jquery'
 export default {
     
     computed: {
-            items() {
-                return this.$store.state.cart.items
-            },
-            total() {
-                return this.$store.state.cart.total
-            },
-            totalWeight() {
-                return this.$store.state.cart.totalWeight
-            },
-            totalQty() {
-                return this.$store.state.cart.totalQty
-            }
+        shippingPrice(){
+            if(this.totalWeight < 1000)
+                return 100
+            else    
+                return 200
         },
+        items() {
+            return this.$store.state.cart.items
+        },
+        total() {
+            return this.$store.state.cart.total
+        },
+        grandTotal(){
+            return this.$store.state.cart.total + this.shippingPrice
+        },
+        totalWeight() {
+            return this.$store.state.cart.totalWeight
+        },
+        totalQty() {
+            return this.$store.state.cart.totalQty
+        }
+    },
 
     async asyncData({ $fire, store }){
         let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
@@ -208,6 +217,8 @@ export default {
                     paymentStatus: "Unpaid",
                     orderStatus: "Pending",
                     total: this.total,
+                    shippingPrice: this.shippingPrice,
+                    grandTotal: this.grandTotal,
                     items: items,
                     dateOrdered: this.$fireModule.firestore.Timestamp.now()
                 })
