@@ -57,4 +57,13 @@ export default {
     font-weight: 300;
     font-size: 18.5px;
 }
+
+.btn-container{
+    width: 335px;
+}
+
+.btn-format {
+    background: #9F9A96;
+    border-radius: 8px;
+}
 </style>
