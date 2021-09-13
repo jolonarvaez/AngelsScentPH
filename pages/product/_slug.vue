@@ -93,7 +93,7 @@
                             <button type="button" @click="addToCart()" class="shadow btn btn-light add mt-2" data-bs-toggle="modal" data-bs-target="#addToCart">ADD TO CART</button>
                         </div>
 
-                        <div v-if="data.qty <= this.qty" class="modal fade" id="addToCart" tabindex="-1">
+                        <div v-if="data.qty >= this.qty" class="modal fade" id="addToCart" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
