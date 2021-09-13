@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div v-if="items.length > 0" class=" w-100 d-flex justify-content-center">
-                        <NuxtLink class="shadow text-uppercase btn btn-light checkout regular mt-4" to ="/checkout">Proceed to Checkout</NuxtLink>
+                        <button class="shadow text-uppercase btn btn-light checkout regular mt-4" @click="checkQty()">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
@@ -154,7 +154,21 @@ export default {
         },
         checkQty(){
             for(var i = 0; i < this.items.length; i++){
-                
+                let docRef = this.$fire.firestore.collection('products').doc(this.items[i].productid)
+                let cartQty = this.items[i].qty
+                docRef.get().then((doc) => {
+                    if(doc.exists){
+                        if( cartQty > doc.data().qty){
+                            alert("Quantity for " + doc.data().name + " exceeds number of available in stock")
+                        }
+                        else{
+                            this.$router.push('/checkout')
+                        }
+                    }
+                    else{
+                        alert("Product doesnt exist")
+                    }
+                })
             }
         }
     }
