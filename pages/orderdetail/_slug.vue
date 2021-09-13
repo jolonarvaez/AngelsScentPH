@@ -59,9 +59,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="mt-3 d-flex justify-content-around"> 
-                        <button type="button" class="shadow text-uppercase btn btn-light button regular">Order Received</button>
-                        <button type="button" class="shadow text-uppercase btn btn-light button regular">Cancel Order</button>
+                    <div v-if="data.orderStatus == 'Pending'" class="mt-3 d-flex justify-content-center"> 
+                        <button type="button" class="shadow text-uppercase btn btn-light button regular" @click="cancelOrder(slug)">Cancel Order</button>
                     </div>
                 </div>
 
@@ -101,6 +100,14 @@ export default {
         console.log(data)
         return{data, slug}
     },
+    methods: {
+        cancelOrder(id){
+            this.$fire.firestore.collection("orders").doc(id).update({
+                 orderStatus: "Cancelled",
+            })
+            this.$router.app.refresh()
+        }
+    }
 
 }
 </script>
