@@ -5,7 +5,7 @@
         </div>
         <div class="container-fluid d-flex flex-column regular text-uppercase">
             <div class="shadow payment-box mt-3 mb-4 px-3 py-2 mx-auto w-75">
-                <form class="px-4" action="https://formspree.io/f/xeqvnjvb" method="POST">
+                <form class="px-4" action="https://formspree.io/f/xayavyoj" method="POST">
                     <div class="row px-4">
                         <div class="col-sm-3 my-3">
                             <label for="orderInput" class="form-label">Order Number</label>

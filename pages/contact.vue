@@ -4,39 +4,39 @@
             Contact Us
         </div>
         <div class="container-fluid d-flex flex-column regular text-uppercase">
-            <form class="px-4">
+            <form class="px-4" action="https://formspree.io/f/mjvjlvwy" method="POST">
                 <div class="shadow contact-box mt-4 mb-2 p-3 mx-auto w-75">
                     <div class="row px-4">
                         <div class="col-sm-6 my-3">
                             <label for="firstNameInput" class="form-label">First Name</label>
-                            <input type="firstName" class="form-control" id="firstNameInput" aria-describedby="emailHelp" required>
+                            <input name="First Name" type="firstName" class="form-control" id="firstNameInput" aria-describedby="emailHelp" required>
                         </div>
 
                         <div class="col-sm-6 my-3">
                             <label for="lastNameInput" class="form-label">Last Name</label>
-                            <input type="lastName" class="form-control" id="lastNameInput" aria-describedby="emailHelp" required>
+                            <input name="Last Name" type="lastName" class="form-control" id="lastNameInput" aria-describedby="emailHelp" required>
                         </div>
                     </div>
                     <div class="row px-4">
                         <div class="col-sm-6 my-3">
                             <label for="emailInput" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" required>
+                            <input name="Email" type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" required>
                         </div>
                         <div class="col-sm-6 my-3">
                             <label for="contactNumberInput" class="form-label">Contact Number</label>
-                            <input type="contactNumber" class="form-control" id="contactNumberInput" aria-describedby="emailHelp" requried>
+                            <input name="Contact Number" type="contactNumber" class="form-control" id="contactNumberInput" aria-describedby="emailHelp" requried>
                         </div>
                     </div>
                     <div class="row px-4 my-3">
                         <div class="col">
                             <label for="subjectInput" class="form-label">Subject</label>
-                            <input type="subject" class="form-control" id="subjectInput" aria-describedby="emailHelp" required>
+                            <input name="Subject" type="subject" class="form-control" id="subjectInput" aria-describedby="emailHelp" required>
                         </div>
                     </div>
                     <div class="row px-4 my-3 pb-1">
                         <div class="col">
                             <label for="message">Message</label>
-                            <textarea class="form-control w-100" placeholder="" id="message" style="height: 80px" required></textarea>
+                            <textarea name="Message" class="form-control w-100" placeholder="" id="message" style="height: 80px" required></textarea>
                         </div>
                     </div>
                 </div>
