@@ -9,6 +9,12 @@
 <script>
 export default {
 
+  mounted() {
+    if (process.client && window) {
+      window.history.scrollRestoration = 'auto';
+    }
+  }
+
 }
 </script>
 
