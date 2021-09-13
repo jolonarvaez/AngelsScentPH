@@ -10,23 +10,23 @@
                 <form @submit="submit">
                     <div class="container-fluid border-bottom d-flex justify-content-center">
                         <div class="edit-container my-1">
-                            <div class="row-md-12 mt-4 mb-2">
-                                <label class="text-uppercase my-2" for="streetAdd">Street Address</label>
+                            <div class="row-md-12 my-4">
+                                <label class="medium text-uppercase" for="streetAdd">Street Address</label>
                                 <input v-model="streetAdd" type="text" class="form-control form-format" id="streetAdd" placeholder="Street Address" required>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                 <label class="text-uppercase my-2" for="city">City</label>
+                                 <label class="medium text-uppercase" for="city">City</label>
                                 <input v-model="city" type="text" class="form-control form-format" id="city" placeholder="City" required>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                 <label class="text-uppercase my-2" for="province">Province</label>
+                                 <label class="medium text-uppercase" for="province">Province</label>
                                 <input v-model="province" type="text" class="form-control form-format" id="province" placeholder="Province" required>
                             </div>
 
                             <div class="row-md-12 my-4">
-                                 <label class="text-uppercase my-2" for="zipcode">Zipcode</label>
+                                 <label class="medium text-uppercase" for="zipcode">Zipcode</label>
                                 <input v-model="zipcode" type="text" class="form-control form-format" id="zipcode" placeholder="Zipcode" required>
                             </div>
                         </div>
@@ -88,4 +88,27 @@ export default {
 </script>
 
 <style scoped>
+
+    .edit-container{
+        width: 400px;
+    }
+
+    .form-format{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: lighter;
+        color: #9F9A96;
+        background-color: #f6f6f6;
+        border-color: #ececec;
+    }
+
+    .btn-container{
+        width: 335px;
+    }
+
+    .btn-format {
+        background: #9F9A96;
+        border-radius: 8px;
+    }
+
 </style>
