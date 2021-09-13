@@ -51,7 +51,7 @@
                                                 <td>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light" data-bs-toggle="modal" :data-bs-target='"#edit-modal"+product.id'>Edit</button>
-                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light" @click="deleteProduct(product.id)">Delete</button>
+                                                        <button class="btn mb-2 text-uppercase btn save-btn btn-outline-light" data-bs-toggle="modal" :data-bs-target='"#removeProduct"+product.id'>Delete</button>
                                                     </div>
 
                                                     <EditProduct 
