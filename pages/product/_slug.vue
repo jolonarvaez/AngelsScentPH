@@ -80,7 +80,7 @@
                                 Available Stock: {{ data.qty }}
                                 
                             </div>
-                            <div v-if="data.qty == 0" class="text-uppercase mt-1 medium">
+                            <div v-if="data.qty <= 0" class="text-uppercase mt-1 medium">
                                 Out of Stock
                             </div>
                         </div>
