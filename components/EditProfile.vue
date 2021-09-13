@@ -108,4 +108,27 @@ export default {
 </script>
 
 <style scoped>
+
+    .edit-container{
+        width: 400px;
+    }
+
+    .form-format{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: lighter;
+        color: #9F9A96;
+        background-color: #f6f6f6;
+        border-color: #ececec;
+    }
+
+    .btn-container{
+        width: 335px;
+    }
+
+    .btn-format {
+        background: #9F9A96;
+        border-radius: 8px;
+    }
+
 </style>
