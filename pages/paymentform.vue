@@ -58,30 +58,14 @@
             </div>
             
             
-            <!-- Confimation Popup
-            <b-modal ref="payment-modal" id="confirmation" centered hide-header hide-footer >
-                <div class="container-fluid d-flex flex-column regular">
-                    <div class="payment-container mt-4 mb-2 mx-auto">
-                        <p class="payment-text text-center my-4 py-2">Thank you! We have received your form submission. Please wait for a few hours or days to receive your response.</p>
-                    </div>
-                </div>
-                <div class="container-fluid d-flex justify-content-center regular">
-                    <div class="btn-container mt-4 mb-2">
-                        <b-button class="button text-uppercase pb-2 mt-3 mb-4" block @click="hideModal">Okay</b-button>
-                    </div>
-                </div>
-            </b-modal> -->
+            
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        methods: {
-            hideModal() {
-                this.$refs['payment-modal'].hide()
-            } 
-        }
+        
     }
 </script>
 
