@@ -100,7 +100,7 @@ export default {
         font-family: Inter;
         font-style: normal;
         font-weight: lighter;
-        color: #9F9A96;
+        color: #000000;
         background-color: #f6f6f6;
         border-color: #ececec;
     }
