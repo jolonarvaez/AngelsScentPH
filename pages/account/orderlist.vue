@@ -61,7 +61,7 @@ export default {
         let docRef = $fire.firestore.collection('users').doc(store.state.user.uid)
         let data = await docRef.get().then(doc => doc.data())
         
-        let orderRef = $fire.firestore.collection('orders').where("userId", "==" , store.state.user.uid)
+        let orderRef = $fire.firestore.collection('orders').where("userId", "==" , store.state.user.uid).orderBy("dateOrdered", "desc")
         let documents = await orderRef.get()
 
         let orders = []
