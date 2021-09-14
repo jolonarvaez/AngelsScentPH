@@ -27,7 +27,7 @@
 
                             <div class="row-md-12 my-4">
                                  <label class="medium text-uppercase" for="zipcode">Zipcode</label>
-                                <input v-model="zipcode" maxlength = "46" type="text" class="form-control form-format" id="zipcode" placeholder="Zipcode" required>
+                                <input v-model="zipcode" maxlength = "46" type="number" class="form-control form-format" id="zipcode" placeholder="Zipcode" required>
                             </div>
                         </div>
 
