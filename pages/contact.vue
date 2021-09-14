@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-sm-6 my-3">
                             <label for="contactNumberInput" class="form-label">Contact Number</label>
-                            <input name="Contact Number" type="contactNumber" class="form-control" id="contactNumberInput" aria-describedby="emailHelp" requried>
+                            <input name="Contact Number" type="number" class="form-control" id="contactNumberInput" aria-describedby="emailHelp" requried>
                         </div>
                     </div>
                     <div class="row px-4 my-3">
