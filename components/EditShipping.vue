@@ -12,22 +12,22 @@
                         <div class="edit-container my-1">
                             <div class="row-md-12 my-4">
                                 <label class="medium text-uppercase" for="streetAdd">Street Address</label>
-                                <input v-model="streetAdd" type="text" class="form-control form-format" id="streetAdd" placeholder="Street Address" required>
+                                <input v-model="streetAdd" maxlength = "46" type="text" class="form-control form-format" id="streetAdd" placeholder="Street Address" required>
                             </div>
 
                             <div class="row-md-12 my-4">
                                  <label class="medium text-uppercase" for="city">City</label>
-                                <input v-model="city" type="text" class="form-control form-format" id="city" placeholder="City" required>
+                                <input v-model="city" maxlength = "46" type="text" class="form-control form-format" id="city" placeholder="City" required>
                             </div>
 
                             <div class="row-md-12 my-4">
                                  <label class="medium text-uppercase" for="province">Province</label>
-                                <input v-model="province" type="text" class="form-control form-format" id="province" placeholder="Province" required>
+                                <input v-model="province" maxlength = "46" type="text" class="form-control form-format" id="province" placeholder="Province" required>
                             </div>
 
                             <div class="row-md-12 my-4">
                                  <label class="medium text-uppercase" for="zipcode">Zipcode</label>
-                                <input v-model="zipcode" type="text" class="form-control form-format" id="zipcode" placeholder="Zipcode" required>
+                                <input v-model="zipcode" maxlength = "46" type="text" class="form-control form-format" id="zipcode" placeholder="Zipcode" required>
                             </div>
                         </div>
 
