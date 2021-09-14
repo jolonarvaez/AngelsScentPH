@@ -7,12 +7,12 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Are you sure you want to remove this from your shopping cart?</p></div>
+                                    <div class="col"><p class="modal-text text-center mt-2 mb-4 py-2">Are you sure you want to delete this product?</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <div class="row btn-container mt-4 mb-2">
-                                        <div class="col d-grid gap-2"><button type="button" @click="onDelete()" class="btn btn-secondary btn-format text-uppercase">Remove</button></div>
+                                        <div class="col d-grid gap-2"><button type="button" @click="deleteProduct(id)" class="btn btn-secondary btn-format text-uppercase">Remove</button></div>
                                         <div class="col d-grid gap-2"><button type="button" class="btn btn-secondary btn-format text-uppercase" data-bs-dismiss="modal">Cancel</button></div>
                                     </div>
                                 </div>
@@ -33,12 +33,14 @@ export default {
         id: String,
     },
     methods:{
-        onDelete(){    
-            this.$store.commit('cart/remove', { 
-                id: this.id, 
-                uid: this.$fire.auth.currentUser.uid 
-            })
-            $('.modal-backdrop').remove();
+        deleteProduct(id){
+            this.$fire.firestore.collection("products").doc(id).delete().then(() => {
+                this.$router.app.refresh()
+                console.log("Document successfully deleted!");
+                $('.modal-backdrop').remove();
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
         }
     }
 }
@@ -51,7 +53,7 @@ export default {
     border-radius: 25px;
 }
 
-.deleteaccount-text {
+.modal-text {
     font-family: Inter;
     font-style: normal;
     font-weight: 300;
