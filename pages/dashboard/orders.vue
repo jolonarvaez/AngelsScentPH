@@ -172,9 +172,9 @@ tr{
     border-radius: 10px;
 }
 
-.dashboard-bg{
+/* .dashboard-bg{
     background-color: #FAFAFA;
-}
+} */
 
 .dashboard-header{
     font-size: 1.5rem;
