@@ -224,8 +224,6 @@ export default {
                 })
                 
                 for(var i = 0; i < items.length; i++){
-                    console.log(items[i].productid)
-                    console.log(items[i].qty)
                     this.$fire.firestore.collection("products").doc(items[i].productid).update({
                         qty: this.$fireModule.firestore.FieldValue.increment(-items[i].qty)
                     })

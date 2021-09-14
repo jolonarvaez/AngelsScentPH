@@ -105,6 +105,13 @@ export default {
             this.$fire.firestore.collection("orders").doc(id).update({
                  orderStatus: "Cancelled",
             })
+            for(var i = 0; i < this.data.items.length; i++){
+               
+                this.$fire.firestore.collection("products").doc(this.data.items[i].productid).update({
+                    qty: this.$fireModule.firestore.FieldValue.increment(this.data.items[i].qty)
+                })
+                
+            }
             this.$router.app.refresh()
         }
     }
