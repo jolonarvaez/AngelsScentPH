@@ -207,4 +207,12 @@ export default {
     border-bottom: 1px solid;
     border-color: #312828;
 }
+
+.dashboard-header{
+    font-size: 1.5rem;
+    border-style: solid;
+    border-width: 2px 0;
+    background-color:white;
+    border-color: #E5E5E5;
+}
 </style>
