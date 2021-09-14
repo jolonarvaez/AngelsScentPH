@@ -46,7 +46,7 @@
 <script>
 export default {
     async asyncData({$fire}) {
-         let collection = $fire.firestore.collection('orders')
+         let collection = $fire.firestore.collection('orders').orderBy("dateOrdered", "desc")
          let documents = await collection.get()
 
          let orders = []
