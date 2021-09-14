@@ -7,7 +7,7 @@
                             <div class="popup-container mt-4 mb-2 mx-auto">
                                 <!-- Text -->
                                 <div class="row border-bottom">
-                                    <div class="col"><p class="deleteaccount-text text-center mt-2 mb-4 py-2">Are you sure you want to remove this from your shopping cart?</p></div>
+                                    <div class="col"><p class="confirmation-text text-center mt-2 mb-4 py-2">Are you sure you want to remove this from your shopping cart?</p></div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
@@ -46,15 +46,24 @@ export default {
 
 <style>
 
-.popup-container{
-    background: #FFFFFF;
-    border-radius: 25px;
-}
+    .popup-container{
+        background: #FFFFFF;
+        border-radius: 25px;
+    }
 
-.deleteaccount-text {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18.5px;
-}
+    .confirmation-text {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18.5px;
+    }
+
+    .btn-container{
+            width: 335px;
+        }
+
+    .btn-format {
+        background: #9F9A96;
+        border-radius: 8px;
+    }
 </style>

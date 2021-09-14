@@ -67,6 +67,10 @@
                                                         :display = "product.display"
                                                         :tag = "product.tag"
                                                     />
+
+                                                    <DeleteProduct
+                                                        :id = "product.id"    
+                                                    />
                                                 </td>
                                             </tr>
                                         </tbody>

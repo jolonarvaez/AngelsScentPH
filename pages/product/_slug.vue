@@ -417,4 +417,25 @@ margin-top: -.3rem;
 }
 }
 
+    .confirmation-container {
+        background: #FFFFFF;
+        border-radius: 25px;
+    }
+
+    .confirmation-text {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20.5px;
+    }
+
+    .btn-container{
+        width: 335px;
+    }
+
+    .btn-format {
+        background: #9F9A96;
+        border-radius: 8px;
+    }
+
 </style>
