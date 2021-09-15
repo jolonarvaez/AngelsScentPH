@@ -99,7 +99,7 @@
                                                 <td class="text-uppercase">{{ order.paymentStatus }}</td>
                                                 <td class="text-uppercase">{{ order.orderStatus }}</td>
                                                 <td class="text-uppercase">₱{{ order.total }}.00</td>
-                                                <td >{{ order.name }}</td>
+                                                <td class="text-uppercase">{{ order.name }}</td>
                                             </tr>
                                         </tbody>
                                     </table> 
